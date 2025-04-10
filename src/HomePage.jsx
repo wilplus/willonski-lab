@@ -50,7 +50,7 @@ export default function HomePage() {
             <BookOpen className="text-orange-500" />
             <h2 className="text-3xl font-semibold">Learnability Matching</h2>
           </div>
-          <img src="/learnability-chart.png" alt="Learnability Matching Pattern" className="rounded-xl shadow-md w-full" />
+          <img src="public/learnability-chart.png" alt="Learnability Matching Pattern" className="rounded-xl shadow-md w-full" />
           <p className="text-base text-gray-700 mt-4">
             This diagram shows how learners in different states (Good, Neutral, Bad) can be matched based on emotion and competence scores.
           </p>
