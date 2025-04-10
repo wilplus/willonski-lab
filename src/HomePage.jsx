@@ -52,7 +52,7 @@ export default function HomePage() {
           </div>
           <img src="public/learnability-chart.png" alt="Learnability Matching Pattern" className="rounded-xl shadow-md w-full" />
           <p className="text-base text-gray-700 mt-4">
-            This diagram shows how learners in different states (Good, Neutral, Bad) can be matched based on emotion and competence scores.
+            This diagram shows how learners in different states (Good, Neutral, Bad).
           </p>
         </section>
 
