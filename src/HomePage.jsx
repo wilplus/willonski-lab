@@ -5,7 +5,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-white text-gray-900 font-sans relative">
       <header className="p-6 shadow-md bg-gradient-to-r from-orange-50 to-orange-100">
         <h1 className="text-4xl font-extrabold text-orange-600">NECP – Naming Emotions Collaborative Prompting</h1>
-        <p className="text-xl mt-2 text-gray-700">A new way to learn, assess, and connect—through emotional awareness.</p>
+        <p className="text-xl mt-2 text-gray-700">An emotionally aware learning system</p>
         <p className="text-md text-gray-600">Your mood is important!</p>
       </header>
 
