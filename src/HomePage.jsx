@@ -1,4 +1,5 @@
 import { Mail, Sparkles, BookOpen, Users, FileText, Linkedin } from "lucide-react";
+import whitepaperUrl from "../assets/whitepaper.pdf?url";
 
 export default function HomePage() {
   return (
@@ -20,7 +21,7 @@ export default function HomePage() {
         <section className="text-center max-w-3xl mx-auto">
           <h1 className="text-5xl font-bold">Willonski Lab</h1>
           <p className="mt-4 text-lg text-gray-700">
-            A boutique family-based research lab focused on education and learning sciences.
+            A family-based boutique lab focused on education and learning sciences.
           </p>
         </section>
 
@@ -55,7 +56,7 @@ export default function HomePage() {
             <span>Learnability Matching</span>
           </h2>
           <a
-            href="https://willonski.com/assets/whitepaper.pdf"
+            href={whitepaperUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 text-indigo-600 hover:underline"
@@ -83,7 +84,7 @@ export default function HomePage() {
             <span>LinkedIn</span>
           </a>
           <a
-            href="https://willonski.com/assets/whitepaper.pdf"
+            href={whitepaperUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-1 text-gray-600 hover:text-indigo-600"
