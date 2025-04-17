@@ -20,7 +20,7 @@ export default function HomePage() {
         <section className="text-center max-w-3xl mx-auto">
           <h1 className="text-5xl font-bold">Willonski Lab</h1>
           <p className="mt-4 text-lg text-gray-700">
-            A boutique deep-tech research lab pioneering human-centered AI adoption.
+            A boutique family-based research lab focused on education and learning sciences.
           </p>
         </section>
 
