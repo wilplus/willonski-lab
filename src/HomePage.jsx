@@ -44,7 +44,7 @@ export default function HomePage() {
           </h2>
           <p className="text-gray-800 leading-relaxed">
             Traditional assessments can feel judgmental and trigger comparison anxiety. NECP invites users to name their emotions before self-assessments,
-            reducing bias and strengthening team cohesion by acknowledging that a bad day ≠ bad assessment.
+            reducing bias and strengthening team cohesion by acknowledging that a poor day ≠ poor assessment.
           </p>
         </section>
 
@@ -55,7 +55,7 @@ export default function HomePage() {
             <span>Learnability Matching</span>
           </h2>
           <a
-            href="/whitepaper.pdf"
+            href="https://willonski.com/whitepaper.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 text-indigo-600 hover:underline"
@@ -76,8 +76,8 @@ export default function HomePage() {
             <span>Job Cases: Theodor & Maria</span>
           </h2>
           <p className="text-gray-800 leading-relaxed">
-            Theodor, overwhelmed by a new AI tool, names his feelings while Maria excels. Through NECP-driven peer sessions,
-            they learn faster, adapt more confidently, and build a collaborative culture of support.
+            Theodor, overwhelmed by a new AI tool, names his emotions while Maria excels. Through NECP-driven peer sessions,
+            they learn faster, adapt more confidently, and build a culture of collaborative support.
           </p>
         </section>
       </main>
@@ -95,7 +95,7 @@ export default function HomePage() {
             <span>LinkedIn</span>
           </a>
           <a
-            href="/whitepaper.pdf"
+            href="https://willonski.com/whitepaper.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-1 text-gray-600 hover:text-indigo-600"
