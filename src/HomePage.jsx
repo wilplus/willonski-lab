@@ -3,7 +3,7 @@ import { Mail, Sparkles, BookOpen, Users, FileText, Linkedin } from "lucide-reac
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white text-gray-900 font-sans">
-      {/* Header with contact button and email */}
+      {/* Header */}
       <header className="p-8 shadow-md bg-gradient-to-br from-gray-50 via-indigo-100 to-gray-50 flex flex-col items-center">
         <button
           onClick={() => (window.location.href = "mailto:artur@willonski.com")}
@@ -14,13 +14,13 @@ export default function HomePage() {
         <p className="text-sm text-gray-700">artur@willonski.com</p>
       </header>
 
-      {/* Main content */}
+      {/* Main Content */}
       <main className="p-8 space-y-16">
         {/* Hero */}
         <section className="text-center max-w-3xl mx-auto">
           <h1 className="text-5xl font-bold">Willonski Lab</h1>
           <p className="mt-4 text-lg text-gray-700">
-            A way to maintain human-centered adoption of AI.
+            A boutique deep-tech research lab pioneering human-centered AI adoption.
           </p>
         </section>
 
@@ -43,7 +43,7 @@ export default function HomePage() {
             <span>Frustrations & Benefits</span>
           </h2>
           <p className="text-gray-800 leading-relaxed">
-            Traditional assessments can be judgmental and trigger comparison anxiety. NECP invites users to name their emotions before self-assessments,
+            Traditional assessments can feel judgmental and trigger comparison anxiety. NECP invites users to name their emotions before self-assessments,
             reducing bias and strengthening team cohesion by acknowledging that a bad day ≠ bad assessment.
           </p>
         </section>
@@ -61,10 +61,11 @@ export default function HomePage() {
             className="inline-flex items-center space-x-2 text-indigo-600 hover:underline"
           >
             <FileText className="w-5 h-5" />
-            <span>Download Learnability White Paper (PDF)</span>
+            <span>Download White Paper (PDF)</span>
           </a>
           <p className="mt-4 text-gray-800 leading-relaxed">
-            Our system creates individual learnability profiles based on emotional patterns and self-assessments, matching complementary learners to foster resilience and growth.
+            Our system generates individual learnability profiles by linking emotional self-assessments with competence data,
+            then matches complementary learners to foster resilience and collaborative growth.
           </p>
         </section>
 
@@ -75,8 +76,8 @@ export default function HomePage() {
             <span>Job Cases: Theodor & Maria</span>
           </h2>
           <p className="text-gray-800 leading-relaxed">
-            Theodor, overwhelmed by a new AI tool, names his emotions while Maria excels. Through NECP-driven peer sessions, both learn faster, adapt more confidently,
-            and build a collaborative learning culture.
+            Theodor, overwhelmed by a new AI tool, names his feelings while Maria excels. Through NECP-driven peer sessions,
+            they learn faster, adapt more confidently, and build a collaborative culture of support.
           </p>
         </section>
       </main>
@@ -84,11 +85,21 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="p-6 border-t text-center space-y-4">
         <div className="flex justify-center space-x-6">
-          <a href="https://www.linkedin.com/company/101670950/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-1 text-gray-600 hover:text-indigo-600">
+          <a
+            href="https://www.linkedin.com/company/101670950/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center space-x-1 text-gray-600 hover:text-indigo-600"
+          >
             <Linkedin className="w-5 h-5" />
             <span>LinkedIn</span>
           </a>
-          <a href="/assets/whitepaper.pdf" target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-1 text-gray-600 hover:text-indigo-600">
+          <a
+            href="/assets/whitepaper.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center space-x-1 text-gray-600 hover:text-indigo-600"
+          >
             <FileText className="w-5 h-5" />
             <span>White Paper</span>
           </a>
