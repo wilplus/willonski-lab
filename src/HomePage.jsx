@@ -69,19 +69,6 @@ export default function HomePage() {
           </p>
         </section>
 
-        {/* Job Cases */}
-        <section className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-semibold mb-4 flex items-center space-x-2">
-            <Mail className="text-indigo-600" />
-            <span>Job Cases: Theodor & Maria</span>
-          </h2>
-          <p className="text-gray-800 leading-relaxed">
-            Theodor, overwhelmed by a new AI tool, names his emotions while Maria excels. Through NECP-driven peer sessions,
-            they learn faster, adapt more confidently, and build a culture of collaborative support.
-          </p>
-        </section>
-      </main>
-
       {/* Footer */}
       <footer className="p-6 border-t text-center space-y-4">
         <div className="flex justify-center space-x-6">
