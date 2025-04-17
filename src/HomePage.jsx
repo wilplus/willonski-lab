@@ -55,7 +55,7 @@ export default function HomePage() {
             <span>Learnability Matching</span>
           </h2>
           <a
-            href="/assets/whitepaper.pdf"
+            href="/whitepaper.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 text-indigo-600 hover:underline"
@@ -95,7 +95,7 @@ export default function HomePage() {
             <span>LinkedIn</span>
           </a>
           <a
-            href="/assets/whitepaper.pdf"
+            href="/whitepaper.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-1 text-gray-600 hover:text-indigo-600"
