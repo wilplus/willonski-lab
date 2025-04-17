@@ -31,7 +31,8 @@ export default function HomePage() {
             <span>Introduction</span>
           </h2>
           <p className="text-gray-800 leading-relaxed">
-            Emotional tension, impulsive decisions, or conflict avoidance... (rest of content)
+            Emotional tension, impulsive decisions, or conflict avoidance often stem from unspoken emotional bias. Naming emotions helps reduce this bias,
+            creating a safer, more supportive workplace—especially during periods of change.
           </p>
         </section>
 
@@ -42,7 +43,8 @@ export default function HomePage() {
             <span>Frustrations & Benefits</span>
           </h2>
           <p className="text-gray-800 leading-relaxed">
-            Traditional assessments... (rest of content)
+            Traditional assessments can be judgmental and trigger comparison anxiety. NECP invites users to name their emotions before self-assessments,
+            reducing bias and strengthening team cohesion by acknowledging that a bad day ≠ bad assessment.
           </p>
         </section>
 
@@ -52,13 +54,17 @@ export default function HomePage() {
             <Users className="text-indigo-600" />
             <span>Learnability Matching</span>
           </h2>
-          <img
-            src="/assets/whitepaper.pdf"
-            alt="Learnability Matching"
-            className="rounded-lg shadow-lg w-full"
-          />
+          <a
+            href="/assets/whitepaper.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center space-x-2 text-indigo-600 hover:underline"
+          >
+            <FileText className="w-5 h-5" />
+            <span>Download Learnability White Paper (PDF)</span>
+          </a>
           <p className="mt-4 text-gray-800 leading-relaxed">
-            Our system creates... (rest of content)
+            Our system creates individual learnability profiles based on emotional patterns and self-assessments, matching complementary learners to foster resilience and growth.
           </p>
         </section>
 
@@ -69,7 +75,8 @@ export default function HomePage() {
             <span>Job Cases: Theodor & Maria</span>
           </h2>
           <p className="text-gray-800 leading-relaxed">
-            Theodor... (rest of content)
+            Theodor, overwhelmed by a new AI tool, names his emotions while Maria excels. Through NECP-driven peer sessions, both learn faster, adapt more confidently,
+            and build a collaborative learning culture.
           </p>
         </section>
       </main>
@@ -88,3 +95,6 @@ export default function HomePage() {
         </div>
         <div className="text-gray-500">willonski 2025</div>
       </footer>
+    </div>
+  );
+}
