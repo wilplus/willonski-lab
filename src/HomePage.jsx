@@ -84,7 +84,7 @@ export default function HomePage() {
             <span>LinkedIn</span>
           </a>
           <a
-            href={whitepaperUrl}
+            href="https://magenta-desiree-1.tiiny.site"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-1 text-gray-600 hover:text-indigo-600"
