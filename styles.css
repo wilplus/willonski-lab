@@ -1,0 +1,100 @@
+/* root palette */
+:root {
+    --primary-color: #0072bb;
+    --secondary-color: #333;
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    --link-color: #0072bb;
+    --accent-color: #f8f8f8;
+    --border-color: #e0e0e0;
+  }
+  
+  /* reset / base */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                 Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+                 'Helvetica Neue', sans-serif;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  
+  /* header + nav */
+  header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .75rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 60px;
+  }
+  .logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 500;
+    font-size: .95rem;
+    transition: color .3s;
+  }
+  .nav-links a:hover { color: var(--primary-color); }
+  
+  /* hero */
+  .hero {
+    padding: 3rem 0;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+  }
+  .hero p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+  }
+  .cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: .75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color .3s;
+  }
+  .cta-button:hover { background-color: #005999; }
+  
+  /* (keep the rest of your style rules unchanged) */
+  
+  /* responsive tweaks */
+  @media (max-width: 768px) {
+    .navbar { padding: .75rem 1rem; }
+    .nav-links { gap: 1rem; }
+    .hero h1 { font-size: 2rem; }
+  }
