@@ -1,12 +1,12 @@
 /* root palette */
-:root {
-    --primary-color: #0072bb;
-    --secondary-color: #333;
-    --background-color: #f9f9f9;
-    --text-color: #333;
-    --link-color: #0072bb;
-    --accent-color: #f8f8f8;
-    --border-color: #e0e0e0;
+:root{
+    --primary-color:#0072bb;
+    --secondary-color:#333;
+    --background-color:#f9f9f9;
+    --text-color:#333;
+    --link-color:#0072bb;
+    --accent-color:#f8f8f8;
+    --border-color:#e0e0e0;
   }
   
   /* reset / base */
@@ -113,24 +113,21 @@
     box-shadow:0 5px 15px rgba(0,0,0,.1);
   }
   
-  /* -------- card image (360 × 225 responsive) -------- */
-  .card-img{
+  /* ─── Card images – 360 × 225 responsive ───────────────────────── */
+  .card img{
     width:100%;
-    aspect-ratio:16/10;          /* ≈360×225 */
-    overflow:hidden;
+    aspect-ratio:16/10;           /* ≈360 × 225, fluid on phones */
+    object-fit:cover;             /* crop without distortion    */
+    display:block;
     border-bottom:1px solid #eee;
   }
-  .card-img img{
-    width:100%;
-    height:100%;
-    object-fit:cover;            /* crop without stretch */
-    display:block;
+  /* fallback for browsers without aspect‑ratio support */
+  @supports not (aspect-ratio: 16/10){
+    @media (min-width:769px){
+      .card img{height:225px;}    /* fixed height, fluid width  */
+    }
   }
-  /* desktop fallback for old browsers */
-  @media (min-width:769px){
-    .card-img{height:225px;}
-  }
-  /* ----------------------------------------------- */
+  /* ──────────────────────────────────────────────────────────────── */
   
   .card-content{padding:1.5rem;}
   .card h3{font-size:1.3rem;margin-bottom:.75rem;color:var(--secondary-color);}
