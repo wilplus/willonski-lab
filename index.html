@@ -1,30 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Willonski Lab – Read the Paper</title>
-
+  <meta charset="utf‑8">
+  <title>Willonski Lab • Read the paper</title>
   <style>
-    /* quick centring & a little polish */
-    body  {margin:0; height:100vh; display:flex; align-items:center; justify-content:center;
-           font-family:system-ui, Arial, sans-serif; background:#f6f8fb;}
-    button{padding:1rem 2rem; font-size:1.1rem; border:none; border-radius:8px; cursor:pointer;
-           background:#0077ff; color:#fff; transition:background .2s ease;}
-    button:hover{background:#005dda;}
+    body{display:grid;place-content:center;height:100vh;margin:0;
+         font:1rem/1.4 system-ui,Arial,sans-serif;background:#f6f8fb}
+    a.button{padding:1rem 2rem;border-radius:8px;text-decoration:none;
+             background:#0077ff;color:#fff;transition:background .2s}
+    a.button:hover{background:#005dda}
   </style>
-
-  <script>
-    /* open the PDF in a fresh tab (or same tab – change "_blank" to "_self") */
-    function showPDF () {
-      window.open(
-        "https://willonski.com/posts/naming-emotions-in-the-corporate-workplace-as-a-way-to-measure-learnability.pdf",
-        "_blank"
-      );
-    }
-  </script>
 </head>
-
 <body>
-  <button onclick="showPDF()">Read the PDF</button>
+
+  <!-- assumes the PDF is sitting in the same folder -->
+  <a class="button"
+     href="/naming-emotions-in-the-corporate-workplace-as-a-way-to-measure-learnability.pdf"
+     target="_blank" rel="noopener">
+     Read the PDF
+  </a>
+
 </body>
 </html>
