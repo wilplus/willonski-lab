@@ -25,48 +25,85 @@
       background: var(--color-light);
       padding: 1rem 2rem;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: sticky; top: 0; z-index: 10;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
-    .logo { font-size: 1.5rem; font-weight: 700; color: var(--color-dark); }
-    .section { padding: 4rem 2rem; text-align: center; }
-    .intro { background: var(--color-accent); color: #fff; }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-dark);
+    }
+    .section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .intro {
+      background: var(--color-accent);
+      color: #fff;
+    }
     .intro h1 {
-      font-size: 2.75rem; font-weight: 700; letter-spacing: 0.05em;
-      text-transform: uppercase; display: inline-block;
+      font-size: 2.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: inline-block;
       border-bottom: 2px solid rgba(255,255,255,0.7);
       padding-bottom: 0.5rem;
     }
-    .content { background: var(--color-light); }
+    .content {
+      background: var(--color-light);
+    }
     .content p {
-      max-width: 640px; margin: 0 auto 2rem;
-      font-size: 1.125rem; color: var(--color-dark);
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      font-size: 1.125rem;
+      color: var(--color-dark);
     }
     .content a {
-      display: block; margin: 0.5rem auto;
-      color: var(--color-accent); text-decoration: none;
-      font-weight: 600; word-break: break-all;
-      cursor: pointer;
+      display: block;
+      margin: 0.5rem auto;
+      color: var(--color-accent);
+      text-decoration: none;
+      font-weight: 600;
+      word-break: break-all;
     }
-    .content a:hover { text-decoration: underline; }
-    .cta { background: var(--color-bg); }
+    .content a:hover {
+      text-decoration: underline;
+    }
+    .cta {
+      background: var(--color-bg);
+    }
     .btn {
-      display: inline-block; margin-top: 1.5rem;
-      padding: 0.75rem 1.5rem; font-size: 1rem;
-      font-weight: 600; text-transform: uppercase;
-      letter-spacing: 0.05em; text-decoration: none;
-      background: var(--color-accent); color: #fff;
-      border-radius: 4px; transition: background 0.3s ease;
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      background: var(--color-accent);
+      color: #fff;
+      border-radius: 4px;
+      transition: background 0.3s ease;
     }
-    .btn:hover { background: #d65a3e; }
+    .btn:hover {
+      background: #d65a3e;
+    }
     footer {
-      text-align: center; padding: 2rem 1rem;
-      font-size: 0.875rem; color: var(--color-muted);
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.875rem;
+      color: var(--color-muted);
     }
   </style>
 </head>
 <body>
   <header>
-    <nav><div class="logo">Willonski Lab</div></nav>
+    <nav>
+      <div class="logo">Willonski Lab</div>
+    </nav>
   </header>
 
   <section class="section intro">
@@ -77,12 +114,9 @@
     <p>
       Discover the <strong>Naming Emotions Collaborative Prompting (NECP)</strong> framework: a method for measuring and enhancing learnability through emotional awareness and collaborative storytelling.
     </p>
-    <!-- Links that open the PDF on click -->
-    <a onclick="event.preventDefault(); window.open('necp-learnability-03-04-2025.pdf', '_blank');">
+    <!-- Link that opens the PDF directly -->
+    <a href="necp-learnability-03-04-2025.pdf" target="_blank">
       https://www.willonski.com/posts/the-named-emotion-ne-framework-as-a-way-to-measure-the-digital-literacy/
-    </a>
-    <a onclick="event.preventDefault(); window.open('necp-learnability-03-04-2025.pdf', '_blank');">
-      https://willonski.com/posts/naming-emotions-in-the-corporate-workplace-as-a-way-to-measure-learnability/
     </a>
   </section>
 
@@ -91,6 +125,8 @@
     <a href="necp-learnability-03-04-2025.pdf" class="btn" target="_blank">Open Whitepaper</a>
   </section>
 
-  <footer>&copy; 2025 Willonski Lab. All rights reserved.</footer>
+  <footer>
+    &copy; 2025 Willonski Lab. All rights reserved.
+  </footer>
 </body>
 </html>
