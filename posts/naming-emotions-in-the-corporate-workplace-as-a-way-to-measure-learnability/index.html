@@ -99,6 +99,8 @@
     .section {
       padding: 3rem 0;
       border-bottom: 1px solid var(--border-color);
+      max-width: 1200px;
+      margin: 0 auto;
     }
     .section h2 {
       font-size: 1.8rem;
@@ -147,6 +149,8 @@
     /* Featured */
     .featured-content {
       padding: 3rem 0;
+      max-width: 1200px;
+      margin: 0 auto;
     }
     .featured-content h2 {
       font-size: 1.8rem;
@@ -182,8 +186,9 @@
       background-color: var(--accent-color);
       padding: 3rem 2rem;
       border-radius: 8px;
-      margin: 3rem 0;
+      margin: 3rem auto;
       text-align: center;
+      max-width: 1200px;
     }
     .join-pilot h2 {
       font-size: 1.8rem;
@@ -194,6 +199,51 @@
       max-width: 700px;
       margin: 0 auto 2rem;
       color: #666;
+    }
+    /* PDF viewer modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      overflow: auto;
+    }
+    .modal-content {
+      position: relative;
+      background-color: white;
+      margin: 2% auto;
+      padding: 20px;
+      width: 90%;
+      max-width: 1000px;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      color: #555;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 2100;
+    }
+    .close-modal:hover {
+      color: #000;
+    }
+    .pdf-container {
+      width: 100%;
+      height: calc(90vh - 60px);
+    }
+    .pdf-embed {
+      width: 100%;
+      height: 100%;
+      border: none;
     }
     /* Footer */
     footer {
@@ -243,18 +293,18 @@
       .nav-links { gap: 1rem; }
       .hero h1 { font-size: 2rem; }
       .section h2 { font-size: 1.5rem; }
+      .modal-content { width: 95%; margin: 5% auto; }
+      .pdf-container { height: calc(90vh - 80px); }
     }
   </style>
 </head>
 <body>
   <header>
     <nav class="navbar">
-      <!-- Home link stays at root, so willonski.com always loads the main page -->
       <a href="/" class="logo">Willonski Lab</a>
       <div class="nav-links">
         <a href="/">Home</a>
-        <!-- Research links open PDF in a new tab, leaving main site unaffected -->
-        <a href="/posts/naming-emotions-in-the-corporate-workplace-as-a-way-to-measure-learnability.pdf" target="_blank" rel="noopener">Research</a>
+        <a href="#" id="view-research-nav">Research</a>
         <a href="#">Publications</a>
         <a href="#">About</a>
         <a href="#">Contact</a>
@@ -264,11 +314,10 @@
 
   <main>
     <section class="hero">
-      <h1>Advancing Human Learning & Development</h1>
+      <h1>Advancing Human Learning & Development</h1>
       <p>Willonski Lab explores innovative frameworks and tools for enhancing emotional intelligence, digital literacy, and workplace performance.</p>
-      <!-- Button opens the PDF in a new tab -->
-      <a class="cta-button" href="/posts/naming-emotions-in-the-corporate-workplace-as-a-way-to-measure-learnability.pdf" target="_blank" rel="noopener">
-        Read “Naming Emotions in the Corporate Workplace”
+      <a href="#" id="view-research" class="cta-button">
+        Read "Naming Emotions in the Corporate Workplace"
       </a>
     </section>
 
@@ -276,4 +325,149 @@
       <h2>Our Focus Areas</h2>
       <div class="cards">
         <div class="card">
-          <div class="
+          <div class="card-content">
+            <h3>Emotional Intelligence</h3>
+            <p>Exploring how naming emotions impacts workplace performance and personal development.</p>
+            <a href="#">Discover our research →</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <h3>Digital Literacy</h3>
+            <p>Measuring and enhancing digital literacy through innovative frameworks and assessment tools.</p>
+            <a href="#">Explore our methods →</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <h3>Corporate Learning</h3>
+            <p>Developing solutions that enhance learnability and performance in corporate environments.</p>
+            <a href="#">View case studies →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured-content">
+      <h2>Featured Research</h2>
+      <div class="featured-article">
+        <h3>The Named Emotion (NE) Framework as a Way to Measure Digital Literacy</h3>
+        <p>Our groundbreaking research introduces a new framework for measuring digital literacy through emotional responses. By understanding how individuals name and process emotions while engaging with technology, we can better assess their digital competence and adaptability.</p>
+        <a href="#">Read the full article →</a>
+      </div>
+
+      <div class="featured-article">
+        <h3>Naming Emotions in the Corporate Workplace as a Way to Measure Learnability</h3>
+        <p>This study explores how the ability to identify and articulate emotions in the workplace correlates with learning agility and adaptability. Our findings suggest that employees who can accurately name their emotional states demonstrate higher learnability and better performance during organizational change.</p>
+        <a href="#" id="read-emotions-article">Read the full article →</a>
+      </div>
+    </section>
+
+    <section id="join-pilot" class="join-pilot">
+      <h2>Join Our Pilot Program</h2>
+      <p>We're inviting organizations and individuals to participate in our latest research initiatives. By joining our pilot program, you'll gain early access to our innovative tools and frameworks while contributing to the advancement of human learning and development.</p>
+      <a href="#" class="cta-button">Join the Pilot</a>
+    </section>
+  </main>
+
+  <!-- PDF Modal -->
+  <div id="pdf-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div class="pdf-container">
+        <iframe id="pdf-embed" class="pdf-embed" src="" title="PDF Document"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Willonski Lab</h3>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><a href="#">Research</a></li>
+          <li><a href="#">Publications</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Case Studies</a></li>
+          <li><a href="#">White Papers</a></li>
+          <li><a href="#">Tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Connect</h3>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© 2025 Willonski Lab. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // PDF path
+    const pdfPath = "/assets/pdfs/naming-emotions-in-the-corporate-workplace.pdf";
+    
+    // Modal elements
+    const modal = document.getElementById("pdf-modal");
+    const pdfEmbed = document.getElementById("pdf-embed");
+    const closeBtn = document.querySelector(".close-modal");
+    
+    // Open PDF function - now opens in modal
+    function openPDF() {
+      pdfEmbed.src = pdfPath;
+      modal.style.display = "block";
+      document.body.style.overflow = "hidden"; // Prevent scrolling behind modal
+    }
+    
+    // Close modal function
+    function closeModal() {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto"; // Restore scrolling
+    }
+    
+    // Event listeners
+    document.getElementById('view-research').addEventListener('click', function(e) {
+      e.preventDefault();
+      openPDF();
+    });
+    
+    document.getElementById('view-research-nav').addEventListener('click', function(e) {
+      e.preventDefault();
+      openPDF();
+    });
+    
+    document.getElementById('read-emotions-article').addEventListener('click', function(e) {
+      e.preventDefault();
+      openPDF();
+    });
+    
+    // Close modal events
+    closeBtn.addEventListener('click', closeModal);
+    
+    window.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+    
+    // Close on escape key press
+    document.addEventListener('keydown', function(e) {
+      if (e.key === "Escape" && modal.style.display === "block") {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>

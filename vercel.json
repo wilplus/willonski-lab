@@ -1,21 +1,14 @@
 {
   "version": 2,
-
-  /* No explicit “builds” block is needed for a pure‑static site.
-     Everything in the root, /posts, and /public folders is published automatically. */
-
+  
   "routes": [
-    /* 1️⃣  Serve any real file (HTML, PDF, image, …) exactly as‑is. */
-    { "handle": "filesystem" },
-
-    /* 2️⃣  If the request is “/posts/some‑slug/” (with or without a trailing slash),
-           show that post’s index.html. */
+    {
+      "handle": "filesystem"
+    },
     {
       "src": "/posts/([^/]+)/?$",
       "dest": "/posts/$1/index.html"
     },
-
-    /* 3️⃣  Anything else (/, /about, /foo/bar) falls back to the main SPA shell. */
     {
       "src": "/.*",
       "dest": "/index.html"
