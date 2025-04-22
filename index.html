@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Willonski Lab</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #ffffff;
+      --color-light: #f7f7f7;
+      --color-accent: #ec7053;
+      --color-dark: #2b2d42;
+      --color-muted: #6c757d;
+      --font-base: 'Inter', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--font-base);
+      background: var(--color-bg);
+      color: var(--color-dark);
+      line-height: 1.6;
+    }
+    header {
+      background: var(--color-light);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-dark);
+    }
+    .section {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .intro {
+      background: var(--color-accent);
+      color: #fff;
+    }
+    .intro h1 {
+      font-size: 2.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: inline-block;
+      border-bottom: 2px solid rgba(255,255,255,0.7);
+      padding-bottom: 0.5rem;
+    }
+    .content {
+      background: var(--color-light);
+    }
+    .content p {
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 1.125rem;
+      color: var(--color-dark);
+    }
+    .hidden-link {
+      display: none;
+    }
+    .cta {
+      background: var(--color-bg);
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      background: var(--color-accent);
+      color: #fff;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: #d65a3e;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.875rem;
+      color: var(--color-muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Willonski Lab</div>
+    </nav>
+  </header>
+
+  <section class="section intro">
+    <h1>Introduction</h1>
+  </section>
+
+  <section class="section content">
+    <p>
+      Discover the <strong>Naming Emotions Collaborative Prompting (NECP)</strong> framework: a method for measuring and enhancing learnability through emotional awareness and collaborative storytelling.
+    </p>
+    <!-- Hidden raw links for manual copy/paste -->
+    <a href="https://www.willonski.com/posts/the-named-emotion-ne-framework-as-a-way-to-measure-the-digital-literacy/" class="hidden-link">Digital Literacy</a>
+    <a href="https://willonski.com/posts/naming-emotions-in-the-corporate-workplace-as-a-way-to-measure-learnability/" class="hidden-link">Learnability</a>
+  </section>
+
+  <section class="section cta">
+    <p>Ready to dive deeper? Read our full whitepaper:</p>
+    <a href="necp-learnability-03-04-2025.pdf" class="btn" target="_blank">Open Whitepaper</a>
+  </section>
+
+  <footer>
+    &copy; 2025 Willonski Lab. All rights reserved.
+  </footer>
+</body>
+</html>
