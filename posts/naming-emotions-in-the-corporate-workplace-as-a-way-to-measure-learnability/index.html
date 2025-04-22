@@ -1,602 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willonski Lab</title>
-    <style>
-        /* Base styles */
-        :root {
-            --primary-color: #0072bb;
-            --secondary-color: #333;
-            --background-color: #f9f9f9;
-            --text-color: #333;
-            --link-color: #0072bb;
-            --accent-color: #f8f8f8;
-            --border-color: #e0e0e0;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-        
-        body {
-            background-color: var(--background-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            font-size: 16px;
-        }
-        
-        /* Header and navigation */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            height: 60px; /* Smaller navbar */
-        }
-        
-        .logo {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--secondary-color);
-            text-decoration: none;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--secondary-color);
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        /* Main content */
-        main {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-        }
-        
-        .hero {
-            padding: 3rem 0;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--secondary-color);
-        }
-        
-        .hero p {
-            font-size: 1.1rem;
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-        
-        .cta-button:hover {
-            background-color: #005999;
-        }
-        
-        .section {
-            padding: 3rem 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--secondary-color);
-        }
-        
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .card-content {
-            padding: 1.5rem;
-        }
-        
-        .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.75rem;
-            color: var(--secondary-color);
-        }
-        
-        .card p {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-        
-        .card a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-        }
-        
-        .card a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Featured content */
-        .featured-content {
-            padding: 3rem 0;
-        }
-        
-        .featured-content h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--secondary-color);
-        }
-        
-        .featured-article {
-            background-color: white;
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        
-        .featured-article h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--secondary-color);
-        }
-        
-        .featured-article p {
-            color: #666;
-            margin-bottom: 1.5rem;
-        }
-        
-        .featured-article a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .featured-article a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Join pilot section */
-        .join-pilot {
-            background-color: var(--accent-color);
-            padding: 3rem 2rem;
-            border-radius: 8px;
-            margin: 3rem 0;
-            text-align: center;
-        }
-        
-        .join-pilot h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--secondary-color);
-        }
-        
-        .join-pilot p {
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            color: #666;
-        }
-        
-        /* PDF Viewer */
-        .pdf-container {
-            background-color: white;
-            border-radius: 8px;
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        
-        .pdf-viewer {
-            width: 100%;
-            height: 800px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            overflow: auto;
-        }
-        
-        .pdf-content {
-            padding: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 0.95rem;
-            line-height: 1.8;
-        }
-        
-        .pdf-content h1 {
-            font-size: 1.8rem;
-            margin: 1.5rem 0;
-            text-align: center;
-        }
-        
-        .pdf-content h2 {
-            font-size: 1.5rem;
-            margin: 1.2rem 0;
-        }
-        
-        .pdf-content p {
-            margin-bottom: 1rem;
-        }
-        
-        .pdf-content .author {
-            font-style: italic;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .pdf-content .abstract {
-            font-style: italic;
-            margin-bottom: 2rem;
-            padding: 1rem;
-            background-color: #f5f5f5;
-            border-radius: 4px;
-        }
-        
-        .pdf-nav {
-            display: flex;
-            justify-content: space-between;
-            padding: 1rem 0;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .pdf-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .pdf-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-        
-        .pdf-actions {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .pdf-actions button {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            padding: 0.5rem 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        
-        .pdf-actions button:hover {
-            background-color: #005999;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 3rem 2rem;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 0.75rem;
-        }
-        
-        .footer-column a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-column a:hover {
-            color: white;
-            text-decoration: underline;
-        }
-        
-        .copyright {
-            max-width: 1200px;
-            margin: 2rem auto 0;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-            color: #aaa;
-            font-size: 0.9rem;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 0.75rem 1rem;
-            }
-            
-            .nav-links {
-                gap: 1rem;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .section h2 {
-                font-size: 1.5rem;
-            }
-            
-            .pdf-viewer {
-                height: 600px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Willonski Lab</title>
+  <style>
+    /* Base styles */
+    :root {
+      --primary-color: #0072bb;
+      --secondary-color: #333;
+      --background-color: #f9f9f9;
+      --text-color: #333;
+      --link-color: #0072bb;
+      --accent-color: #f8f8f8;
+      --border-color: #e0e0e0;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+                   Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    /* Header and navigation */
+    header {
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 60px;
+    }
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--secondary-color);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--secondary-color);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+    /* Hero */
+    .hero {
+      padding: 3rem 0;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--secondary-color);
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #666;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+    .cta-button:hover {
+      background-color: #005999;
+    }
+    /* Sections */
+    .section {
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--secondary-color);
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background-color: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .card-content {
+      padding: 1.5rem;
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+      color: var(--secondary-color);
+    }
+    .card p {
+      color: #666;
+      margin-bottom: 1rem;
+    }
+    .card a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+    }
+    .card a:hover {
+      text-decoration: underline;
+    }
+    /* Featured */
+    .featured-content {
+      padding: 3rem 0;
+    }
+    .featured-content h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--secondary-color);
+    }
+    .featured-article {
+      background-color: white;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .featured-article h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--secondary-color);
+    }
+    .featured-article p {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    .featured-article a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .featured-article a:hover {
+      text-decoration: underline;
+    }
+    /* Join pilot */
+    .join-pilot {
+      background-color: var(--accent-color);
+      padding: 3rem 2rem;
+      border-radius: 8px;
+      margin: 3rem 0;
+      text-align: center;
+    }
+    .join-pilot h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--secondary-color);
+    }
+    .join-pilot p {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      color: #666;
+    }
+    /* Footer */
+    footer {
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 3rem 2rem;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+    .footer-column h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+    .footer-column ul {
+      list-style: none;
+    }
+    .footer-column li {
+      margin-bottom: 0.75rem;
+    }
+    .footer-column a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-column a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+    .copyright {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar { padding: 0.75rem 1rem; }
+      .nav-links { gap: 1rem; }
+      .hero h1 { font-size: 2rem; }
+      .section h2 { font-size: 1.5rem; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <a href="#" class="logo">Willonski Lab</a>
-            <div class="nav-links">
-                <a href="#">Home</a>
-                <a href="#">Research</a>
-                <a href="#">Publications</a>
-                <a href="#">About</a>
-                <a href="#">Contact</a>
-            </div>
-        </nav>
-    </header>
+  <header>
+    <nav class="navbar">
+      <a href="/" class="logo">Willonski Lab</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="#" id="view-research-nav">Research</a>
+        <a href="#">Publications</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-    <body>
-        <iframe
-          class="pdf-frame"
-          src="/naming-emotions-in-the-corporate-workplace-as-a-way-to-measure-learnability.pdf"
-          type="application/pdf">
-        </iframe>
-      </body>
-    
-    <main>
-        <section class="hero">
-            <h1>Advancing Human Learning & Development</h1>
-            <p>Willonski Lab explores innovative frameworks and tools for enhancing emotional intelligence, digital literacy, and workplace performance.</p>
-            <a href="#join-pilot" class="cta-button">Learn More</a>
-        </section>
-        
-        <section class="section">
-            <h2>Our Focus Areas</h2>
-            <div class="cards">
-                <div class="card">
-                    <div class="card-content">
-                        <h3>Emotional Intelligence</h3>
-                        <p>Exploring how naming emotions impacts workplace performance and personal development.</p>
-                        <a href="#">Discover our research →</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <h3>Digital Literacy</h3>
-                        <p>Measuring and enhancing digital literacy through innovative frameworks and assessment tools.</p>
-                        <a href="#">Explore our methods →</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <h3>Corporate Learning</h3>
-                        <p>Developing solutions that enhance learnability and performance in corporate environments.</p>
-                        <a href="#">View case studies →</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="featured-content">
-            <h2>Featured Research</h2>
-            <div class="featured-article">
-                <h3>The Named Emotion (NE) Framework as a Way to Measure Digital Literacy</h3>
-                <p>Our groundbreaking research introduces a new framework for measuring digital literacy through emotional responses. By understanding how individuals name and process emotions while engaging with technology, we can better assess their digital competence and adaptability.</p>
-                <p>This framework provides organizations with a novel approach to evaluating employees' digital readiness and designing more effective training programs.</p>
-                <a href="#pdf-viewer">Read the full article →</a>
-            </div>
-            
-            <div class="featured-article">
-                <h3>Naming Emotions in the Corporate Workplace as a Way to Measure Learnability</h3>
-                <p>This study explores how the ability to identify and articulate emotions in the workplace correlates with learning agility and adaptability. Our findings suggest that employees who can accurately name their emotional states demonstrate higher learnability and better performance during organizational change.</p>
-                <p>We present practical applications for HR professionals and learning & development teams to implement emotion-naming practices in their training programs.</p>
-                <a href="#pdf-viewer">Read the full article →</a>
-            </div>
-        </section>
-        
-        <section id="pdf-viewer" class="pdf-container">
-            <div class="pdf-header">
-                <div class="pdf-title">Naming emotions in the corporate workplace as a way to measure learnability</div>
-                <div class="pdf-actions">
-                    <button>Download PDF</button>
-                    <button>Share</button>
-                </div>
-            </div>
-            
-            <div class="pdf-viewer">
-                <div class="pdf-content">
-                    <h1>Naming emotions in the corporate workplace as a way to measure learnability.</h1>
-                    <p class="author">Artur Willoński</p>
-                    
-                    <div class="abstract">
-                        <strong>Abstract</strong><br>
-                        This paper introduces the Naming Emotions Collaborative Prompting (NECP) framework as a
-                        conceptual approach to measuring and supporting learnability in the corporate workplace. Grounded
-                        in emotional awareness theory, collaborative learning research, and adaptive instructional design,
-                        NECP emphasizes the act of naming emotions as a low-cost, privacy-respecting method for enhancing
-                        self-regulation and reducing emotional bias in competence assessments. The framework integrates ten
-                        parametrized learning environment elements and uses a dual-track system: (1) real-time learner
-                        classification into Good, Neutral, or Bad for Learnability states based on competence scores and
-                        emotion valence, and (2) longitudinal evaluation of design elements using stable inverse probability
-                        weighting (S-IPW). The model dynamically adjusts learning environments and matches learners with
-                        complementary profiles to optimize emotional and cognitive conditions for learning. While still
-                        theoretical, NECP offers a scalable, evidence-informed method for aligning emotional regulation with
-                        workplace learning strategies and provides a foundation for future empirical validation.
-                    </div>
-                    
-                    <h2>Introduction</h2>
-                    <p>The corporate workplace operates as a lifelong learning environment characterized by diversity in age,
-                    cultural background, and professional roles (Tynjälä, 2008). This diversity, coupled with the constant
-                    need for skill development, highlights the importance of learnability—the ability to acquire
-                    knowledge continuously, adapt to evolving challenges, and regulate one's own learning in dynamic
-                    environments (Hall & Mirvis, 1995; De Grip & van Loo, 2002).</p>
-                    
-                    <p>Effective learning requires awareness
-                    of one's knowledge and limitations (Pellegrino, Chudowsky, & Glaser, 2001), yet emotional bias
-                    distorts learnability measurement by affecting self-assessment, motivation, and adaptability. Optimism
-                    bias leads to overestimation of abilities, while negativity bias results in underestimation, reducing
-                    assessment accuracy (Sharot, 2011; Efklides, 2011). Employees who undertake the assessments are
-                    often under the influence of negative past experiences, stress and pressure (Dweck, 2006, Lerner et
-                    al., 2015; Tyng et al., 2017).</p>
-                    
-                    <p>Despite attempts to reduce distortions in self-evaluation through self-reports, behavioral data, and
-                    AI-driven analytics (Cascio & Montealegre, 2016), the role of emotions in metacompetencies such as
-                    learnability—where emotional awareness plays a central role—remains under-researched. While
-                    emotions are known to influence cognitive flexibility and adaptability (Tyng et al., 2017), limited
-                    research explicitly examines how emotional awareness impacts learnability assessments or how
-                    targeted strategies can mitigate emotional bias in these evaluations.</p>
-                    
-                    <p>This paper proposes the Naming
-                    Emotions Collaborative Prompting (NECP) framework as a method for measuring learnability in the
-                    corporate workplace. The framework aims to reduce emotional bias while incorporating emotions as a
-                    factor that fosters inclusivity. By integrating emotional awareness into assessments, NECP supports
-                    collaboration and contributes to the development of a lifelong learning culture in corporate
-                    environments.</p>
-                    
-                    <h2>Literature review</h2>
-                    <p>One of the primary obstacles for lifelong learning in the workplace is limited time availability and the
-                    workload (Billett, 2001, Tynjälä, 2008), as well, as lack of learning-oriented culture and lack of
-                    learning friendly policies (Marsick, V. J., & Watkins, K. E, (2003). Another obstacle stems from the
-                    change fatigue (Illeris, 2011) and among older employees the self-efficacy barriers, coming from a
-                    belief that younger colleagues are more capable.</p>
-                    
-                    <p>Additionally, the increasing use of complex
-                    technologies like artificial intelligence, machine learning, and automation creates a digital divide
-                    where older employees or those with non-technical backgrounds are separated from digital savvy ones
-                    and struggle to adapt new technologies (Cascio & Montealegre, 2016). Complexity theory says that
-                    intricate challenges emerge from the dynamic interactions of a system's components over time, and
-                    the distinct features of such systems can only be understood by analysing how these components
-                    interrelate (Manson, 2001).</p>
-                    
-                    <p>Consequently, understanding and in consequence adapting complex
-                    technologies requires breaking them down into smaller, more manageable components, what demands
-                    from the employees resilience and adaptability (Mallin, 2019).</p>
-                    
-                    <!-- Content continues but shortened for brevity -->
-                    <p>To learn more about the NECP framework and its applications in workplace learning, continue reading the full paper.</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="join-pilot" class="join-pilot">
-            <h2>Join Our Pilot Program</h2>
-            <p>We're inviting organizations and individuals to participate in our latest research initiatives. By joining our pilot program, you'll gain early access to our innovative tools and frameworks while contributing to the advancement of human learning and development.</p>
-            <a href="#" class="cta-button">Join the Pilot</a>
-        </section>
-    </main>
-    
-    <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>Willonski Lab</h3>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Our Team</a></li>
-                    <li><a href="#">Research</a></li>
-                    <li><a href="#">Publications</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Resources</h3>
-                <ul>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Case Studies</a></li>
-                    <li><a href="#">White Papers</a></li>
-                    <li><a href="#">Tools</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Connect</h3>
-                <ul>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Newsletter</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                    <li><a href="#">Twitter</a></li>
-                </ul>
-            </div>
+  <main>
+    <section class="hero">
+      <h1>Advancing Human Learning & Development</h1>
+      <p>Willonski Lab explores innovative frameworks and tools for enhancing emotional intelligence, digital literacy, and workplace performance.</p>
+      <a href="#" id="view-research" class="cta-button">
+        Read “Naming Emotions in the Corporate Workplace”
+      </a>
+    </section>
+
+    <section class="section">
+      <h2>Our Focus Areas</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="card-content">
+            <h3>Emotional Intelligence</h3>
+            <p>Exploring how naming emotions impacts workplace performance and personal development.</p>
+            <a href="#">Discover our research →</a>
+          </div>
         </div>
-        <div class="copyright">
-            <p>© 2025 Willonski Lab. All rights reserved.</p>
+        <div class="card">
+          <div class="card-content">
+            <h3>Digital Literacy</h3>
+            <p>Measuring and enhancing digital literacy through innovative frameworks and assessment tools.</p>
+            <a href="#">Explore our methods →</a>
+          </div>
         </div>
-    </footer>
+        <div class="card">
+          <div class="card-content">
+            <h3>Corporate Learning</h3>
+            <p>Developing solutions that enhance learnability and performance in corporate environments.</p>
+            <a href="#">View case studies →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured-content">
+      <h2>Featured Research</h2>
+      <div class="featured-article">
+        <h3>The Named Emotion (NE) Framework as a Way to Measure Digital Literacy</h3>
+        <p>Our groundbreaking research introduces a new framework for measuring digital literacy through emotional responses. By understanding how individuals name and process emotions while engaging with technology, we can better assess their digital competence and adaptability.</p>
+        <a href="#">Read the full article →</a>
+      </div>
+
+      <div class="featured-article">
+        <h3>Naming Emotions in the Corporate Workplace as a Way to Measure Learnability</h3>
+        <p>This study explores how the ability to identify and articulate emotions in the workplace correlates with learning agility and adaptability. Our findings suggest that employees who can accurately name their emotional states demonstrate higher learnability and better performance during organizational change.</p>
+        <a href="#">Read the full article →</a>
+      </div>
+    </section>
+
+    <section id="join-pilot" class="join-pilot">
+      <h2>Join Our Pilot Program</h2>
+      <p>We're inviting organizations and individuals to participate in our latest research initiatives. By joining our pilot program, you'll gain early access to our innovative tools and frameworks while contributing to the advancement of human learning and development.</p>
+      <a href="#" class="cta-button">Join the Pilot</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Willonski Lab</h3>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><a href="#">Research</a></li>
+          <li><a href="#">Publications</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Case Studies</a></li>
+          <li><a href="#">White Papers</a></li>
+          <li><a href="#">Tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Connect</h3>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Newsletter</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© 2025 Willonski Lab. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function goToPDF() {
+      window.location.href = '/posts/naming-emotions-in-the-corporate-workplace-as-a-way-to-measure-learnability/';
+    }
+    document.getElementById('view-research')
+            .addEventListener('click', goToPDF);
+    document.getElementById('view-research-nav')
+            .addEventListener('click', goToPDF);
+  </script>
 </body>
 </html>
