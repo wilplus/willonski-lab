@@ -165,6 +165,11 @@
     background:var(--secondary-color);
     color:#fff;
     padding:3rem 2rem;
+    max-width:auto;
+    margin:0 auto;
+    padding-left:2rem;
+    padding-right:2rem;
+    }
   }
   .footer-content{
     max-width:1200px;
@@ -196,9 +201,8 @@
   .hero,
   .section,
   .featured-content,
-  .join-pilot,
-  footer{
-    max-width:auto;
+  join-pilot{
+    max-width:1200;
     margin:0 auto;
     padding-left:2rem;
     padding-right:2rem;
