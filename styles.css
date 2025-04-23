@@ -161,16 +161,15 @@
   .join-pilot p{max-width:700px;margin:0 auto 2rem;color:#666;}
   
   /* footer */
-  footer{
-    background:var(--secondary-color);
-    color:#fff;
-    padding:3rem 2rem;
-    max-width:auto;
-    margin:0 auto;
-    padding-left:2rem;
-    padding-right:2rem;
-    }
+  footer {
+    background: var(--secondary-color);
+    color: #fff;
+    padding: 3rem 2rem;
+    width: 100%; /* full width */
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
+  
   .footer-content{
     max-width:1200px;
     margin:0 auto;
@@ -201,11 +200,11 @@
   .hero,
   .section,
   .featured-content,
-  join-pilot{
-    max-width:1200;
-    margin:0 auto;
-    padding-left:2rem;
-    padding-right:2rem;
+  .join-pilot {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
   
   /* responsive */
