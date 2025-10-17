@@ -2,140 +2,200 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Willonski Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Willonski Lab</title>
+  <meta name="description" content="Emotions-based learning & development by Willonski Lab." />
 
-  <!-- external stylesheet -->
+  <!-- Fonts (same as reference) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- External stylesheet -->
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <!--‑‑‑ Header / Nav ‑‑‑-->
-  <header>
-    <nav class="navbar">
-      <a href="#" class="logo">Willonski Lab</a>
-      <div class="nav-links">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- Header -->
+  <header class="site">
+    <div class="wrap nav" role="navigation" aria-label="Primary">
+      <a class="brand" href="/" aria-current="page">Willonski Lab</a>
+      <nav class="menu" aria-label="Main menu">
         <a href="/posts/naming-emotions-in-the-corporate-workplace-as-a-way-to-measure-learnability.pdf">Research</a>
-      </div>
-    </nav>
+        <a href="#focus">Focus</a>
+        <a href="#featured">Featured</a>
+        <a href="#join">Join</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="ham" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="wrap mobile" hidden>
+      <a href="/posts/naming-emotions-in-the-corporate-workplace-as-a-way-to-measure-learnability.pdf">Research</a>
+      <a href="#focus">Focus</a>
+      <a href="#featured">Featured</a>
+      <a href="#join">Join</a>
+      <a href="#contact">Contact</a>
+    </div>
   </header>
 
-  <!--‑‑‑ Main content ‑‑‑-->
-  <main>
-    <!-- Hero ------------------------------------------------>
-    <section class="hero">
-      <h1>Emotions Based Learning & Development</h1>
-      <p>Willonski Lab developed a human centred framework for learning in the workplace.</p>
-
-      <!-- direct link to the PDF -->
-      <a class="cta-button"
-         href="https://docs.google.com/forms/d/e/1FAIpQLSfcjOrPwBgzxBeFiMfkG-lQ5kZPeiy-d8uT0mGfKqGVFFLybg/viewform?usp=dialog"
-         target="_blank" rel="noopener">
-         Join the waitlist →
-      </a>
-    </section>
-
-    <!-- Focus Areas ---------------------------------------->
-    <section class="section">
-      <h2>Our Focus Areas</h2>
-    
-      <div class="cards">
-        <!-- card 1 -->
-        <div class="card">
-          <img src="/pic/willonski-thumbnail-tree.jpg"
-               alt="Team celebrating success (non‑judgemental assessment)">
-          <div class="card-content">
-            <h3>Non‑judgemental assessment</h3>
-            <p>Measure if people do their best, not how they rank against others.</p>
-          </div>
-        </div>
-    
-        <!-- card 2 -->
-        <div class="card">
-          <img src="/pic/willonski-thumbnail-rocket.jpg"
-               alt="Dashboards & data intelligence">
-          <div class="card-content">
-            <h3>Data intelligence centred around people</h3>
-            <p>Precise insights that respect emotions yet avoid emotional bias—powered by learnability profiles.</p>
-          </div>
-        </div>
-    
-        <!-- card 3 -->
-        <div class="card">
-          <img src="/pic/willonski-thumbnail-corporate-learning.jpg"
-               alt="Colleagues collaborating and learning together">
-          <div class="card-content">
-            <h3>Collaborative learning</h3>
-            <p>Trigger powerful learning experiences tailored to each learnability profile.</p>
-          </div>
+  <!-- Hero -->
+  <section class="hero" role="banner">
+    <div class="wrap hero-inner">
+      <div>
+        <div class="kicker">Emotions × Learning</div>
+        <h1>Emotions Based Learning & Development</h1>
+        <p class="lead">Willonski Lab developed a human-centred framework for learning in the workplace.</p>
+        <div class="cta-row">
+          <a class="btn"
+             href="https://docs.google.com/forms/d/e/1FAIpQLSfcjOrPwBgzxBeFiMfkG-lQ5kZPeiy-d8uT0mGfKqGVFFLybg/viewform?usp=dialog"
+             target="_blank" rel="noopener">Join the waitlist →</a>
+          <a class="btn secondary"
+             href="/posts/naming-emotions-in-the-corporate-workplace-as-a-way-to-measure-learnability.pdf"
+             target="_blank" rel="noopener">Read the paper</a>
         </div>
       </div>
-    </section>
+      <aside class="hero-card" aria-label="Highlights">
+        <span class="eyebrow">Highlights</span>
+        <h3>What we’re building</h3>
+        <ul class="hero-list">
+          <li>Non-judgemental assessment & learnability profiles</li>
+          <li>People-centred data intelligence without emotional bias</li>
+          <li>Collaborative learning tailored to each profile</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
 
-    <!-- Featured Content ----------------------------------->
-    <section class="featured-content">
-      <h2>Featured Research</h2>
-
-      <div class="featured-article">
-        <h3>The NECP Framework as a Way to Measure Digital Literacy</h3>
-        <p>Our groundbreaking research introduces a new framework for measuring digital literacy through emotional responses. By understanding how individuals name and process emotions while engaging with technology, we can better assess their digital competence and adaptability.</p>
-        <p>This framework provides organizations with a novel approach to evaluating employees' digital readiness and designing more effective training programs.</p>
-        <a href="/posts/the-named-emotion-ne-framework-as-a-way-to-measure-the-digital-literacy/"
-           target="_blank">Read the full article →</a>
-      </div>
-
-      <div class="featured-article">
-        <h3>Use of AI and emotions to create effective learning environment</h3>
-        <p>This research introduces the concept of Emotions Based Collaborative Prompting
-          (EBCP) as a response to the need for unified learning environment in the corporate workplace.</p>
-        <a href="/posts/EBCP.pdf"
-           target="_blank">Read the full article →</a>
-      </div>
-
-      <div class="featured-article">
-        <h3>Pilot Leaflet </h3>
-        <p> This short report explores the why behind employing emotions in the corporate assessments.</p>
-        <a href="/posts/leaflet.pdf"
-           target="_blank">Read the full article →</a>
+  <main id="main">
+    <!-- Focus Areas -->
+    <section id="focus" class="section">
+      <div class="wrap">
+        <h2>Our Focus Areas</h2>
+        <div class="grid-3" style="margin-top:18px">
+          <!-- card 1 -->
+          <article class="card">
+            <img src="/pic/willonski-thumbnail-tree.jpg" alt="Team celebrating success (non-judgemental assessment)">
+            <div class="card-body">
+              <span class="eyebrow">Assessment</span>
+              <h3>Non-judgemental assessment</h3>
+              <p>Measure if people do their best, not how they rank against others.</p>
+            </div>
+          </article>
+          <!-- card 2 -->
+          <article class="card">
+            <img src="/pic/willonski-thumbnail-rocket.jpg" alt="Dashboards & data intelligence">
+            <div class="card-body">
+              <span class="eyebrow">Intelligence</span>
+              <h3>Data intelligence centred around people</h3>
+              <p>Precise insights that respect emotions yet avoid emotional bias—powered by learnability profiles.</p>
+            </div>
+          </article>
+          <!-- card 3 -->
+          <article class="card">
+            <img src="/pic/willonski-thumbnail-corporate-learning.jpg" alt="Colleagues collaborating and learning together">
+            <div class="card-body">
+              <span class="eyebrow">Learning</span>
+              <h3>Collaborative learning</h3>
+              <p>Trigger powerful learning experiences tailored to each learnability profile.</p>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- Join Pilot ----------------------------------------->
-    <section id="join-pilot" class="join-pilot">
-      <h2>Join Pilot Waitlist</h2>
-      <p>We're inviting organizations and individuals to participate in our latest research initiatives. By joining our pilot program, you'll gain early access to our innovative tools and frameworks while contributing to the advancement of human learning and development.</p>
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcjOrPwBgzxBeFiMfkG-lQ5kZPeiy-d8uT0mGfKqGVFFLybg/viewform?usp=dialog" class="cta-button">Join the Pilot</a>
+    <!-- Featured Research -->
+    <section id="featured" class="section">
+      <div class="wrap">
+        <h2>Featured Research</h2>
+
+        <article class="card">
+          <div class="card-body">
+            <h3 class="serif">The NECP Framework as a Way to Measure Digital Literacy</h3>
+            <p>Our research introduces a framework for measuring digital literacy through emotional responses during technology use—informing training and readiness.</p>
+            <p><a class="tag" href="/posts/the-named-emotion-ne-framework-as-a-way-to-measure-the-digital-literacy/" target="_blank" rel="noopener">Read the full article →</a></p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <h3 class="serif">Use of AI and emotions to create effective learning environment</h3>
+            <p>Introducing Emotions Based Collaborative Prompting (EBCP) for unified workplace learning environments.</p>
+            <p><a class="tag" href="/posts/EBCP.pdf" target="_blank" rel="noopener">Read the full article →</a></p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <h3 class="serif">Pilot Leaflet</h3>
+            <p>A short report on why to employ emotions in corporate assessments.</p>
+            <p><a class="tag" href="/posts/leaflet.pdf" target="_blank" rel="noopener">Read the full article →</a></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Join Pilot -->
+    <section id="join" class="section">
+      <div class="wrap">
+        <h2>Join Pilot Waitlist</h2>
+        <p class="tiny">Participate in our latest research initiatives. Get early access to tools and frameworks and help advance human learning and development.</p>
+        <p>
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfcjOrPwBgzxBeFiMfkG-lQ5kZPeiy-d8uT0mGfKqGVFFLybg/viewform?usp=dialog" target="_blank" rel="noopener">
+            Join the Pilot
+          </a>
+        </p>
+      </div>
     </section>
   </main>
 
-  <!--‑‑‑ Footer ‑‑‑-->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-column">
-        <h3>Willonski Lab</h3>
-        <ul>
-          <li><a href="https://www.linkedin.com/company/willonski/">About Us</a></li>
-          <li><a href="/posts/naming-emotions-in-the-corporate-workplace-as-a-way-to-measure-learnability.pdf">Research</a></li>
-          <li><a href=""></a>2025 Willonski Lab.</li>
-        </ul>
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="wrap foot">
+      <div>
+        <h3 class="serif" style="margin:.2rem 0;">Willonski Lab</h3>
+        <p class="tiny">Emotions × Learning × Development</p>
+        <div class="social">
+          <a class="tag" href="mailto:Artur@willonski.com" aria-label="Email">Email</a>
+          <a class="tag" href="https://www.linkedin.com/company/willonski/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+          <a class="tag" href="/posts/naming-emotions-in-the-corporate-workplace-as-a-way-to-measure-learnability.pdf" aria-label="Research">Research</a>
+        </div>
       </div>
-
-      <div class="footer-column">
-        <h3>Resources</h3>
-        <ul>
-          <li><a href="/posts/leaflet.pdf">Implementation leaflet</a></li>
-          <li><a href="https://www.willonski.com/posts/naming-emotions-in-the-corporate-workplace-as-a-way-to-measure-learnability.pdf">White Papers</a></li>
-        </ul>
+      <div>
+        <strong class="tiny">Resources</strong>
+        <nav class="tiny" aria-label="Footer menu">
+          <p><a href="/posts/leaflet.pdf">Implementation leaflet</a></p>
+          <p><a href="https://www.willonski.com/posts/naming-emotions-in-the-corporate-workplace-as-a-way-to-measure-learnability.pdf">White Papers</a></p>
+        </nav>
       </div>
-
-      <div class="footer-column">
-        <h3>Connect</h3>
-        <ul>
-          <li><a href="#">Artur@willonski.com</a></li>
-          <li><a href="https://www.linkedin.com/company/willonski/">LinkedIn</a></li>
-        </ul>
+      <div>
+        <strong class="tiny">Contact</strong>
+        <p class="tiny">Warsaw, PL · Remote-friendly</p>
+        <p class="tiny"><a href="mailto:Artur@willonski.com">Artur@willonski.com</a></p>
       </div>
     </div>
-
+    <div class="wrap" style="margin-top:10px">
+      <p class="tiny">© <span id="y"></span> Willonski Lab • Lightweight, accessible HTML/CSS.</p>
+    </div>
   </footer>
+
+  <script>
+    // Mobile menu
+    const ham = document.querySelector('.ham');
+    const mob = document.getElementById('mobile-menu');
+    if (ham && mob){
+      ham.addEventListener('click', () => {
+        const open = mob.classList.toggle('open');
+        mob.hidden = !open;
+        ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
