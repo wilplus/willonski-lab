@@ -191,89 +191,55 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover}
   .hero{padding:56px 0 56px;}
 }
 
-/* ----------------------------------o nas section---------------------------------------- */
+/* ----------------------------------o nas section + LOGOS---------------------------------------- */
 
-/* --- About / Team --- */
-.about-title{ margin:0 0 .5rem 0; font-size:clamp(1.8rem,3.2vw,2.4rem); }
-.about-lead{ color:var(--muted); max-width:70ch; margin:0 0 1.6rem 0; }
+/* ===== TRUSTED PAGE (Z kim współ-pracujemy?) ========================= */
 
-.team-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:40px 48px;
-  align-items:start;
-}
-@media (max-width:900px){ .team-grid{ grid-template-columns:1fr; } }
-
-.ar-4x3{ aspect-ratio:4/3; }
-.team-media{
-  border-radius:16px;
-  overflow:hidden;
-  border:1px solid var(--line);
-}
-.team-media img{ width:100%; height:100%; object-fit:cover; display:block; }
-
-.team-caption{
-  margin:0px;
-  color:var(--muted);
-  font-size:0.95rem;
-  line-height:1.6;
-}
-
-/* CTA centered */
-.about-cta{ text-align:center; margin-top:28px; }
-.btn-gold{
-  background:#FFB800;
-  color:#0b1220;
-  font-weight:700;
-  text-decoration:none;
-  padding:.8rem 1.4rem;
-  border-radius:.8rem;
-  display:inline-flex; align-items:center; justify-content:center;
-  border:1px solid color-mix(in srgb, #FFB800 70%, #000);
-  transition:transform .12s ease, filter .2s ease;
-}
-.btn-gold:hover{ transform:translateY(-1px); filter:brightness(0.95); }
-
-/* ----------------------------------trusted byyyy---------------------------------------- */
-
-/* ===== TRUSTED PAGE ================================================= */
+/* --- Hero --- */
 .trusted-hero {
   background: #ffffff;
   padding: 72px 0 24px;
-  border-bottom: 1px solid var(--line);
+  text-align: center;
 }
-.trusted-wrap { max-width: 1080px; margin-inline: auto; padding-inline: 20px; }
-
+.trusted-wrap {
+  max-width: 1080px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
 .trusted-title {
-  margin: 0 0 .5rem 0;
+  margin-bottom: 0.5rem;
+  font-family: "Playfair Display", serif;
   font-weight: 700;
   font-size: clamp(2rem, 4vw, 3rem);
   color: var(--ink);
-  text-align: center;
 }
 .trusted-lead {
-  margin: 0 auto;
   color: var(--muted);
   font-size: clamp(1rem, 1.6vw, 1.125rem);
   max-width: 70ch;
-  text-align: center;
+  margin-inline: auto;
 }
 
-/* === 3 COLUMNS ====================================================== */
-.trusted { background: #ffffff; }
+/* --- Audience Cards --- */
+.trusted {
+  background: #ffffff;
+}
 .audiences-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 32px;
 }
-@media (max-width: 980px) { .audiences-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 640px) { .audiences-grid { grid-template-columns: 1fr; } }
+@media (max-width: 980px) {
+  .audiences-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .audiences-grid { grid-template-columns: 1fr; }
+}
 
 .aud-card {
   background: var(--card);
-  border: 0px solid var(--line);
+  border: 1px solid var(--line);
   border-radius: 16px;
   padding: 28px 20px;
   box-shadow: var(--shadow);
@@ -287,10 +253,12 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover}
   box-shadow: 0 10px 24px rgba(2,6,23,.12);
 }
 .aud-icon {
-  width: 44px; height: 44px;
-  display: grid; place-items: center;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
   border-radius: 12px;
-  border: 0px solid var(--line);
+  border: 1px solid var(--line);
   background: linear-gradient(180deg, color-mix(in srgb, var(--brand) 12%, transparent), transparent);
   color: var(--brand);
   font-size: 22px;
@@ -308,7 +276,7 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover}
   line-height: 1.6;
 }
 
-/* CTA button */
+/* --- CTA --- */
 .trusted-cta {
   text-align: center;
   margin-top: 36px;
@@ -331,11 +299,10 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover}
   transform: translateY(-2px);
 }
 
-/* ===== PARTNERS SECTION ============================================= */
+/* ===== PARTNERS (LOGOS) SECTION ===================================== */
 .partners {
   background: #ffffff;
   padding: 80px 0;
-
 }
 .partners-title {
   text-align: center;
@@ -344,6 +311,8 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover}
   color: var(--ink);
   font-weight: 700;
 }
+
+/* --- Logo grid --- */
 .partners-logos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -353,6 +322,8 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover}
   max-width: 1100px;
   margin: 0 auto;
 }
+
+/* --- Logos --- */
 .partners-logos img {
   height: 65px;
   width: auto;
@@ -371,6 +342,8 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover}
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
+
+/* --- Responsive tweaks --- */
 @media (max-width: 900px) {
   .partners-logos { gap: 32px; }
   .partners-logos img { height: 55px; padding: 8px 10px; }
