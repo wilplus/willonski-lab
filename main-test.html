@@ -10,9 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css" />
 </head>
-
 <body>
-  <!-- ====== FIXED NAVBAR ====== -->
+  <!-- NAV -->
   <header class="site-nav" role="navigation" aria-label="Primary">
     <div class="nav-wrap">
       <a class="brand" href="/">Willonski Lab</a>
@@ -26,9 +25,10 @@
 
       <div class="right">
         <a class="news" href="/news">News</a>
+        <a class="btn-ghost" href="/blog">Przeglądaj</a>
         <button class="lang" aria-label="Zmień język">PL</button>
         <button class="ham" aria-label="Otwórz menu">
-          <svg width="24" height="24" viewBox="0 0 24 24">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </button>
@@ -45,30 +45,37 @@
     </div>
   </header>
 
-  <!-- ====== MAIN CONTENT ====== -->
   <main style="padding-top: var(--nav-height);">
-    <!-- Hero section -->
-    <section class="hero">
-      <div class="hero-wrap">
-        <p class="kicker">Willoński Lab  •  News</p>
-        <h1>Znajdź swój rytm</h1>
-        <p class="lede">
-          Twój mózg ma 2 miliony lat. Rozwój, który znamy dziś, zaczął się zaledwie 250 lat temu.
-          To normalne, że czasem nie nadążasz.
-        </p>
+    <!-- HERO 2-COLUMN: image left, text right -->
+    <section class="hero home-hero">
+      <div class="hero-wrap grid-2">
+        <figure class="hero-media">
+          <img src="/media/hero/example.jpg" alt="Fotografia natury — metafora spokoju i regulacji emocji">
+        </figure>
+
+        <div class="hero-copy">
+          <p class="hero-strong">
+            <strong>Twój mózg ma 2 miliony lat. Rozwój, który znamy dziś, zaczął się zaledwie 250 lat temu. To normalne, że czasem nie nadążasz.</strong>
+          </p>
+          <p class="hero-small">Znajdź swój rytm</p>
+
+          <div class="cta-row">
+            <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfcjOrPwBgzxBeFiMfkG-lQ5kZPeiy-d8uT0mGfKqGVFFLybg/viewform?usp=dialog" target="_blank" rel="noopener">Dołącz do pilotażu</a>
+            <a class="btn secondary" href="/blog">Zobacz blog</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- ====== JS SCRIPTS ====== -->
+  <!-- JS -->
   <script>
     // Shrink navbar by 10px on scroll
     (function(){
       const nav = document.querySelector('.site-nav');
       const onScroll = () => {
         const y = window.scrollY || document.documentElement.scrollTop;
-        if (y > 4 && !nav.classList.contains('shrink')) nav.classList.add('shrink');
-        if (y <= 4 && nav.classList.contains('shrink')) nav.classList.remove('shrink');
+        if (y > 4) nav.classList.add('shrink'); else nav.classList.remove('shrink');
       };
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
