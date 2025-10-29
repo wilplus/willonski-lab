@@ -1,0 +1,65 @@
+{
+  "hero": {
+    "kicker": "Emotions × Learning",
+    "title": "Emotions Based Learning & Development",
+    "lead": "Willonski Lab developed a human-centred framework for learning in the workplace.",
+    "cta_primary_text": "Join the waitlist →",
+    "cta_primary_url": "https://docs.google.com/forms/d/e/1FAIpQLSfcjOrPwBgzxBeFiMfkG-lQ5kZPeiy-d8uT0mGfKqGVFFLybg/viewform?usp=dialog",
+    "cta_secondary_text": "Read the paper",
+    "cta_secondary_url": "/posts/naming-emotions-in-the-corporate-workplace-as-a-way-to-measure-learnability.pdf"
+  },
+  "focus": [
+    {
+      "eyebrow": "Assessment",
+      "title": "Non-judgemental assessment",
+      "text": "Measure if people do their best, not how they rank against others.",
+      "img": "/pic/willonski-thumbnail-tree.jpg",
+      "alt": "Team celebrating success"
+    },
+    {
+      "eyebrow": "Intelligence",
+      "title": "Data intelligence centred around people",
+      "text": "Precise insights that respect emotions yet avoid emotional bias—powered by learnability profiles.",
+      "img": "/pic/willonski-thumbnail-rocket.jpg",
+      "alt": "Dashboards & data intelligence"
+    },
+    {
+      "eyebrow": "Learning",
+      "title": "Collaborative learning",
+      "text": "Trigger powerful learning experiences tailored to each learnability profile.",
+      "img": "/pic/willonski-thumbnail-corporate-learning.jpg",
+      "alt": "Colleagues collaborating"
+    }
+  ],
+  "featured": [
+    {
+      "title": "The NECP Framework as a Way to Measure Digital Literacy",
+      "text": "Framework for measuring digital literacy through emotional responses.",
+      "url": "/posts/the-named-emotion-ne-framework-as-a-way-to-measure-the-digital-literacy/"
+    },
+    {
+      "title": "Use of AI and emotions to create effective learning environment",
+      "text": "EBCP for unified workplace learning environments.",
+      "url": "/posts/EBCP.pdf"
+    },
+    {
+      "title": "Pilot Leaflet",
+      "text": "Why employ emotions in corporate assessments.",
+      "url": "/posts/leaflet.pdf"
+    }
+  ],
+  "blog": {
+    "eyebrow": "Blog",
+    "title": "Publikacje oraz kampanie edukacyjne",
+    "featured": {
+      "title": "The NECP Framework as a Way to Measure Digital Literacy",
+      "lead": "Our research introduces a framework for measuring digital literacy through emotional responses during technology use—informing training and readiness.",
+      "cta_text": "Przejdź na bloga",
+      "cta_url": "/blog"
+    }
+  },
+  "footer": {
+    "email": "Artur@willonski.com",
+    "linkedin": "https://www.linkedin.com/company/willonski/"
+  }
+}

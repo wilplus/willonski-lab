@@ -1,32 +1,19 @@
-/* ───────── Tokens (reference-style) ───────── */
+/* === Tokens (light/dark) ======================================= */
 :root{
-  --bg:#ffffff;
-  --ink:#0f172a;         /* slate-900 */
-  --muted:#475569;       /* slate-600 */
-  --line:#e2e8f0;        /* slate-200 */
-  --brand:#466d7c;       /* muted teal/blue */
-  --brand-ink:#114052;
-  --accent:#7aa3b3;
-  --card:#f8fafc;        /* slate-50 */
-  --focus:#94d2ff;
+  --bg:#ffffff; --ink:#0f172a; --muted:#475569; --line:#e2e8f0;
+  --brand:#466d7c; --brand-ink:#114052; --accent:#7aa3b3;
+  --card:#f8fafc; --focus:#94d2ff;
   --shadow: 0 8px 28px rgba(2,6,23,.08);
 }
-
 @media (prefers-color-scheme: dark){
   :root{
-    --bg:#0b1220;
-    --ink:#e7eefc;
-    --muted:#a5b4c7;
-    --line:#1f2a44;
-    --brand:#7fb8c7;
-    --brand-ink:#c6e7f1;
-    --accent:#98cfe0;
-    --card:#111b2e;
-    --shadow: 0 8px 28px rgba(0,0,0,.5);
+    --bg:#0b1220; --ink:#e7eefc; --muted:#a5b4c7; --line:#1f2a44;
+    --brand:#7fb8c7; --brand-ink:#c6e7f1; --accent:#98cfe0;
+    --card:#111b2e; --shadow: 0 8px 28px rgba(0,0,0,.5);
   }
 }
 
-/* Base */
+/* === Base ======================================================= */
 *{box-sizing:border-box}
 html,body{margin:0}
 body{
@@ -34,12 +21,10 @@ body{
   color:var(--ink); background:var(--bg); line-height:1.65;
   -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
-img{max-width:100%; height:auto}
 a{color:var(--brand); text-decoration:none}
-a:hover, a:focus{text-decoration:underline}
+a:hover,a:focus{text-decoration:underline}
+img{max-width:100%; height:auto}
 .serif{font-family:"Playfair Display",serif}
-
-/* Layout helpers */
 .wrap{max-width:1080px; margin-inline:auto; padding-inline:20px}
 section{scroll-margin-top:96px}
 .section{padding:64px 0; border-bottom:1px solid var(--line)}
@@ -49,12 +34,10 @@ section{scroll-margin-top:96px}
 .eyebrow{color:var(--brand); font-weight:600; text-transform:uppercase; letter-spacing:.08em; font-size:.75rem}
 
 /* Skip link */
-.skip{
-  position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
-}
+.skip{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;}
 .skip:focus{left:16px; top:16px; width:auto; height:auto; background:#fff; color:#000; padding:.5rem .75rem; border-radius:.5rem; outline:3px solid var(--focus); z-index:9999}
 
-/* Header (sticky, translucent) */
+/* Header */
 header.site{
   position:sticky; top:0; z-index:50;
   background:color-mix(in srgb, var(--bg) 85%, transparent);
@@ -62,10 +45,7 @@ header.site{
   border-bottom:1px solid var(--line);
 }
 .nav{display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:64px}
-.brand{
-  font-family:"Playfair Display",serif; font-weight:700; letter-spacing:.3px; color:var(--brand-ink);
-  font-size:1.125rem;
-}
+.brand{font-family:"Playfair Display",serif; font-weight:700; letter-spacing:.3px; color:var(--brand-ink); font-size:1.125rem;}
 .menu{display:flex; gap:22px; align-items:center}
 .menu a{color:var(--muted); font-weight:500}
 .menu a[aria-current="page"]{color:var(--brand); text-underline-offset:4px}
@@ -79,7 +59,7 @@ header.site{
   .mobile a{padding:.6rem 0; color:var(--muted); font-weight:500}
 }
 
-/* Hero with abstract gradients */
+/* Hero */
 .hero{position:relative; overflow:hidden; border-bottom:1px solid var(--line)}
 .hero::before{
   content:""; position:absolute; inset:0;
@@ -104,85 +84,43 @@ h1{font-family:"Playfair Display",serif; font-weight:700; margin:.4rem 0 1rem; l
 .btn:hover{transform:translateY(-1px)}
 .btn.secondary{background:transparent; color:var(--brand); border-color:var(--line)}
 
-/* Hero card */
-.hero-card{
-  background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px; box-shadow:var(--shadow)
-}
-.hero-card h3{margin:.2rem 0 .4rem; font-family:"Playfair Display",serif}
-.hero-list{margin:0; padding-left:20px; color:var(--muted)}
-
-/* Grids & cards */
+/* Cards & grids */
 .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:22px}
 @media (max-width:930px){.grid-3{grid-template-columns:1fr}}
-
-.card{
-  background:var(--card); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); overflow:hidden;
-}
-.card img{
-  width:100%; aspect-ratio:16/10; object-fit:cover; display:block; border-bottom:1px solid var(--line);
-}
+.card{background:var(--card); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); overflow:hidden}
+.card img{width:100%; aspect-ratio:16/10; object-fit:cover; display:block; border-bottom:1px solid var(--line)}
 .card-body{padding:18px}
 .card h3{margin:.25rem 0 .5rem; font-family:"Playfair Display",serif}
 .card p{color:var(--muted)}
-
-/* Tags / pills */
-.tag{
-  display:inline-block; padding:.2rem .55rem; border:1px solid var(--line); border-radius:.6rem; color:var(--muted); font-size:.85rem
-}
+.tag{display:inline-block; padding:.2rem .55rem; border:1px solid var(--line); border-radius:.6rem; color:var(--muted); font-size:.85rem}
 
 /* Footer */
-footer{
-  padding:44px 0;
-  background:linear-gradient(180deg, color-mix(in srgb, var(--brand) 10%, transparent), transparent);
-  border-top:1px solid var(--line);
-}
+footer{padding:44px 0; background:linear-gradient(180deg, color-mix(in srgb, var(--brand) 10%, transparent), transparent); border-top:1px solid var(--line)}
 .foot{display:grid; grid-template-columns:2fr 1fr 1fr; gap:22px}
 @media (max-width:930px){.foot{grid-template-columns:1fr}}
 .social{display:flex; gap:14px; margin-top:10px}
 
-/* Make default images responsive and links comfy on touch */
-@media (hover:none){
-  a{padding:.1rem 0}
-}
+/* === Blog section ============================================== */
+.blog-head { margin-bottom: 10px; }
+.blog-head .eyebrow { display:inline-block; margin-bottom:6px; }
+.blog-card{ background:var(--card); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); overflow:hidden; }
+.blog-card-body{ padding:22px; }
+.blog-card h3{ margin:.2rem 0 .6rem; font-size:clamp(1.25rem,2.1vw,1.6rem); }
+.blog-lead{ color:var(--muted); max-width:70ch; margin-bottom:16px; }
+#blog.section{ border-bottom:1px solid var(--line); }
 
-/* --- Media grid -------------------------------------------------- */
-.media-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
+/* === Media grid (Latest) ======================================= */
+.media-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
 @media (max-width:930px){ .media-grid{grid-template-columns:1fr 1fr} }
 @media (max-width:600px){ .media-grid{grid-template-columns:1fr} }
-
-.media-card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:14px;
-  overflow:hidden;
-  box-shadow:var(--shadow);
-}
-.media-card .meta{padding:10px 12px}
-.media-card .title{font-family:"Playfair Display",serif; font-size:1.02rem}
-
-/* Aspect helpers */
-.ar-9x16{ aspect-ratio:9/16; }
-.ar-1x1 { aspect-ratio:1/1; }
-.media-card img, .media-card video{
-  width:100%; height:100%; object-fit:cover; display:block;
-}
+.media-card{ background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:var(--shadow); }
+.media-card .meta{ padding:10px 12px; }
+.media-card .title{ font-family:"Playfair Display",serif; font-size:1.02rem; }
+.ar-9x16{ aspect-ratio:9/16; } .ar-1x1{ aspect-ratio:1/1; }
+.media-card img, .media-card video{ width:100%; height:100%; object-fit:cover; display:block; }
 
 /* Lightbox */
-.lightbox{
-  position:fixed; inset:0; background:rgba(0,0,0,.6);
-  display:grid; place-items:center; z-index:1000;
-}
-.lb-body{
-  width:min(95vw, 900px); height:min(85vh, 800px);
-  background:var(--bg); border-radius:12px; overflow:hidden;
-  border:1px solid var(--line); box-shadow:var(--shadow);
-}
-.lb-close{
-  position:absolute; top:14px; right:18px; background:#0000; border:0;
-  font-size:2rem; color:#fff; cursor:pointer;
-}
-.lb-iframe{width:100%; height:100%; border:0}
+.lightbox{ position:fixed; inset:0; background:rgba(0,0,0,.6); display:grid; place-items:center; z-index:1000; }
+.lb-body{ width:min(95vw, 900px); height:min(85vh, 800px); background:var(--bg); border-radius:12px; overflow:hidden; border:1px solid var(--line); box-shadow:var(--shadow); }
+.lb-close{ position:absolute; top:14px; right:18px; background:#0000; border:0; font-size:2rem; color:#fff; cursor:pointer; }
+.lb-iframe{ width:100%; height:100%; border:0; }
