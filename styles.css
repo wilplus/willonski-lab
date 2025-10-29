@@ -448,3 +448,17 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover}
   color: var(--muted);
   font-size: 0.9rem;
 }
+/* Link to source */
+.testimonial-link {
+  margin-top: 16px;
+  align-self: flex-start;
+  color: var(--brand);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color .2s ease, transform .1s ease;
+}
+.testimonial-link:hover {
+  color: #FF7061;
+  transform: translateX(2px);
+}
