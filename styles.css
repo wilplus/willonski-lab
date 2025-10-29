@@ -105,3 +105,73 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover}
   .section{padding:40px 0}
   .post-title{font-size:1.08rem}
 }
+
+:root{
+  /* base */
+  --ink:#0f172a; --muted:#475569; --bg:#ffffff; --line:#e2e8f0;
+  --brand:#466d7c; --card:#f8fafc;
+  /* nav sizing */
+  --nav-height: 72px;          /* initial height */
+  --nav-height-shrink: 62px;   /* shrunk by exactly 10px */
+}
+
+.site-nav{
+  position: fixed; inset: 0 0 auto 0; z-index: 1000;
+  backdrop-filter: saturate(160%) blur(10px);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  border-bottom: 1px solid var(--line);
+  transition: height .18s ease, padding .18s ease, background .18s ease, border-color .18s ease;
+  height: var(--nav-height);
+}
+
+.site-nav.shrink{
+  height: var(--nav-height-shrink);
+  background: color-mix(in srgb, var(--bg) 95%, transparent);
+}
+
+.nav-wrap{
+  max-width: 1080px; margin-inline: auto;
+  height: 100%;
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px;
+  padding-inline: 20px;
+}
+
+.brand{
+  font-family: "Playfair Display", serif;
+  font-weight: 700; letter-spacing: .2px; color: var(--ink); text-decoration: none;
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+}
+
+.links{display:flex; gap:22px; align-items:center}
+.links a{color:var(--muted); text-decoration:none; font-weight:600}
+.links a:hover{text-decoration:underline}
+
+.right{display:flex; gap:14px; align-items:center}
+.news{color:var(--brand); text-decoration:none; font-weight:600}
+.lang, .ham{background:none; border:1px solid var(--line); border-radius:10px; padding:.4rem .55rem; cursor:pointer}
+.ham{display:none}
+
+@media (max-width:930px){
+  .links{display:none}
+  .ham{display:inline-flex}
+}
+
+/* mobile dropdown */
+.mobile{border-top:1px solid var(--line); background:var(--bg)}
+.mobile a{display:block; padding:.7rem 20px; color:var(--muted); text-decoration:none; font-weight:600}
+.mobile a:hover{background:var(--card)}
+
+/* hero example */
+.hero{padding: min(8vh,80px) 0 72px}
+.hero-wrap{max-width:1080px; margin-inline:auto; padding-inline:20px}
+.kicker{color:var(--brand); font-weight:700; letter-spacing:.05em; text-transform:uppercase; font-size:.8rem}
+.hero h1{
+  font-family:"Playfair Display",serif; font-weight:700;
+  font-size: clamp(2rem, 5vw, 3rem); line-height:1.12; margin:.35rem 0 .6rem;
+}
+.lede{color:var(--muted); font-size:1.05rem; max-width: 68ch}
+
+/* account for fixed nav on small screens too */
+@media (max-width:600px){
+  :root{ --nav-height: 64px; --nav-height-shrink: 54px; } /* still 10px diff */
+}
