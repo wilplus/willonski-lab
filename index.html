@@ -17,54 +17,95 @@
         <span class="eyebrow">Blog</span>
         <h1 class="serif">Publikacje oraz kampanie edukacyjne</h1>
 
-        <!-- Grid with 3 formats -->
-        <div class="post-grid">
-          
-          <!-- ============== REEL (9:16) ============== -->
-          <article class="post post--reel">
-            <a class="media ar-9x16" href="#" aria-label="Tytuł wpisu (reel)">
-              <!-- Use <video> or <img>; keep 9:16 -->
-              <img src="/media/placeholders/reel-9x16.jpg" alt="Okładka reel 9:16">
-            </a>
-            <div class="post-body">
-              <div class="post-tag">Reel</div>
-              <h2 class="post-title serif"><a href="#">Emotion #01 — Awe</a></h2>
-              <p class="post-excerpt">Krótka zajawka wideo (9:16). Idealne pod relacje/shorty.</p>
-              <div class="post-meta">29.10.2025</div>
-            </div>
-          </article>
-
-          <!-- ============== SQUARE (1:1) ============== -->
-          <article class="post post--square">
-            <a class="media ar-1x1" href="#" aria-label="Tytuł wpisu (square)">
-              <img src="/media/placeholders/square-1x1.jpg" alt="Grafika 1:1">
-            </a>
-            <div class="post-body">
-              <div class="post-tag">Post 1:1</div>
-              <h2 class="post-title serif"><a href="#">How to Use Emotion Wheels with Kids</a></h2>
-              <p class="post-excerpt">Instrukcja 10-minutowej praktyki budującej granularity.</p>
-              <div class="post-meta">26.10.2025</div>
-            </div>
-          </article>
-
-          <!-- ============== RESEARCH (FULL) ============== -->
-          <article class="post post--research post--full">
-            <a class="media ar-16x9" href="/posts/leaflet.pdf" aria-label="Pełny artykuł badawczy">
-              <img src="/media/placeholders/research-16x9.jpg" alt="Okładka artykułu badawczego">
-            </a>
-            <div class="post-body">
-              <div class="post-tag">Research</div>
-              <h2 class="post-title serif"><a href="/posts/leaflet.pdf">EBCP: Pilot Leaflet</a></h2>
-              <p class="post-excerpt">Dlaczego emocje należą do zestawu narzędzi oceny i uczenia w organizacji.</p>
-              <div class="post-meta">15.10.2025</div>
-            </div>
-          </article>
-
-          <!-- Duplicate the above blocks (reel / square / research) as needed -->
-
-        </div>
+        <!-- 👇 Dynamic grid (auto-filled by blog.json) -->
+        <div class="post-grid" id="post-grid" aria-live="polite"></div>
       </div>
     </section>
   </main>
+
+  <!-- 👇 Script that sources /content/blog.json -->
+  <script>
+  (async () => {
+    const grid = document.getElementById('post-grid');
+    if (!grid) return;
+
+    // --- Fetch the blog data
+    let posts = [];
+    try {
+      const res = await fetch('/content/blog.json', { cache: 'no-store' });
+      if (res.ok) posts = await res.json();
+    } catch (err) {
+      console.warn('Could not load blog.json', err);
+    }
+
+    // --- Sort newest first
+    posts.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+    // --- Helper functions
+    const esc = s => String(s || '').replace(/[&<>"']/g, m => (
+      { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[m]
+    ));
+    const fmtDate = d => {
+      try { return new Date(d).toLocaleDateString('pl-PL'); } catch { return d || ''; }
+    };
+
+    // --- Templates by type
+    const cardReel = p => {
+      const media = p.video
+        ? `<a class="media ar-9x16" href="${esc(p.url)}" aria-label="${esc(p.aria)}">
+             <video preload="metadata" poster="${esc(p.cover)}" muted playsinline>
+               <source src="${esc(p.video)}" type="video/mp4">
+             </video>
+           </a>`
+        : `<a class="media ar-9x16" href="${esc(p.url)}" aria-label="${esc(p.aria)}">
+             <img src="${esc(p.cover)}" alt="${esc(p.title)}" loading="lazy">
+           </a>`;
+      return `
+        <article class="post post--reel">
+          ${media}
+          <div class="post-body">
+            ${p.tag ? `<div class="post-tag">${esc(p.tag)}</div>` : ''}
+            <h2 class="post-title serif"><a href="${esc(p.url)}">${esc(p.title)}</a></h2>
+            ${p.excerpt ? `<p class="post-excerpt">${esc(p.excerpt)}</p>` : ''}
+            <div class="post-meta">${fmtDate(p.date)}</div>
+          </div>
+        </article>`;
+    };
+
+    const cardSquare = p => `
+      <article class="post post--square">
+        <a class="media ar-1x1" href="${esc(p.url)}" aria-label="${esc(p.aria)}">
+          <img src="${esc(p.cover)}" alt="${esc(p.title)}" loading="lazy">
+        </a>
+        <div class="post-body">
+          ${p.tag ? `<div class="post-tag">${esc(p.tag)}</div>` : ''}
+          <h2 class="post-title serif"><a href="${esc(p.url)}">${esc(p.title)}</a></h2>
+          ${p.excerpt ? `<p class="post-excerpt">${esc(p.excerpt)}</p>` : ''}
+          <div class="post-meta">${fmtDate(p.date)}</div>
+        </div>
+      </article>`;
+
+    const cardResearch = p => `
+      <article class="post post--research post--full">
+        <a class="media ar-16x9" href="${esc(p.url)}" aria-label="${esc(p.aria)}" target="_self">
+          <img src="${esc(p.cover)}" alt="${esc(p.title)}" loading="lazy">
+        </a>
+        <div class="post-body">
+          ${p.tag ? `<div class="post-tag">${esc(p.tag)}</div>` : ''}
+          <h2 class="post-title serif"><a href="${esc(p.url)}" target="_self">${esc(p.title)}</a></h2>
+          ${p.excerpt ? `<p class="post-excerpt">${esc(p.excerpt)}</p>` : ''}
+          <div class="post-meta">${fmtDate(p.date)}</div>
+        </div>
+      </article>`;
+
+    const byType = { reel: cardReel, square: cardSquare, research: cardResearch };
+
+    // --- Render cards
+    grid.innerHTML = posts
+      .filter(p => ['reel', 'square', 'research'].includes(p.type))
+      .map(p => byType[p.type](p))
+      .join('');
+  })();
+  </script>
 </body>
 </html>
