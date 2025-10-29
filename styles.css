@@ -349,3 +349,102 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover}
   .partners-logos { gap: 24px; }
   .partners-logos img { height: 46px; padding: 6px 8px; }
 }
+
+/* ----------------------------------TESTIMONIALS---------------------------------------- */
+
+/* ===== TESTIMONIALS SECTION ======================================== */
+.testimonials {
+  background: #ffffff;
+  padding: 80px 0 100px;
+}
+
+.testimonials-title {
+  text-align: center;
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  color: var(--ink);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.testimonials-lead {
+  text-align: center;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  max-width: 70ch;
+  margin: 0 auto 3rem;
+}
+
+/* GRID */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 980px) {
+  .testimonials-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
+}
+
+/* CARD */
+.testimonial-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 28px 22px 24px;
+  box-shadow: var(--shadow);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(2,6,23,.12);
+}
+
+/* Quote mark */
+.testimonial-quote {
+  position: absolute;
+  top: -10px;
+  left: 18px;
+  font-size: 70px;
+  color: color-mix(in srgb, var(--brand) 25%, transparent);
+  line-height: 1;
+  font-family: "Playfair Display", serif;
+  user-select: none;
+}
+
+/* Text */
+.testimonial-text {
+  margin-top: 30px;
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.65;
+  flex: 1;
+}
+
+/* Author */
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+.testimonial-author img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--line);
+}
+.testimonial-author strong {
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+.testimonial-author span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
