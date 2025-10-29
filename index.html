@@ -6,12 +6,12 @@
   <title>Willonski Lab</title>
   <meta name="description" content="Emotions-based learning & development by Willonski Lab." />
 
-  <!-- Fonts (same as reference) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- External stylesheet -->
+  <!-- Styles -->
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
@@ -25,6 +25,7 @@
         <a href="/posts/naming-emotions-in-the-corporate-workplace-as-a-way-to-measure-learnability.pdf">Research</a>
         <a href="#focus">Focus</a>
         <a href="#featured">Featured</a>
+        <a href="#updates">Latest</a>
         <a href="#join">Join</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -38,6 +39,7 @@
       <a href="/posts/naming-emotions-in-the-corporate-workplace-as-a-way-to-measure-learnability.pdf">Research</a>
       <a href="#focus">Focus</a>
       <a href="#featured">Featured</a>
+      <a href="#updates">Latest</a>
       <a href="#join">Join</a>
       <a href="#contact">Contact</a>
     </div>
@@ -139,6 +141,20 @@
       </div>
     </section>
 
+    <!-- Latest (Reels 9:16, Squares 1:1, Research full) -->
+    <section id="updates" class="section">
+      <div class="wrap">
+        <h2>Latest</h2>
+        <div class="media-grid" id="media-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- Lightbox for research -->
+    <div id="lb" class="lightbox" hidden>
+      <button class="lb-close" aria-label="Close">×</button>
+      <div class="lb-body" role="dialog" aria-modal="true"></div>
+    </div>
+
     <!-- Join Pilot -->
     <section id="join" class="section">
       <div class="wrap">
@@ -196,6 +212,92 @@
     }
     // Year
     document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Loader for "Latest" (reels/square/research) -->
+  <script>
+  (async () => {
+    const grid = document.getElementById('media-grid');
+    if (!grid) return;
+
+    // Fetch posts.json
+    let posts = [];
+    try {
+      const res = await fetch('/content/posts.json', { cache: 'no-store' });
+      if (res.ok) posts = await res.json();
+    } catch (e) {
+      console.warn('No posts.json found', e);
+    }
+
+    // Render helpers
+    const fmtDate = (d) => d ? new Date(d).toLocaleDateString() : '';
+    const toCard = (p) => {
+      const date = fmtDate(p.date);
+      if (p.type === 'reel') {
+        return `
+          <article class="media-card ar-9x16">
+            <video class="ar-9x16" controls preload="metadata" ${p.poster ? `poster="${p.poster}"` : ''}>
+              <source src="${p.src}" type="video/mp4">
+            </video>
+            <div class="meta">
+              <div class="title">${p.title || ''}</div>
+              <div class="tiny">${date}</div>
+            </div>
+          </article>
+        `;
+      }
+      if (p.type === 'square') {
+        const img = `<img src="${p.src}" alt="${p.alt || ''}" loading="lazy" decoding="async">`;
+        const media = p.link ? `<a href="${p.link}" target="_blank" rel="noopener">${img}</a>` : img;
+        return `
+          <article class="media-card ar-1x1">
+            ${media}
+            <div class="meta">
+              <div class="title">${p.title || ''}</div>
+              <div class="tiny">${date}</div>
+            </div>
+          </article>
+        `;
+      }
+      if (p.type === 'research') {
+        return `
+          <article class="media-card">
+            <button class="ar-1x1 lb-open" data-src="${p.src}" aria-label="Open ${p.title}">
+              <img src="${p.thumb || ''}" alt="${p.alt || ''}" loading="lazy" decoding="async">
+            </button>
+            <div class="meta">
+              <div class="title">${p.title || ''}</div>
+              <div class="tiny">${date}</div>
+            </div>
+          </article>
+        `;
+      }
+      return '';
+    };
+
+    // Sort newest first (optional)
+    posts.sort((a,b) => (b.date || '').localeCompare(a.date || ''));
+    grid.innerHTML = posts.map(toCard).join('');
+
+    // Lightbox
+    const lb = document.getElementById('lb');
+    const body = lb?.querySelector('.lb-body');
+    function openLB(src){
+      lb.hidden = false;
+      const isPdf = src.toLowerCase().endsWith('.pdf');
+      body.innerHTML = isPdf
+        ? `<iframe class="lb-iframe" src="${src}#toolbar=1&view=FitH"></iframe>`
+        : `<img src="${src}" alt="" style="width:100%;height:100%;object-fit:contain">`;
+    }
+    function closeLB(){ lb.hidden = true; body.innerHTML = ''; }
+
+    document.addEventListener('click', (e) => {
+      const openBtn = e.target.closest('.lb-open');
+      if (openBtn) openLB(openBtn.dataset.src);
+      if (e.target.matches('.lb-close') || e.target === lb) closeLB();
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !lb.hidden) closeLB(); });
+  })();
   </script>
 </body>
 </html>

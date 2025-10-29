@@ -1,0 +1,26 @@
+[
+  {
+    "type": "reel",
+    "title": "Emotion #01 — Awe",
+    "src": "/media/reels/awe.mp4",
+    "poster": "/media/reels/awe-poster.jpg",
+    "alt": "Awe reel cover",
+    "date": "2025-10-28"
+  },
+  {
+    "type": "square",
+    "title": "Micro-learning: Naming anger",
+    "src": "/media/square/anger.jpg",
+    "alt": "Anger square post",
+    "link": "https://instagram.com/p/xxxx",
+    "date": "2025-10-26"
+  },
+  {
+    "type": "research",
+    "title": "EBCP: Pilot Leaflet",
+    "src": "/posts/leaflet.pdf",
+    "thumb": "/media/research/leaflet-cover.jpg",
+    "alt": "Leaflet cover",
+    "date": "2025-10-15"
+  }
+]
