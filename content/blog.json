@@ -21,6 +21,48 @@
     "aria": "Czytaj: Emotion Wheels"
   },
     {
+    "type": "square",
+    "title": "How to Use Emotion Wheels with Kids",
+    "date": "2025-10-26",
+    "tag": "Post 1:1",
+    "excerpt": "10-minutowa praktyka budująca granularity.",
+    "url": "/blog/how-to-use-emotion-wheels",
+    "cover": "/media/square/wild-pig.jpg",
+    "aria": "Czytaj: Emotion Wheels"
+  },
+    {
+    "type": "square",
+    "title": "How to Use Emotion Wheels with Kids",
+    "date": "2025-10-26",
+    "tag": "Post 1:1",
+    "excerpt": "10-minutowa praktyka budująca granularity.",
+    "url": "/blog/how-to-use-emotion-wheels",
+    "cover": "/media/square/wild-pig.jpg",
+    "aria": "Czytaj: Emotion Wheels"
+  },
+  {
+    "type": "reel",
+    "title": "Emotion #01 — Awe",
+    "date": "2025-10-29",
+    "tag": "Reel",
+    "excerpt": "Krótka zajawka wideo (9:16).",
+    "url": "/blog/emotion-01-awe",
+    "cover": "/media/reels/awe-poster.jpg",
+    "video": "/media/reels/awe.mp4",
+    "aria": "Odtwórz reel: Awe"
+  },
+    {
+    "type": "reel",
+    "title": "Emotion #01 — Awe",
+    "date": "2025-10-29",
+    "tag": "Reel",
+    "excerpt": "Krótka zajawka wideo (9:16).",
+    "url": "/blog/emotion-01-awe",
+    "cover": "/media/reels/awe-poster.jpg",
+    "video": "/media/reels/awe.mp4",
+    "aria": "Odtwórz reel: Awe"
+  },
+    {
     "type": "reel",
     "title": "Emotion #01 — Awe",
     "date": "2025-10-29",
