@@ -29,5 +29,14 @@
     "url": "/pdfs/leaflet.pdf",
     "cover": "/media/research/leaflet-cover.jpg",
     "aria": "Otwórz: EBCP Pilot Leaflet (PDF)"
+  },
+  {
+    "type": "square",
+    "title": "Emotions",
+    "date": "2020-06-25",
+    "tag": "NEWS",
+    "excerpt": "krótkie streszczenie",
+    "url": "https://www.instagram.com/arturwillonski/",
+    "cover": "/Users/arturwillonski/Documents/willonski-lab/media/square/wild-pig.jpg"
   }
 ]
