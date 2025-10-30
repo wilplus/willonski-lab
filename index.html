@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Willonski Lab — Emocje. Nauka. Rozwój.</title>
-  <meta name="description" content="Willonski Lab — emocje, edukacja, natura, transformacja.">
+  <title>Willonski Lab</title>
+  <meta name="description" content="Willonski Lab — emocje, edukacja, transformacja człowieka." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
@@ -13,10 +13,10 @@
 
 <body>
 
-<!-- ✅ NAV -->
-<header class="site-nav">
+<!-- ================= NAV ================= -->
+<header class="site-nav" role="navigation">
   <div class="nav-wrap">
-    <a class="brand" href="#home">Willonski Lab</a>
+    <a class="brand" href="#hero">Willonski Lab</a>
 
     <nav class="links">
       <a href="#blog">Blog</a>
@@ -26,138 +26,201 @@
     </nav>
 
     <div class="right">
-      <a class="news" href="#testimonials">Opinie</a>
+      <a class="news" href="#blog">News</a>
       <button class="lang">PL</button>
-      <button class="ham">
-        <svg width="24" height="24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2"/></svg>
+      <button class="ham" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2"/></svg>
       </button>
     </div>
   </div>
-  <div id="mobile-menu" class="mobile" hidden>
+
+  <div class="mobile" id="mobile-menu" hidden>
     <a href="#blog">Blog</a>
     <a href="#about">O nas</a>
     <a href="#trusted">Co robimy?</a>
-    <a href="#testimonials">Opinie</a>
     <a href="#contact">Kontakt</a>
+    <a href="#blog">News</a>
   </div>
 </header>
 
-<main style="padding-top:var(--nav-height)">
+<main style="padding-top: var(--nav-height)">
 
-<!-- ✅ HOME -->
-<section id="home" class="hero home-hero">
+<!-- ================= HERO ================= -->
+<section id="hero" class="hero home-hero">
   <div class="hero-wrap grid-2">
     <div class="hero-copy">
       <p class="hero-strong"><strong>Twój mózg ma 2 miliony lat.</strong></p>
-      <p class="hero-strong"><strong>Postęp zaczął się zaledwie 250 lat temu.</strong></p>
+      <p class="hero-strong"><strong>Postęp, który znamy dziś, zaczął się zaledwie 250 lat temu.</strong></p>
       <p class="hero-strong"><strong>To normalne, że czasem nie nadążasz.</strong></p>
-      <a class="btn-orange" href="https://docs.google.com/forms/d/e/1FAIpQLSfcjOrPwBgzxBeFiMfkG-lQ5kZPeiy-d8uT0mGfKqGVFFLybg/viewform?usp=dialog" target="_blank">Znajdź swój rytm</a>
+
+      <div class="cta-row">
+        <a class="btn-orange" href="https://docs.google.com/forms/d/e/1FAIpQLSfcjOrPwBgzxBeFiMfkG-lQ5kZPeiy-d8uT0mGfKqGVFFLybg/viewform?usp=dialog" target="_blank">Znajdź swój rytm</a>
+      </div>
     </div>
+
     <figure class="hero-media">
-      <img src="/pic/willab-brain.png" alt="Ilustracja mózgu">
+      <img src="/pic/willab-brain.png" alt="Neuro emocje Willonski Lab">
     </figure>
   </div>
 </section>
 
-<!-- ✅ BLOG -->
+<!-- ================= BLOG ================= -->
 <section id="blog" class="section">
   <div class="wrap">
     <span class="eyebrow">Blog</span>
     <h1 class="serif">Publikacje oraz kampanie edukacyjne</h1>
-    <div class="post-grid" id="post-grid"></div>
+    <div class="post-grid" id="post-grid" aria-live="polite"></div>
   </div>
 </section>
 
-<!-- ✅ ABOUT / TEAM -->
+<!-- ================= ABOUT ================= -->
 <section id="about" class="section about">
   <div class="wrap">
-    <h2 class="serif">Nasz zespół</h2>
-    <p class="about-lead">Wywodzimy się z nauki o człowieku i praktyki transformacji…</p>
+    <h2 class="serif about-title">🧬 Nasz zespół</h2>
+    <p class="about-lead">
+      Łączymy naukę o człowieku — z praktyczną transformacją w edukacji i organizacjach.
+    </p>
 
     <div class="team-grid">
       <article class="team-card">
-        <figure class="team-media ar-4x3"><img src="pic/wioletta-fąfara-willab.png"></figure>
-        <p class="team-caption">Badam regulację emocjonalną u dzieci…</p>
+        <figure class="team-media ar-4x3">
+          <img src="pic/wioletta-fąfara-willab.png" alt="Wioletta Fąfara">
+        </figure>
+        <p class="team-caption">Pracuję z dziećmi z niepełnosprawnościami, rozwijając regulację emocji przez autentyczność i komunikację pozawerbalną.</p>
+        <p class="team-caption">Metoda działa także w biznesie — bo prawdziwe emocje są uniwersalnym językiem.</p>
       </article>
 
       <article class="team-card">
-        <figure class="team-media ar-4x3"><img src="pic/artur-willoński-willab.png"></figure>
-        <p class="team-caption">Badam regulację emocji, łącząc naukę z praktyką…</p>
+        <figure class="team-media ar-4x3">
+          <img src="pic/artur-willoński-willab.png" alt="Artur Willoński">
+        </figure>
+        <p class="team-caption">Badam nazywanie emocji i jego wpływ na działanie, pewność siebie i komunikację w praktyce.</p>
+        <p class="team-caption">Wierzę, że emocje to infrastruktura działania człowieka.</p>
       </article>
     </div>
-
-    <p><a class="btn-gold" href="mailto:Artur@willonski.com">Umów rozmowę</a></p>
   </div>
 </section>
 
-<!-- ✅ TRUSTED -->
+<!-- ================= TRUSTED / WHAT WE DO ================= -->
 <section id="trusted" class="section trusted">
+  <div class="wrap trusted-wrap">
+    <h1 class="serif trusted-title">Z kim współ-pracujemy?</h1>
+    <p class="trusted-lead">Wspieramy liderów, zespoły i instytucje w budowaniu odporności emocjonalnej i uczenia się.</p>
+  </div>
+
   <div class="wrap">
-    <h2 class="serif">Z kim współ-pracujemy?</h2>
     <div class="audiences-grid">
-      <article class="aud-card">🎤 Mówcy i liderzy…</article>
-      <article class="aud-card">🏢 Organizacje…</article>
-      <article class="aud-card">🏛️ Instytucje publiczne…</article>
+      <article class="aud-card"><div class="aud-icon">🎤</div><h2 class="serif aud-title">Mówcy i liderzy</h2><p class="aud-text">Pewność siebie, autentyczność, komunikacja.</p></article>
+      <article class="aud-card"><div class="aud-icon">🏢</div><h2 class="serif aud-title">Zespoły i organizacje</h2><p class="aud-text">Programy rozwoju i regulacji emocjonalnej.</p></article>
+      <article class="aud-card"><div class="aud-icon">🏛️</div><h2 class="serif aud-title">Instytucje publiczne</h2><p class="aud-text">Projekty badawcze i edukacyjne.</p></article>
     </div>
-    <a class="btn-orange" href="mailto:Artur@willonski.com">Porozmawiajmy</a>
   </div>
 </section>
 
-<!-- ✅ PARTNERS -->
-<section id="partners" class="section partners">
-  <div class="wrap partners-logos">
-    <img src="/pic/EU-logo.png">
-    <img src="/pic/mko-willab.png">
-    <img src="/pic/special-olympics-willab.png">
-    <img src="/pic/swiss-contribution-willab.png">
-    <img src="/pic/akademia_wychowania_fizycznego_im_jzefa_pisudskiego_w_warszawie_willab.png">
+<!-- ================= LOGOS ================= -->
+<section class="section partners">
+  <div class="wrap">
+    <div class="partners-logos">
+      <img src="/pic/akademia_wychowania_fizycznego_im_jzefa_pisudskiego_w_warszawie_willab.png">
+      <img src="/pic/EHU_logo_willab.png">
+      <img src="/pic/EU-logo.png">
+      <img src="/pic/mko-willab.png">
+      <img src="/pic/special-olympics-willab.png">
+      <img src="/pic/swiss-contribution-willab.png">
+      <img src="/pic/szkolazdrowie-willab.png">
+    </div>
   </div>
 </section>
 
-<!-- ✅ TESTIMONIALS -->
+<!-- ================= TESTIMONIALS ================= -->
 <section id="testimonials" class="section testimonials">
   <div class="wrap">
-    <h2 class="serif">Opinie i rekomendacje</h2>
+    <h2 class="serif testimonials-title">Opinie</h2>
     <div class="testimonials-grid">
-      <article class="testimonial-card">Anna Kowalska…</article>
-      <article class="testimonial-card">Maciej…</article>
-      <article class="testimonial-card">Mazowiecki Kurator Oświaty…</article>
+      <article class="testimonial-card">
+        <div class="testimonial-quote">„</div>
+        <p class="testimonial-text">Willonski Lab pomógł nam budować lepszą komunikację i odporność emocjonalną.</p>
+        <div class="testimonial-author"><img src="/pic/testimonial1.jpg"><div><strong>Anna Kowalska</strong></div></div>
+      </article>
+      <article class="testimonial-card">
+        <div class="testimonial-quote">„</div>
+        <p class="testimonial-text">Praktyka + empatia + nauka = realna zmiana.</p>
+        <div class="testimonial-author"><img src="/pic/testimonial2.jpg"><div><strong>Maciej</strong></div></div>
+      </article>
+      <article class="testimonial-card">
+        <div class="testimonial-quote">„</div>
+        <p class="testimonial-text">Partner, który łączy badania i praktykę.</p>
+        <div class="testimonial-author"><img src="/pic/testimonial3.jpg"><div><strong>Instytucja publiczna</strong></div></div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ✅ CONTACT -->
+<!-- ================= CONTACT ================= -->
 <section id="contact" class="section contact">
   <div class="wrap contact-wrap">
-    <h2 class="serif">Skontaktuj się z nami</h2>
-    <p class="contact-lead">Rozmawiamy o rozwoju bez wypalenia.</p>
+    <h2 class="serif contact-title">Skontaktuj się</h2>
+    <p class="contact-lead">Porozmawiajmy o rozwoju bez wypalenia.</p>
     <a href="mailto:hello@humantransformationlab.com" class="contact-email">hello@humantransformationlab.com</a>
-    <a class="btn-orange" href="https://calendly.com/humantransformationlab" target="_blank">Umów rozmowę →</a>
+    <div class="contact-cta">
+      <a class="btn-orange" href="https://calendly.com/humantransformationlab" target="_blank">Umów rozmowę →</a>
+    </div>
   </div>
 </section>
 
 </main>
 
-<!-- ✅ FOOTER -->
-<footer class="footer">
-  <div class="wrap footer-wrap">
-    <p>© 2025 Willonski Lab</p>
-    <a href="/privacy-policy.html">Polityka prywatności</a>
+<!-- ================= FOOTER ================= -->
+<footer class="footer-min">
+  <div class="wrap footer-min-wrap">
+    <p class="footer-min-text">© 2025 Willonski Lab</p>
+    <a href="/privacy-policy.html" class="footer-min-link">Polityka prywatności</a>
   </div>
 </footer>
 
-<!-- ✅ Blog JSON loader -->
-<script>/* your blog script here unchanged */</script>
-
-<!-- ✅ Nav shrink script -->
+<!-- ================= SCRIPTS ================= -->
 <script>
-const nav=document.querySelector('.site-nav');
-window.addEventListener('scroll',()=>nav.classList.toggle('shrink',window.scrollY>4));
+(() => {
+  const nav = document.querySelector('.site-nav');
+  const onScroll = () => window.scrollY > 4 ? nav.classList.add('shrink') : nav.classList.remove('shrink');
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+})();
+(() => {
+  const btn=document.querySelector('.ham'),menu=document.getElementById('mobile-menu');
+  btn.addEventListener('click',()=>menu.toggleAttribute('hidden'));
+})();
 </script>
 
+<!-- BLOG LOADER -->
 <script>
-const ham=document.querySelector('.ham'),menu=document.querySelector('#mobile-menu');
-ham?.addEventListener('click',()=>menu.toggleAttribute('hidden'));
+(async () => {
+  const grid = document.getElementById('post-grid');
+  if (!grid) return;
+
+  const res = await fetch('/content/blog.json', { cache: 'no-store' }).catch(()=>null);
+  if (!res?.ok) return;
+  const posts = (await res.json()).sort((a,b)=>Date.parse(b.date)-Date.parse(a.date));
+
+  const esc = s => String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  const fmt = d => new Date(d).toLocaleDateString('pl-PL');
+
+  const card = {
+    reel:p=>`<article class="post post--reel">
+      <a class="media ar-9x16" href="${esc(p.url)}">${p.video?`<video poster="${esc(p.cover)}"><source src="${esc(p.video)}" type="video/mp4"></video>`:`<img src="${esc(p.cover)}">`}</a>
+      <div class="post-body"><div class="post-tag">${esc(p.tag)}</div><h2 class="post-title serif"><a href="${esc(p.url)}">${esc(p.title)}</a></h2><p>${esc(p.excerpt)}</p><div>${fmt(p.date)}</div></div>
+    </article>`,
+    square:p=>`<article class="post post--square">
+      <a class="media ar-1x1" href="${esc(p.url)}"><img src="${esc(p.cover)}"></a>
+      <div class="post-body"><div class="post-tag">${esc(p.tag)}</div><h2 class="post-title serif"><a href="${esc(p.url)}">${esc(p.title)}</a></h2><p>${esc(p.excerpt)}</p><div>${fmt(p.date)}</div></div>
+    </article>`,
+    research:p=>`<article class="post post--research post--full">
+      <a class="media ar-16x9" href="${esc(p.url)}"><img src="${esc(p.cover)}"></a>
+      <div class="post-body"><div class="post-tag">${esc(p.tag)}</div><h2 class="post-title serif"><a href="${esc(p.url)}">${esc(p.title)}</a></h2><p>${esc(p.excerpt)}</p><div>${fmt(p.date)}</div></div>
+    </article>`
+  };
+
+  grid.innerHTML = posts.map(p => card[p.type](p)).join('');
+})();
 </script>
 
 </body>
