@@ -1,14 +1,7 @@
 /* === Design tokens (light/dark) =============================== */
-:root{
-  --bg:#ffffff;
-  --ink:#0f172a;     /* slate-900 */
-  --muted:#475569;   /* slate-600 */
-  --line:#e2e8f0;    /* slate-200 */
-  --brand:#466d7c;   /* muted teal/blue */
-  --brand-ink:#114052;
-  --card:#f8fafc;    /* slate-50 */
-  --shadow:0 8px 28px rgba(2,6,23,.08);
-  --radius:16px;
+:root {
+  --nav-height:72px;
+  --nav-height-shrink:62px;
 }
 @media (prefers-color-scheme: dark){
   :root{
