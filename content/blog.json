@@ -19,12 +19,12 @@
   },
   {
     "type": "research",
-    "title": "EBCP: Pilot Leaflet",
-    "date": "2025-10-15",
+    "title": "Naming emotions in the corporate workplace as a way to measure learnability.",
+    "date": "2025-05-14",
     "tag": "RESEARCH",
-    "excerpt": "Dlaczego emocje należą do zestawu narzędzi oceny i uczenia w organizacji.",
-    "url": "/pdfs/leaflet.pdf",
-    "cover": "pic/green-field-apply-for-a-job-willab.png",
+    "excerpt": "Non-judgemental measurement system for corporate settings.",
+    "url": "pdfs/naming-emotions-in-the-corporate-workplace-as-a-way-to-measure-learnability.pdf",
+    "cover": "media/research/research-emotional-profiles.png",
     "aria": "Otwórz: EBCP Pilot Leaflet (PDF)"
   }
 ]
