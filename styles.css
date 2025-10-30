@@ -401,3 +401,35 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
     grid-template-columns: 1fr !important;
   }
 }
+
+/* === About photos height = 7/5 of square post height (~1.4 ratio) === */
+.about-card .media {
+  aspect-ratio: 7 / 5;         /* ~1.4 ratio */
+  max-height: 420px;           /* cap for large screens */
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.about-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Maintain layout consistency */
+.about-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-card .post-body {
+  flex: 1;
+}
+
+/* Mobile: reduce a bit so it doesn't feel huge */
+@media (max-width: 640px) {
+  .about-card .media {
+    aspect-ratio: 1 / 1;     /* Square on phones — more compact */
+    max-height: 300px;
+  }
+}
