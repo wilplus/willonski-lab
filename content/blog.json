@@ -10,10 +10,10 @@
   },
   {
     "type": "reel",
-    "title": "18/144: Do you like being amazed? #emotions  #mentalhealth #willab",
+    "title": "18/144: Do you like being amazed?",
     "date": "2025-10-15",
     "tag": "REEL",
-    "excerpt": "18/144: Do you like being amazed? #emotions  #mentalhealth #willab",
+    "excerpt": "#emotions  #mentalhealth #willab",
     "url": "https://www.tiktok.com/@arturwill/video/7564835965588557078",
     "cover": "media/reels/amazed-png.png"
   },
@@ -24,7 +24,7 @@
     "tag": "RESEARCH",
     "excerpt": "Dlaczego emocje należą do zestawu narzędzi oceny i uczenia w organizacji.",
     "url": "/pdfs/leaflet.pdf",
-    "cover": "/media/research/leaflet-cover.jpg",
+    "cover": "pic/green-field-apply-for-a-job-willab.png",
     "aria": "Otwórz: EBCP Pilot Leaflet (PDF)"
   }
 ]
