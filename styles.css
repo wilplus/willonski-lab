@@ -573,3 +573,46 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover}
   color: #FF7061;
   transform: translateY(-1px);
 }
+
+/* === Fix: About/Team Section Image Sizing === */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.team-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.team-media {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.team-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
+
+/* === Fix: Ensure Global Border Radius = 16px Everywhere === */
+.card,
+.post,
+.team-card,
+.aud-card,
+.testimonial-card,
+.hero-media img,
+.partners-logos img {
+  border-radius: var(--radius) !important;
+}
