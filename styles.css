@@ -616,3 +616,78 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover}
 .partners-logos img {
   border-radius: var(--radius) !important;
 }
+
+/* ===== HOME HERO: background image + centered content ===== */
+:root{
+  --hero-bg: url('/pic/willab-brain.png'); /* change if needed */
+  --hero-bg-opacity: 0.18;                 /* background image opacity */
+}
+
+.home-hero{
+  position: relative;
+  overflow: hidden;
+  padding: calc(var(--nav-height) + 80px) 0 130px; /* space under fixed nav */
+}
+
+/* Background image with soft overlay */
+.home-hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.65)),
+    var(--hero-bg) center / cover no-repeat;
+  opacity: var(--hero-bg-opacity);
+  z-index:0;
+}
+
+/* Put content above background */
+.home-hero .hero-wrap{ position:relative; z-index:1; }
+
+/* One centered column */
+.home-hero .grid-2{
+  display:grid;
+  grid-template-columns: 1fr;   /* single column */
+  gap: 20px;
+  place-items: center;          /* center both axes */
+  text-align: center;           /* center text */
+  max-width: 980px;             /* overall width for content */
+  margin-inline: auto;
+}
+
+/* Hide inline hero <img> on the home page since we use a bg now */
+.home-hero .hero-media{ display:none; }
+
+/* Bigger, centered hero text */
+.home-hero .hero-copy{
+  display:flex; flex-direction:column; gap:1rem;
+  align-items:center; justify-content:center;
+}
+
+.home-hero .hero-strong strong{
+  /* Centered headings; increase size */
+  display:block;
+  font-size: clamp(38px, 4.5vw, 54px);
+  line-height: 1.2;
+  letter-spacing: 0.1px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Center CTA */
+.home-hero .cta-row{
+  justify-content: center;
+}
+
+/* Optional: center section headings on the home page only */
+.home-hero .section h1,
+.home-hero h1,
+.home-hero h2{
+  text-align:center;
+  margin-left:auto; margin-right:auto;
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px){
+  .home-hero{ padding: calc(var(--nav-height) + 56px) 0 96px; }
+  .home-hero .hero-strong strong{ font-size: clamp(30px, 7vw, 42px); }
+}
