@@ -1,0 +1,20 @@
+[
+  {
+    "type": "square",
+    "title": "Wioletta",
+    "date": "2025-06-24",
+    "tag": "TEAM MEMBER",
+    "excerpt": "Pracuję z dziećmi z niepełnosprawnością intelektualną, budując narzędzia oparte na autentycznej komunikacji emocjonalnej i sygnałach pozawerbalnych.",
+    "url": "https://www.linkedin.com/company/101670950/admin/dashboard/",
+    "cover": "pic/wioletta-fąfara-willab.png"
+  },
+    {
+    "type": "square",
+    "title": "Artur",
+    "date": "2025-06-25",
+    "tag": "TEAM MEMBER",
+    "excerpt": "Badam regulację emocjonalną opartą na nazywaniu emocji, wspierając liderów, zespoły i instytucje w budowaniu odporności emocjonalnej i kultury uczenia się.",
+    "url": "https://www.linkedin.com/in/artur-willoński-336216174/",
+    "cover": "pic/artur-willoński-willab.png"
+  }
+]
