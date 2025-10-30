@@ -368,3 +368,64 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
 .partners-logos img,
 .team-media{border-radius:var(--radius) !important}
 
+/* 2-column team layout */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+/* Team cards styled like posts */
+.team-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Match card height across rows */
+.team-post {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.team-media {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.team-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Body inside card */
+.team-post .post-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+/* Truncate long text to maintain equal height */
+.team-post .post-excerpt {
+  font-size: .95rem;
+  line-height: 1.6;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* adjust */
+  -webkit-box-orient: vertical;
+}
+
+/* Responsive: single column on mobile */
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+}
