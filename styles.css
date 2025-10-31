@@ -99,11 +99,12 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
 .ham{display:none;}
 @media (max-width:930px){.links{display:none}.ham{display:inline-flex}}
 
-/* ------------------------ Landing Hero ---------------------------- */
-/* Centered copy with faint brain background; uses --hero-bg */
+/* ------------------------ Hero ------------------------------- */
+
+/* ----- Landing hero (centered text, faint brain bg) ----- */
 .hero-landing{
   position:relative;
-  min-height:100svh;
+  min-height:calc(100svh - var(--nav-height, 72px)); /* don't hide under fixed nav */
   display:grid;
   place-items:center;
   background:var(--bg);
@@ -111,37 +112,49 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
   padding:24px 20px;
   text-align:center;
 }
+
+/* Background brain (uses --hero-bg & --hero-bg-opacity if defined) */
 .hero-landing::before{
   content:"";
   position:absolute; inset:0;
-  background: var(--hero-bg) center 45% / min(78vw, 980px) no-repeat;
-  opacity: var(--hero-bg-opacity);
+  background:
+    var(--hero-bg, url("/pic/willab-brain.png"))
+    center 45% / min(85vw, 1100px) no-repeat;
+  opacity:var(--hero-bg-opacity, .14);
   pointer-events:none;
+  z-index:0;
 }
+
 .hero-inner{
   position:relative;
   z-index:1;
   max-width:900px;
   width:100%;
 }
+
+/* Title lines */
 .hero-title{
   margin:0 0 36px;
-  font-family:"Inter", sans-serif; /* matches your hero strong look */
+  font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; /* matches your hero-strong */
   font-weight:800;
   line-height:1.2;
   display:grid;
-  gap: clamp(10px, 1.2vw, 16px);
+  gap:clamp(10px, 1.2vw, 16px);
   color:var(--ink);
-  font-size: clamp(28px, 4.5vw, 56px);
+  font-size:clamp(28px, 4.5vw, 56px); /* scales up to ~56px on desktop */
 }
 .hero-title span{display:block}
+
+/* CTA */
 .hero-cta{margin-top:10px}
+
+/* Mobile tweaks */
 @media (max-width:640px){
   .hero-landing{padding:18px 14px}
-  .hero-title{font-size: clamp(24px, 7vw, 42px)}
+  .hero-title{font-size:clamp(24px, 7vw, 42px)}
 }
 
-/* ------------------------ Blog Grid & Cards ----------------------- */
+/*------------------------ Blog Grid & Cards ----------------------- */
 .post-grid{
   display:grid; gap:20px; margin-top:18px;
   grid-template-columns:repeat(3,1fr);
@@ -322,17 +335,20 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
 .footer-min-social a:hover{color:#FF7061; transform:translateY(-1px)}
 
 /* ------------------------ About / Team --------------------------- */
+/* Grid */
 .team-grid{
   display:grid; grid-template-columns:repeat(2,1fr); gap:32px; margin-top:32px;
 }
 @media (max-width:800px){.team-grid{grid-template-columns:1fr}}
+/* Card */
 .team-card{
   background:var(--card); border:1px solid var(--line);
   border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);
 }
+/* Filled media wrapper with radius 16 */
 .team-media{
   width:100%; aspect-ratio:4/3;
-  background:var(--card);
+  background:var(--card);           /* fill behind image */
   border-radius:var(--radius);
   overflow:hidden; margin-bottom:14px;
 }
@@ -350,3 +366,4 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
 .hero-media img,
 .partners-logos img,
 .team-media{border-radius:var(--radius) !important}
+
