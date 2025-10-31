@@ -115,7 +115,7 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
   position: absolute;
   inset: 0;
   background: url('/pic/willab-brain.png') center/700px auto no-repeat;
-  opacity: 0.2;                   /* adjust visible brain */
+  opacity: 0.95;                   /* adjust visible brain */
   pointer-events: none;
   z-index: 0;
 }
