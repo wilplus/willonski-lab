@@ -20,7 +20,7 @@
   /* Nav heights */
   --nav-height:72px;
   --nav-height-shrink:62px;
-  
+
 }
 @media (prefers-color-scheme: dark){
   :root{
@@ -115,8 +115,6 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
   content:"";
   position:absolute;
   inset:0;
-  background:url("/pic/willab-brain.png")
-    center 50% / min(85vw,1000px) no-repeat;
   opacity:0.12;
   pointer-events:none;
   z-index:1;
