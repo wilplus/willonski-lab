@@ -20,10 +20,7 @@
   /* Nav heights */
   --nav-height:72px;
   --nav-height-shrink:62px;
-
-  /* Home hero background */
-  --hero-bg:url('/pic/willab-brain.png');
-  --hero-bg-opacity:0.18;
+  
 }
 @media (prefers-color-scheme: dark){
   :root{
