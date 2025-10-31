@@ -101,47 +101,44 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
 
 /* ------------------------ Hero ------------------------------- */
 
-:root { --nav-h: 80px; }  /* set your real nav height */
-
-/* Make hero truly fill the viewport minus the fixed nav */
-.hero{
-  position: relative;
-  min-height: calc(100svh - var(--nav-h)); /* svh/dvh handles mobile UI bars */
-  /* fallback for older browsers */
-  min-height: calc(100vh - var(--nav-h));
-  box-sizing: border-box;
-
-  /* space below nav + your desired offset */
-  padding: calc(var(--nav-h) + 120px) 24px 120px;
-
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  text-align: center;
+.hero-landing{
+  position:relative;
+  min-height:100svh;
+  display:grid;
+  place-items:center;
+  background:var(--bg);
+  overflow:hidden;
+  padding:24px 20px;
+  text-align:center;
 }
-
-/* Background image behind content */
-.hero::before{
+.hero-landing::before{
   content:"";
   position:absolute; inset:0;
-  background: url('/pic/willab-brain.png') center/700px auto no-repeat;
-  opacity:.2;
+  background: var(--hero-bg) center 45% / min(78vw, 980px) no-repeat;
+  opacity: var(--hero-bg-opacity);
   pointer-events:none;
-  z-index:0;
 }
-
-/* Content above watermark */
-.hero > * { position: relative; z-index: 1; }
-
-/* Optional: if your <main> already adds top padding, neutralize it here */
-main.hero-wrap-reset,
-main:has(> .hero){ padding-top: 0 !important; }
-
-@media (max-width:600px){
-  .hero{
-    padding: calc(var(--nav-h) + 96px) 16px 80px;
-  }
-  .hero::before{ background-size: 680px auto; opacity:.25; }
+.hero-inner{
+  position:relative;
+  z-index:1;
+  max-width:900px;
+  width:100%;
+}
+.hero-title{
+  margin:0 0 36px;
+  font-family:"Inter", sans-serif; /* matches your hero strong look */
+  font-weight:800;
+  line-height:1.2;
+  display:grid;
+  gap: clamp(10px, 1.2vw, 16px);
+  color:var(--ink);
+  font-size: clamp(28px, 4.5vw, 56px);
+}
+.hero-title span{display:block}
+.hero-cta{margin-top:10px}
+@media (max-width:640px){
+  .hero-landing{padding:18px 14px}
+  .hero-title{font-size: clamp(24px, 7vw, 42px)}
 }
 
 /*------------------------ Blog Grid & Cards ----------------------- */
