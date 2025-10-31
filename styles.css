@@ -59,7 +59,7 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
 
 /* ------------------------ Layout Utils ---------------------------- */
 .wrap{max-width:1080px;margin-inline:auto;padding-inline:20px}
-.section{padding:56px 0;border-bottom:0}
+.section{padding:40px 0;border-bottom:0}
 .eyebrow{
   color:var(--brand);font-weight:600;text-transform:uppercase;
   letter-spacing:.08em;font-size:.78rem;display:block;margin-bottom:6px
@@ -101,58 +101,61 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
 
 /* ------------------------ Hero ------------------------------- */
 
-/* ----- Landing hero (centered text, faint brain bg) ----- */
-.hero-landing{
+.hero{
   position:relative;
-  min-height:calc(100svh - var(--nav-height, 72px)); /* don't hide under fixed nav */
-  display:grid;
-  place-items:center;
-  background:var(--hero-bg, url("/pic/willab-brain.png"))
-    center 45% / min(85vw, 1100px) no-repeat;
-  overflow:hidden;
-  padding:24px 20px;
+  min-height:calc(100svh - var(--nav-height));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:40px 20px;
   text-align:center;
+  background:var(--bg);
+  overflow:hidden;
 }
 
-/* Background brain (uses --hero-bg & --hero-bg-opacity if defined) */
-.hero-landing::before{
+/* brain background */
+.hero::before{
   content:"";
-  position:absolute; inset:0;
-  background:
-    var(--hero-bg, url("/pic/willab-brain.png"))
-    center 45% / min(85vw, 1100px) no-repeat;
-  opacity:var(--hero-bg-opacity, .94);
+  position:absolute;
+  inset:0;
+  background:url("/pic/willab-brain.png")
+    center 50% / min(85vw,1000px) no-repeat;
+  opacity:0.12;
   pointer-events:none;
-  z-index:0;
+  z-index:1;
 }
 
 .hero-inner{
   position:relative;
-  z-index:1;
+  z-index:0;
   max-width:900px;
-  width:100%;
 }
 
-/* Title lines */
 .hero-title{
   margin:0 0 36px;
-  font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif; /* matches your hero-strong */
+  font-family:Inter, sans-serif;
   font-weight:800;
-  line-height:1.2;
-  display:grid;
-  gap:clamp(10px, 1.2vw, 16px);
+  line-height:1.25;
   color:var(--ink);
-  font-size:clamp(28px, 4.5vw, 56px); /* scales up to ~56px on desktop */
+  font-size:30px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
 }
-.hero-title span{display:block}
 
-/* CTA */
-.hero-cta{margin-top:10px}
+.hero-title span{
+  display:block;
+}
 
-/* Mobile tweaks */
-@media (max-width:640px){
-  .hero-landing{padding:18px 14px}
-  .hero-title{font-size:clamp(24px, 7vw, 42px)}
+/* CTA button uses your global orange style already */
+.hero-cta{
+  margin-top:18px;
+}
+
+/* small screens */
+@media (max-width:600px){
+  .hero{padding:28px 12px}
+  .hero-title{font-size:clamp(22px,6vw,38px)}
 }
 
 /*------------------------ Blog Grid & Cards ----------------------- */
