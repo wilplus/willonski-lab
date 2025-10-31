@@ -56,9 +56,28 @@
       <span>To normalne, że czasem nie nadążasz.</span>
     </h1>
 
-    <div class="hero-cta">
-      <a href="#contact" class="btn-orange">Znajdź swój rytm</a>
-    </div>
+<section class="subscribe section">
+  <div class="wrap">
+    <form id="subscribe-form" class="subscribe-form" aria-label="Email signup">
+      <label class="sr-only" for="subscribe-email">Email</label>
+      <input
+        id="subscribe-email"
+        name="email"
+        type="email"
+        inputmode="email"
+        autocomplete="email"
+        placeholder="Email"
+        required
+      />
+      <!-- honeypot -->
+      <input type="text" name="company" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+      <button class="btn-orange" type="submit">Znajdź swój rytm</button>
+    </form>
+
+    <p id="subscribe-msg" class="subscribe-msg" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
   </div>
 </section>
 
