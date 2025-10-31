@@ -1,47 +1,37 @@
-// ================= EMAILS COLLECTOR =================
-// Email capture
-(function(){
-  const form = document.getElementById('subscribe-form');
-  const emailEl = document.getElementById('subscribe-email');
-  const msg = document.getElementById('subscribe-msg');
-  if(!form || !emailEl) return;
+import nodemailer from "nodemailer";
 
-  const setMsg = (text, ok=false)=>{
-    msg.textContent = text || '';
-    msg.style.color = ok ? 'green' : 'var(--muted,#475569)';
-  };
+export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
 
-  form.addEventListener('submit', async (e)=>{
-    e.preventDefault();
-    setMsg('Sending…');
-    const email = (emailEl.value || '').trim();
-    const hp = form.querySelector('input[name="company"]')?.value || '';
+  const { email } = req.body;
 
-    if(!email || !/^\S+@\S+\.\S+$/.test(email)){
-      setMsg('Please enter a valid email address.');
-      emailEl.focus();
-      return;
-    }
-    // honeypot
-    if(hp){ setMsg('Thanks!'); form.reset(); return; }
+  if (!email || !email.includes("@")) {
+    return res.status(400).json({ error: "Invalid email" });
+  }
 
-    try{
-      const res = await fetch('/api/subscribe', {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({ email })
-      });
-      if(res.ok){
-        setMsg('Thanks! We will check your inbox.', true);
-        form.reset();
-      }else{
-        const t = await res.text();
-        setMsg('Oops — something went wrong. Please try again later.');
-        console.warn('subscribe error', t);
-      }
-    }catch(err){
-      setMsg('Connection error. Please try again.');
-      console.error(err);
-    }
-  });
-})();
+  try {
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT),
+      secure: process.env.SMTP_SECURE === "true",
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
+
+    await transporter.sendMail({
+      from: process.env.SMTP_USER,
+      to: process.env.MAIL_TO || "artur@willonski.com",   // ✅ default to you
+      subject: "New subscriber",
+      text: `Email: ${email}`,
+    });
+
+    return res.status(200).json({ success: true });
+  } catch (err) {
+    console.error("EMAIL ERROR →", err);
+    return res.status(500).json({ error: "Email did not send" });
+  }
+}
