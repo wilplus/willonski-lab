@@ -99,29 +99,23 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
 .ham{display:none;}
 @media (max-width:930px){.links{display:none}.ham{display:inline-flex}}
 
-/* ------------------------ Hero (Generic) -------------------------- */
+/* ------------------------ Hero ------------------------------- */
 
-/* ===== Minimal HERO (centered + watermark) ===== */
-.hero{
-  position:relative;
-  min-height: calc(100vh - var(--nav-h));
-  padding: calc(var(--nav-h) + var(--top-offset)) 24px 120px;
-  display:flex; justify-content:center; align-items:flex-start;
-  text-align:center;
-}
-
-/* Brain watermark (fixed) */
-.hero-watermark::before{
+.hero::before {
   content:"";
-  position:absolute; inset:0; z-index:0; pointer-events:none;
-
-  /* Put IMAGE FIRST, then a light wash on top */
-  background:
-    var(--wm-url) center/900px auto no-repeat,
-    radial-gradient(ellipse at center, rgba(255,255,255,0.85), rgba(255,255,255,0.85));
-
-  opacity:1; /* keep 1; control fade with rgba above */
+  position: absolute;
+  inset: 0;
+  background: url('/pic/willab-brain.png') center/700px auto no-repeat;
+  opacity: 0.2; /* adjust visible brain */
+  z-index: 0;
+  pointer-events: none;
 }
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
 
 .hero-inner{
   position:relative; z-index:1; max-width:860px; margin:0 auto;
