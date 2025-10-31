@@ -102,7 +102,7 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
 /* ------------------------ Hero (Generic) -------------------------- */
 
 /* ================== BASE / UNCHANGED ================== */
-.hero {padding: 30px 0 0px;}
+.hero {padding: 0px 0 0px;}
 .hero-wrap{max-width:1080px;margin-inline:auto;padding-inline:20px;}
 .grid-2{display:grid;grid-template-columns:1fr 1.3fr;gap:0;align-items:center;}
 @media (max-width:930px){.grid-2{grid-template-columns:1fr}}
@@ -134,7 +134,7 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
 /* domyślne zmienne (możesz nadpisać inline na sekcji .home-hero) */
 :root{
   --hero-bg: url('pic/brain-bg-willab.png');
-  --hero-bg-opacity: .95; /* 0–1 */
+  --hero-bg-opacity: .05; /* 0–1 */
 }
 
 /* Kontener hero z pełną wysokością i lekkim przesunięciem ku górze */
@@ -159,6 +159,16 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
 
 /* Warstwa treści */
 .home-hero .hero-wrap{position:relative; z-index:1; width:100%; max-width:980px}
+
+/* Pojedyncza kolumna + wyrównanie treści ku górze ekranu */
+.home-hero .grid-2{
+  display:grid; grid-template-columns:1fr;
+  justify-items:center;         /* horyzontalnie center */
+  align-content:start;          /* pionowo ku górze */
+  row-gap:20px;
+  min-height: calc(100vh - (var(--nav-height) + 160px));
+  margin-inline:auto;
+}
 
 /* Ukrywamy media w tej wersji (tło już jest w ::before) */
 .home-hero .hero-media{display:none}
