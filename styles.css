@@ -101,6 +101,7 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
 
 /* ------------------------ Hero (Generic) -------------------------- */
 
+/* ================== BASE / UNCHANGED ================== */
 .hero {padding: 10px 0 10px;}
 .hero-wrap{max-width:1080px;margin-inline:auto;padding-inline:20px;}
 .grid-2{display:grid;grid-template-columns:1fr 1.3fr;gap:0;align-items:center;}
@@ -128,33 +129,68 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
   .hero{padding:56px 0 56px}
 }
 
-/* ------------------------ Home Hero (BG Image) -------------------- */
+/* ================== HERO (CENTERED OVER BG) ================== */
+
+/* domyślne zmienne (możesz nadpisać inline na sekcji .home-hero) */
+:root{
+  --hero-bg: url('/pic/willab-brain.png');
+  --hero-bg-opacity: .28; /* 0–1 */
+}
+
+/* Kontener hero z pełną wysokością i lekkim przesunięciem ku górze */
 .home-hero{
   position:relative; overflow:hidden;
-  padding:calc(var(--nav-height) + 80px) 0 130px;
+  min-height: calc(100vh - var(--nav-height));
+  padding: calc(var(--nav-height) + 40px) 0 120px;
+  display: flex;                /* centrowanie sekcji */
+  align-items: flex-start;      /* lekko ku górze */
+  justify-content: center;
   text-align:center;
 }
+
+/* Tło: obraz + delikatny biały „wash” dla czytelności */
 .home-hero::before{
   content:""; position:absolute; inset:0; z-index:0;
   background:
     linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.65)),
     var(--hero-bg) center / cover no-repeat;
-  opacity:var(--hero-bg-opacity);
+  opacity: var(--hero-bg-opacity);
 }
-.home-hero .hero-wrap{position:relative; z-index:1}
+
+/* Warstwa treści */
+.home-hero .hero-wrap{position:relative; z-index:1; width:100%; max-width:980px}
+
+/* Pojedyncza kolumna + wyrównanie treści ku górze ekranu */
 .home-hero .grid-2{
-  display:grid; grid-template-columns:1fr; gap:20px;
-  place-items:center; text-align:center; max-width:980px; margin-inline:auto;
+  display:grid; grid-template-columns:1fr;
+  justify-items:center;         /* horyzontalnie center */
+  align-content:start;          /* pionowo ku górze */
+  row-gap:20px;
+  min-height: calc(100vh - (var(--nav-height) + 160px));
+  margin-inline:auto;
 }
+
+/* Ukrywamy media w tej wersji (tło już jest w ::before) */
 .home-hero .hero-media{display:none}
-.home-hero .hero-strong strong{
-  display:block; font-size:clamp(38px,4.5vw,54px); line-height:1.2; letter-spacing:.1px;
-  margin:0 auto;
+
+/* Nagłówki – responsywnie, wąska szerokość dla ładnych łamań */
+.home-hero .trusted-title{
+  display:block;
+  font-family: var(--serif, serif);
+  font-size: clamp(34px, 4.5vw, 54px);
+  line-height:1.2;
+  letter-spacing:.1px;
+  margin:0 auto 12px;
+  max-width: 980px;
+  color: var(--ink, #0f172a);
 }
+
+/* CTA na środku */
 .home-hero .cta-row{justify-content:center}
+
 @media (max-width:600px){
-  .home-hero{padding:calc(var(--nav-height) + 56px) 0 96px}
-  .home-hero .hero-strong strong{font-size:clamp(30px,7vw,42px)}
+  .home-hero{padding: calc(var(--nav-height) + 32px) 0 80px}
+  .home-hero .trusted-title{font-size: clamp(28px, 7vw, 42px)}
 }
 
 /* ------------------------ Blog Grid & Cards ----------------------- */
