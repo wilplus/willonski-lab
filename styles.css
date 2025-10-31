@@ -101,10 +101,11 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
 
 /* ------------------------ Hero (Generic) -------------------------- */
 
+/* ===== Minimal HERO (centered + watermark) ===== */
 .hero{
   position:relative;
   min-height: calc(100vh - var(--nav-h));
-  padding: calc(var(--nav-h) + var(--top-offset)) 24px 120px; /* 120px below nav */
+  padding: calc(var(--nav-h) + var(--top-offset)) 24px 120px;
   display:flex; justify-content:center; align-items:flex-start;
   text-align:center;
 }
@@ -129,12 +130,37 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
   color:#111; margin:22px 0;
 }
 
+/* CTA Button */
+.cta-row{
+  display:flex;
+  justify-content:center;
+  margin-top:32px;
+}
+
+.btn-orange{
+  background:#FF7061;
+  color:#fff;
+  font-weight:700;
+  padding:0.9rem 1.6rem;
+  font-size:1rem;
+  border-radius:0.9rem;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  transition:transform .1s ease, background .2s ease;
+}
+
+.btn-orange:hover{
+  background:#e25d51;
+  transform:translateY(-2px);
+}
+
 @media (max-width:600px){
   .hero{ padding: calc(var(--nav-h) + 96px) 16px 80px; }
   .hero-watermark::before{ background-size:680px auto; opacity:.4; }
 }
 
-/* ------------------------ Blog Grid & Cards ----------------------- */
+/*------------------------ Blog Grid & Cards ----------------------- */
 .post-grid{
   display:grid; gap:20px; margin-top:18px;
   grid-template-columns:repeat(3,1fr);
