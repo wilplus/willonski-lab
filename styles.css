@@ -133,7 +133,7 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
 
 /* domyślne zmienne (możesz nadpisać inline na sekcji .home-hero) */
 :root{
-  --hero-bg: url('/pic/\ brain-bg-willab.png');
+  --hero-bg: url('/pic/brain-bg-willab.png');
   --hero-bg-opacity: .28; /* 0–1 */
 }
 
