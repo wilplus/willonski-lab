@@ -101,59 +101,49 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
 
 /* ------------------------ Hero ------------------------------- */
 
+/* Hero container (needed for the ::before watermark) */
+.hero{
+  position: relative;
+  min-height: 100vh;              /* or calc(100vh - var(--nav-h, 0px)) */
+  padding: 120px 24px 120px;      /* 120px below nav; adjust as needed */
+  text-align: center;
+}
+
+/* Brain watermark behind content */
 .hero::before {
   content:"";
   position: absolute;
   inset: 0;
   background: url('/pic/willab-brain.png') center/700px auto no-repeat;
-  opacity: 0.2; /* adjust visible brain */
-  z-index: 0;
+  opacity: 0.2;                   /* adjust visible brain */
   pointer-events: none;
+  z-index: 0;
 }
 
-.hero > * {
-  position: relative;
-  z-index: 1;
-}
+/* Ensure content sits above watermark */
+.hero > * { position: relative; z-index: 1; }
 
-
-.hero-inner{
-  position:relative; z-index:1; max-width:860px; margin:0 auto;
-}
-
+/* Content width + typography */
+.hero-inner { max-width: 860px; margin: 0 auto; }
 .hero h1{
   font: 800 clamp(28px,4.8vw,44px)/1.25 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
   color:#111; margin:22px 0;
 }
 
 /* CTA Button */
-.cta-row{
-  display:flex;
-  justify-content:center;
-  margin-top:32px;
-}
-
+.cta-row{ display:flex; justify-content:center; margin-top:32px; }
 .btn-orange{
-  background:#FF7061;
-  color:#fff;
-  font-weight:700;
-  padding:0.9rem 1.6rem;
-  font-size:1rem;
-  border-radius:0.9rem;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
+  background:#FF7061; color:#fff; font-weight:700;
+  padding:0.9rem 1.6rem; font-size:1rem; border-radius:0.9rem;
+  display:inline-flex; align-items:center; justify-content:center;
   transition:transform .1s ease, background .2s ease;
 }
+.btn-orange:hover{ background:#e25d51; transform:translateY(-2px); }
 
-.btn-orange:hover{
-  background:#e25d51;
-  transform:translateY(-2px);
-}
-
+/* Mobile tweaks */
 @media (max-width:600px){
-  .hero{ padding: calc(var(--nav-h) + 96px) 16px 80px; }
-  .hero-watermark::before{ background-size:680px auto; opacity:.4; }
+  .hero{ padding: 96px 16px 80px; }       /* reduce vertical padding on mobile */
+  .hero::before{ background-size: 680px auto; opacity:.25; }
 }
 
 /*------------------------ Blog Grid & Cards ----------------------- */
