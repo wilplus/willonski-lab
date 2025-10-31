@@ -48,38 +48,90 @@
   <!-- ====== HERO SECTION ====== -->
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
-    <h1 class="hero-title">
-      <span>Twój mózg ma 2 miliony lat.</span>
-      <span>Rozwój, który znamy dziś, zaczął się zaledwie 250 lat temu.</span>
-      <span>To normalne, że czasem nie nadążasz.</span>
-    </h1>
+  <style>
+    /* minimal styling for the collector */
+    .subscribe { display:flex; gap:8px; justify-content:center; align-items:center; margin:24px 0; }
+    .subscribe input[type="email"]{
+      width:min(560px, 90vw);
+      padding:14px 16px;
+      border:1px solid var(--line, #e2e8f0);
+      border-radius:12px;
+      font-size:16px;
+      outline:none;
+    }
+    .subscribe button{
+      padding:14px 18px;
+      border:0;
+      border-radius:12px;
+      background:#FF7061; color:#fff; font-weight:700; cursor:pointer;
+    }
+    .subscribe button:hover{ filter:brightness(0.96) }
+    .subscribe-msg{ text-align:center; margin-top:10px; color:var(--muted,#475569) }
+    .hp{ display:none } /* honeypot */
+  </style>
+</head>
+<body>
+  <main class="wrap" style="padding:40px 0">
+    <h1 style="text-align:center;margin-bottom:8px">Znajdź swój rytm</h1>
+    <p style="text-align:center;color:#475569;margin-top:0">Zostaw e-mail, dam znać o nowościach.</p>
 
-<section class="subscribe section">
-  <div class="wrap">
-    <form id="subscribe-form" class="subscribe-form" aria-label="Email signup">
-      <label class="sr-only" for="subscribe-email">Email</label>
+    <form id="subscribe-form" class="subscribe" aria-label="Zapis na newsletter">
+      <!-- Honeypot (bots fill this) -->
+      <input type="text" name="company" class="hp" tabindex="-1" autocomplete="off">
+
       <input
-        id="subscribe-email"
+        id="email"
         name="email"
         type="email"
-        inputmode="email"
-        autocomplete="email"
-        placeholder="Email"
+        placeholder="wpisz swój e-mail"
         required
+        autocomplete="email"
+        inputmode="email"
+        aria-label="Adres e-mail"
       />
-      <!-- honeypot -->
-      <input type="text" name="company" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
-      <button class="btn-orange" type="submit">Znajdź swój rytm</button>
+      <button type="submit" class="btn-orange">Znajdź swój rytm</button>
     </form>
 
     <p id="subscribe-msg" class="subscribe-msg" role="status" aria-live="polite"></p>
-  </div>
-</section>
+  </main>
 
-  </div>
-</section>
+  <script>
+  (function(){
+    const form = document.getElementById('subscribe-form');
+    const msg = document.getElementById('subscribe-msg');
+    const emailEl = document.getElementById('email');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msg.textContent = 'Wysyłanie...';
+
+      const data = {
+        email: emailEl.value.trim(),
+        // include honeypot field:
+        company: form.querySelector('input[name="company"]').value
+      };
+
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify(data)
+        });
+
+        if (!res.ok) {
+          const err = await res.json().catch(()=>({error:'Błąd serwera'}));
+          throw new Error(err.error || 'Błąd serwera');
+        }
+
+        msg.textContent = 'Dziękujemy! Sprawdź skrzynkę.';
+        form.reset();
+      } catch (err) {
+        msg.textContent = 'Ups — nie udało się wysłać. Spróbuj ponownie później.';
+        console.error(err);
+      }
+    });
+  })();
+  </script>
 
   <!-- ====== BLOG SECTION ====== -->
 
