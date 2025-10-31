@@ -101,7 +101,6 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
 
 /* ------------------------ Hero (Generic) -------------------------- */
 
-/* ================== BASE / UNCHANGED ================== */
 .hero {padding: 0px 0 0px;}
 .hero-wrap{max-width:1080px;margin-inline:auto;padding-inline:20px;}
 .grid-2{display:grid;grid-template-columns:1fr 1.3fr;gap:0;align-items:center;}
@@ -129,68 +128,64 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
   .hero{padding:56px 0 56px}
 }
 
-/* ================== HERO (CENTERED OVER BG) ================== */
-
-/* domyślne zmienne (możesz nadpisać inline na sekcji .home-hero) */
+/* ===== Hero (Centered over BG) ===== */
 :root{
+  --nav-height: 80px;                 /* set your real nav height */
   --hero-bg: url('pic/brain-bg-willab.png');
-  --hero-bg-opacity: .95; /* 0–1 */
+  --hero-overlay: rgba(255,255,255,.60); /* adjust overlay strength */
+  --ink: #0f172a;
 }
 
-/* Kontener hero z pełną wysokością i lekkim przesunięciem ku górze */
-.home-hero{
-  position:relative; overflow:hidden;
+.hero {
+  position: relative;
   min-height: calc(100vh - var(--nav-height));
-  padding: calc(var(--nav-height) + 40px) 0 120px;
-  display: flex;                /* centrowanie sekcji */
-  align-items: flex-start;      /* lekko ku górze */
+  padding: calc(var(--nav-height) + 120px) 20px 120px; /* 120px below nav */
+  display: flex;
   justify-content: center;
-  text-align:center;
+  align-items: flex-start; /* slightly toward top */
+  text-align: center;
 }
 
-/* Tło: obraz + delikatny biały „wash” dla czytelności */
-.home-hero::before{
-  content:""; position:absolute; inset:0; z-index:0;
+/* Background image + overlay in one layer */
+.hero::before{
+  content: "";
+  position: absolute;
+  inset: 0;
   background:
-    linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.65)),
+    linear-gradient(180deg, var(--hero-overlay), var(--hero-overlay)),
     var(--hero-bg) center / cover no-repeat;
-  opacity: var(--hero-bg-opacity);
+  z-index: 0;
 }
 
-/* Warstwa treści */
-.home-hero .hero-wrap{position:relative; z-index:1; width:100%; max-width:980px}
-
-/* Pojedyncza kolumna + wyrównanie treści ku górze ekranu */
-.home-hero .grid-2{
-  display:grid; grid-template-columns:1fr;
-  justify-items:center;         /* horyzontalnie center */
-  align-content:start;          /* pionowo ku górze */
-  row-gap:20px;
-  min-height: calc(100vh - (var(--nav-height) + 160px));
-  margin-inline:auto;
-}
-
-/* Ukrywamy media w tej wersji (tło już jest w ::before) */
-.home-hero .hero-media{display:none}
-
-/* Nagłówki – responsywnie, wąska szerokość dla ładnych łamań */
-.home-hero .trusted-title{
-  display:block;
-  font-family: var(--serif, serif);
-  font-size: clamp(34px, 4.5vw, 54px);
-  line-height:1.2;
-  letter-spacing:.1px;
-  margin:0 auto 12px;
+.hero > .hero-inner{
+  position: relative;
+  z-index: 1;
   max-width: 980px;
-  color: var(--ink, #0f172a);
+  margin: 0 auto;
+  color: var(--ink);
 }
 
-/* CTA na środku */
-.home-hero .cta-row{justify-content:center}
+.hero h1 {
+  font-family: serif;
+  font-size: clamp(32px, 4.5vw, 54px);
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
 
+.cta-row{ display: flex; justify-content: center; margin-top: 28px; }
+
+.btn-orange{
+  background:#FF7061; color:#fff; font-weight:700;
+  padding:.8rem 1.4rem; border-radius:.8rem;
+  display:inline-flex; align-items:center; justify-content:center;
+  transition:transform .1s ease, background .2s ease;
+}
+.btn-orange:hover{ background:#e25d51; transform: translateY(-1px); }
+
+/* Mobile tweaks */
 @media (max-width:600px){
-  .home-hero{padding: calc(var(--nav-height) + 32px) 0 80px}
-  .home-hero .trusted-title{font-size: clamp(28px, 7vw, 42px)}
+  .hero{ padding: calc(var(--nav-height) + 96px) 16px 80px; }
+  .hero h1{ font-size: clamp(28px, 7vw, 42px); }
 }
 
 /* ------------------------ Blog Grid & Cards ----------------------- */
