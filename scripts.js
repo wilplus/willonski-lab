@@ -237,31 +237,31 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 // ================= EMAIL COLLECTOR =================
 
-// Email capture
-(function(){
+function setSubMsg(text, type='info'){
+  const el = document.getElementById('subscribe-msg');
+  if(!el) return;
+  el.hidden = false;
+  el.textContent = text;
+  el.classList.remove('is-success','is-error');
+  if(type === 'success') el.classList.add('is-success');
+  if(type === 'error')   el.classList.add('is-error');
+}
+
+// Example: handle the form submit
+document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('subscribe-form');
-  const emailEl = document.getElementById('subscribe-email');
-  const msg = document.getElementById('subscribe-msg');
-  if(!form || !emailEl) return;
+  if(!form) return;
 
-  const setMsg = (text, ok=false)=>{
-    msg.textContent = text || '';
-    msg.style.color = ok ? 'green' : 'var(--muted,#475569)';
-  };
-
-  form.addEventListener('submit', async (e)=>{
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    setMsg('Wysyłanie…');
-    const email = (emailEl.value || '').trim();
-    const hp = form.querySelector('input[name="company"]')?.value || '';
+    const email = (new FormData(form)).get('email')?.toString().trim();
 
-    if(!email || !/^\S+@\S+\.\S+$/.test(email)){
-      setMsg('Podaj poprawny adres e-mail.');
-      emailEl.focus();
+    if(!email){
+      setSubMsg('Podaj poprawny e-mail.', 'error');
       return;
     }
-    // honeypot
-    if(hp){ setMsg('Dziękujemy!'); form.reset(); return; }
+
+    setSubMsg('Wysyłanie…');
 
     try{
       const res = await fetch('/api/subscribe', {
@@ -269,17 +269,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         headers:{'Content-Type':'application/json'},
         body: JSON.stringify({ email })
       });
+
       if(res.ok){
-        setMsg('Dziękujemy! Sprawdzimy skrzynkę.', true);
+        setSubMsg('Dziękujemy! Sprawdź skrzynkę.', 'success');
         form.reset();
       }else{
-        const t = await res.text();
-        setMsg('Ups — nie udało się wysłać. Spróbuj ponownie później.');
-        console.warn('subscribe error', t);
+        const data = await res.json().catch(()=>({}));
+        setSubMsg(data?.error || 'Ups — nie udało się wysłać. Spróbuj ponownie później.', 'error');
       }
     }catch(err){
-      setMsg('Błąd połączenia. Spróbuj ponownie.');
-      console.error(err);
+      setSubMsg('Błąd sieci. Spróbuj ponownie.', 'error');
     }
   });
-})();
+});
