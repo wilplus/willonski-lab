@@ -117,7 +117,7 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
   background:
     radial-gradient(ellipse at center, rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
     var(--wm-url) center/900px auto no-repeat;
-  opacity:.35;
+  opacity:0.95;
   pointer-events:none;
 }
 
