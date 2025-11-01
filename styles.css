@@ -372,7 +372,6 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
 
 /* ------------------------ COLLECTOR ----------------------------- */
 
-/* ====== Willonski-style subscribe (inline) ====== */
     :root{
       --wl-bg:#ffffff;
       --wl-text:#0f172a;     /* slate-900 */
@@ -398,15 +397,16 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
       background:var(--wl-bg);
     }
     .wl-section{
-      min-height:100svh;
+      min-height:90svh;
       display:grid;
       place-items:center;
-        background: url('pic/brain-bg-willab.png') center/cover no-repeat; /* ← change path */
+      background: url('pic/brain-bg-willab.png') center/cover no-repeat; /* ← change path */
       padding: clamp(48px, 8vw, 96px) 20px;
     }
 
 /* overlay for readability (adjust alpha as you like) */
 .wl-section::before{
+  min-height:90svh;
   content: "";
   position: absolute;
   inset: 0;
