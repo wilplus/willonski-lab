@@ -442,16 +442,34 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
       place-items:center;
       padding: clamp(48px, 8vw, 96px) 20px;
     }
-    .wl-card{
-      width:100%;
-      max-width:860px;
-      margin:auto;
-      border:1px solid var(--wl-border);
-      border-radius:24px;
-      padding:clamp(28px,4vw,48px);
-      background: color-mix(in oklab, var(--wl-bg), white 6%);
-      box-shadow: 0 30px 60px -40px rgba(0,0,0,.25);
-    }
+.wl-card{
+  position: relative;           /* needed for overlay */
+  overflow: hidden;             /* clip overlay corners */
+  width: 100%;
+  max-width: 860px;
+  margin: auto;
+  border: 1px solid var(--wl-border);
+  border-radius: 24px;
+  padding: clamp(28px,4vw,48px);
+  background: url('pic/brain-bg-willab.png') center/cover no-repeat; /* ← change path */
+  box-shadow: 0 30px 60px -40px rgba(0,0,0,.25);
+}
+
+/* overlay for readability (adjust alpha as you like) */
+.wl-card::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.65);       /* light wash; use rgba(0,0,0,0.35) for dark */
+  backdrop-filter: blur(6px);               /* subtle glass effect */
+  z-index: 0;
+}
+
+/* keep content above the overlay */
+.wl-card > *{
+  position: relative;
+  z-index: 1;
+}
     .wl-wrap{
       max-width:740px;
       margin:0 auto;
