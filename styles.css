@@ -35,6 +35,29 @@
   }
 }
 
+:root{
+  /* vertical rhythm */
+  --space-section: clamp(48px, 7vw, 96px);
+  --space-section-tight: clamp(32px, 5vw, 72px);
+}
+
+/* default spacing for sections */
+.section,
+.section-blog,
+.trusted,
+.partners,
+.testimonials,
+.contact {
+  margin-block: var(--space-section); /* top & bottom */
+}
+
+/* hero + subscribe card */
+.wl-section { margin-block: var(--space-section); }
+.wl-card    { margin-block: var(--space-section-tight); }
+
+/* optional: when jumping to #blog with sticky nav */
+.section-blog { scroll-margin-top: 96px; }
+
 /* ------------------------ Base & Typography ----------------------- */
 *{box-sizing:border-box}
 html,body{margin:0}
