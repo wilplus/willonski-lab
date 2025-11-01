@@ -201,6 +201,52 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
   .post-title{font-size:1.08rem}
 }
 
+/*------------------------ Services Cards ----------------------- */
+
+.section-services{ position: relative; z-index: 1; }
+
+.post-grid{
+  display:grid; gap:20px; margin-top:18px;
+  grid-template-columns:repeat(3,1fr);
+}
+@media (max-width:980px){.post-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.post-grid{grid-template-columns:1fr}}
+.post--full{grid-column:1 / -1}
+
+.post{
+  background:var(--card); border:1px solid var(--line);
+  border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);
+  display:flex; flex-direction:column;
+}
+.media{width:100%; background:#000}
+
+/* Aspect-ratio helpers */
+.ar-9x16{aspect-ratio:9/16}
+.ar-1x1 {aspect-ratio:1/1}
+.ar-16x9{aspect-ratio:16/9}
+
+/* Body */
+.post-body{padding:16px; display:grid; gap:8px}
+.post-tag{
+  display:inline-block; font-size:.8rem; color:var(--brand);
+  border:0; padding:.1rem 0; background:transparent; /* no border, no left pad */
+}
+.post-title{margin:0; line-height:1.25; font-size:1.15rem}
+.post-excerpt{color:var(--muted); margin:0}
+.post-meta{color:var(--muted); font-size:.9rem}
+.post--research .post-title{font-size:1.25rem}
+
+.post a:hover img{filter:brightness(1.02)}
+.post a:focus{outline:2px solid var(--brand); outline-offset:2px}
+@media (prefers-reduced-motion:no-preference){
+  .post{transition:transform .15s ease, box-shadow .15s ease}
+  .post:hover{transform:translateY(-2px); box-shadow:0 12px 32px rgba(2,6,23,.12)}
+}
+@media (max-width:640px){
+  .section{padding:40px 0}
+  .post-title{font-size:1.08rem}
+}
+
 /* ------------------------ Trusted Page (Audiences) ---------------- */
 .trusted-hero{background:#fff; padding:72px 0 24px; text-align:center}
 .trusted-wrap{max-width:1080px; margin-inline:auto; padding-inline:20px}
