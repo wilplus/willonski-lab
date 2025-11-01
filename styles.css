@@ -154,12 +154,6 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
   margin-top:18px;
 }
 
-.wl-title {
-  color: var(--ink);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
-  font-weight: 600;
-}
-
 /* small screens */
 @media (max-width:600px){
   .hero{padding:28px 12px}
@@ -570,6 +564,9 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
     .wl-title{
       font: 600 32px/1.15 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;      letter-spacing:-0.01em;
       margin:0 0 10px;
+      color: var(--ink);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
+      font-weight: 600;
     }
     .wl-subtitle{
       color:var(--wl-muted);
