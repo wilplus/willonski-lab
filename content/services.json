@@ -1,0 +1,29 @@
+[
+  {
+    "type": "square",
+    "title": "Sales consulting",
+    "date": "1001-31-10",
+    "tag": "SERVICES",
+    "excerpt": "Charisma based sales approach focused on building authentic emotional connections with clients.",
+    "url": "https://www.linkedin.com/company/101670950/admin/dashboard/",
+    "cover": "pic/wioletta-fąfara-willab.png"
+  },
+    {
+    "type": "square",
+    "title": "B2B sales process design",
+    "date": "1000-06-25",
+    "tag": "SERVICES",
+    "excerpt": "redesigning B2B sales processes to enhance customer engagement and drive revenue growth.",
+    "url": "https://www.linkedin.com/in/artur-willoński-336216174/",
+    "cover": "pic/artur-willoński-willab.png"
+  },
+      {
+    "type": "square",
+    "title": "ESG reporting",
+    "date": "1000-01-01",
+    "tag": "SERVICES",
+    "excerpt": "Helping businesses develop comprehensive ESG reports that reflect their commitment to sustainability and social responsibility.",
+    "url": "https://www.linkedin.com/in/artur-willoński-336216174/",
+    "cover": "pic/green-field-apply-for-a-job-willab.png"
+  }
+]
