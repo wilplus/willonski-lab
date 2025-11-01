@@ -440,8 +440,26 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
       min-height:100svh;
       display:grid;
       place-items:center;
+        background: url('pic/brain-bg-willab.png') center/cover no-repeat; /* ← change path */
       padding: clamp(48px, 8vw, 96px) 20px;
     }
+
+/* overlay for readability (adjust alpha as you like) */
+.wl-section::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.65);       /* light wash; use rgba(0,0,0,0.35) for dark */
+  backdrop-filter: blur(6px);               /* subtle glass effect */
+  z-index: 0;
+}
+
+/* keep content above the overlay */
+.wl-section > *{
+  position: relative;
+  z-index: 1;
+}
+
 .wl-card{
   position: relative;           /* needed for overlay */
   overflow: hidden;             /* clip overlay corners */
