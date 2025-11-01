@@ -1,12 +1,12 @@
 [
   {
     "type": "square",
-    "title": "Sales consulting",
+    "title": "Personal Sales",
     "date": "1001-31-10",
     "tag": "SERVICES",
-    "excerpt": "Charisma based sales approach focused on building authentic emotional connections with clients.",
-    "url": "https://www.linkedin.com/company/101670950/admin/dashboard/",
-    "cover": "pic/wioletta-fąfara-willab.png"
+    "excerpt": "Charisma based personal sales training to boost individual performance and close more deals.",
+    "url": "",
+    "cover": "pic/sales-consulting.png"
   },
     {
     "type": "square",
