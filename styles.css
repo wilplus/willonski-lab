@@ -156,6 +156,9 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
 }
 
 /*------------------------ Blog Grid & Cards ----------------------- */
+
+.section-blog{ position: relative; z-index: 1; }
+
 .post-grid{
   display:grid; gap:20px; margin-top:18px;
   grid-template-columns:repeat(3,1fr);
@@ -372,41 +375,41 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
 
 /* ------------------------ COLLECTOR ----------------------------- */
 
+:root{
+  --wl-bg:#ffffff;
+  --wl-text:#0f172a;     /* slate-900 */
+  --wl-muted:#475569;    /* slate-600 */
+  --wl-border:#e2e8f0;   /* slate-200 */
+  --wl-accent:#FF7061;   /* coral */
+  --wl-accent-press:#ff5c4a;
+  --wl-ring: rgba(255,112,97,0.35);
+    }
+  @media (prefers-color-scheme: dark){
     :root{
-      --wl-bg:#ffffff;
-      --wl-text:#0f172a;     /* slate-900 */
-      --wl-muted:#475569;    /* slate-600 */
-      --wl-border:#e2e8f0;   /* slate-200 */
-      --wl-accent:#FF7061;   /* coral */
-      --wl-accent-press:#ff5c4a;
-      --wl-ring: rgba(255,112,97,0.35);
-    }
-    @media (prefers-color-scheme: dark){
-      :root{
-        --wl-bg:#0b0f1a;
-        --wl-text:#f1f5f9;
-        --wl-muted:#94a3b8;
-        --wl-border:#1f2937;
+    --wl-bg:#0b0f1a;
+    --wl-text:#f1f5f9;
+    --wl-muted:#94a3b8;
+    --wl-border:#1f2937;
       }
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font: 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--wl-text);
-      background:var(--wl-bg);
-    }
-    .wl-section{
-      min-height:90svh;
+  }
+
+*{box-sizing:border-box}
+  body{
+    margin:0;
+    font: 16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--wl-text);
+    background:var(--wl-bg);
+}
+
+.wl-section{
+      min-height:100svh;
       display:grid;
       place-items:center;
       background: url('pic/brain-bg-willab.png') center/cover no-repeat; /* ← change path */
       padding: clamp(48px, 8vw, 96px) 20px;
-    }
+}
 
-/* overlay for readability (adjust alpha as you like) */
 .wl-section::before{
-  min-height:90svh;
   content: "";
   position: absolute;
   inset: 0;
@@ -415,7 +418,6 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
   z-index: 0;
 }
 
-/* keep content above the overlay */
 .wl-section > *{
   position: relative;
   z-index: 1;
