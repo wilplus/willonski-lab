@@ -35,7 +35,7 @@
       </div>
     </div>
 
-    <!-- Mobile menu -->
+  <!-------- Mobile menu -------->
     <div class="mobile" id="mobile-menu" hidden>
       <a href="/blog">Blog</a>
       <a href="/about">O nas</a>
@@ -46,7 +46,7 @@
   </header>
 
   <!-- ====== HERO SECTION ====== -->
-  
+<main id="main"></main> 
   <section class="wl-section">
     <div class="wl-card-hero">
       <div class="wl-wrap">
@@ -72,7 +72,6 @@
 
   <!-- ====== BLOG SECTION ====== -->
 
-  <main id="main">
     <section id="blog-hr" class="section">
       <div class="wrap">
         <!-- 👇 Dynamic grid (auto-filled by blog.json) -->
@@ -108,25 +107,46 @@
       <div class="wrap">
         <!-- 👇 Dynamic grid (auto-filled by blog.json) -->
         <div class="post-grid" id="post-grid-hr" aria-live="polite"></div>
-
-
-
       </div>
     </section>
 
-  <!------TRUSTED---------->
+  <!----------COLLECTOR 3-------------->
 
-    <section class="section trusted-hero">
-      <div class="wrap trusted-wrap">
-        <h1 class="serif trusted-title">Z kim współ-pracujemy?</h1>
-        <p class="trusted-lead">
-          Wspieramy ludzi i instytucje, które chcą rozwijać autentyczność,
-          pewność siebie i kulturę uczenia się.
-        </p>
+    <div class="wl-card">
+      <div class="wl-wrap">
+        <h1 class="wl-title">Who we work with</h1>
+        <!-- logos of the brands -->
+        <div class="partners-logos">
+          <img src="/pic/EHU_logo_willab.png" 
+               alt="European Health Union" loading="lazy">
+          <img src="/pic/mko-willab.png" 
+               alt="Mazowieckie Kuratorium Oświaty" loading="lazy">
+          <img src="/pic/special-olympics-willab.png" 
+               alt="Special Olympics" loading="lazy">
+          <img src="/pic/swiss-contribution-willab.png" 
+               alt="Swiss Contribution" loading="lazy">
+          <img src="/pic/szkolazdrowie-willab.png" 
+               alt="School Promoting Health" loading="lazy">
+          <img src="/pic/EU-logo.png" 
+               alt="EU for health" loading="lazy">
+        </div>
+
+        <form id="subscribe-form" class="wl-form" novalidate>
+          <div class="wl-input-row">
+            <input id="email" name="email" type="email" required inputmode="email" autocomplete="email"
+                   placeholder="you@example.com" aria-describedby="subscribe-msg" />
+            <button id="subscribe-btn" type="submit" aria-disabled="false">Let's work together</button>
+          </div>
+
+          <!-- honeypot -->
+          <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+          <p id="subscribe-msg" class="wl-msg" role="status" aria-live="polite"></p>
+        </form>
       </div>
-    </section>
+    </div>
 
-    <!-- AUDIENCES -->
+    <!-- SERVICES -->
     <section class="section trusted">
       <div class="wrap">
         <div class="audiences-grid">
@@ -273,7 +293,7 @@
         </div>
       </div>
     </section>
-  </main>
+</main>
 
   <!-- ===== FOOTER (MINIMAL STYLE) ===== -->
   <footer class="footer-min">
