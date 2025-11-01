@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           ${p?.tag ? `<div class="post-tag">${esc(p.tag)}</div>` : ""}
           <h2 class="post-title serif"><a href="${url}">${title}</a></h2>
           ${p?.excerpt ? `<p class="post-excerpt">${esc(p.excerpt)}</p>` : ""}
-          
+          <div class="post-meta">${fmtDate(p?.date)}</div>
         </div>
       </article>`;
   };
@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           ${p?.tag ? `<div class="post-tag">${esc(p.tag)}</div>` : ""}
           <h2 class="post-title serif"><a href="${url}">${title}</a></h2>
           ${p?.excerpt ? `<p class="post-excerpt">${esc(p.excerpt)}</p>` : ""}
-          <div class="post-meta">${fmtDate(p?.date)}</div>
+          
         </div>
       </article>`;
   };
