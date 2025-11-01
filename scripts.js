@@ -236,3 +236,104 @@ document.addEventListener("DOMContentLoaded", async () => {
   grid.innerHTML = html || `<p style="color:var(--muted);text-align:center;">Brak wpisów HR.</p>`;
 });
 // ================= EMAIL COLLECTOR ====================================
+
+// ====== Subscribe logic (posts to /api/subscribe) ======
+const API_PATH = '/api/subscribe';
+const MOCK = false; // set to true for local UX testing only
+
+const $ = (sel) => document.querySelector(sel);
+const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function setBusy(busy){
+  const btn = $('#subscribe-btn');
+  btn.disabled = busy;
+  btn.setAttribute('aria-disabled', String(busy));
+  btn.textContent = busy ? 'Sending…' : 'Subscribe';
+}
+function setMsg(text, tone='neutral'){
+  const el = $('#subscribe-msg');
+  el.textContent = text;
+  el.dataset.tone = tone;
+}
+
+async function fetchJSON(url, options={}, timeoutMs=8000, retries=1){
+  const controller = new AbortController();
+  const t = setTimeout(() => controller.abort(), timeoutMs);
+  try{
+    const res = await fetch(url, { ...options, signal: controller.signal });
+    const ct = res.headers.get('content-type') || '';
+    const json = ct.includes('application/json') ? await res.json() : {};
+    return { ok: res.ok, status: res.status, json };
+  }catch(err){
+    if(retries>0) return fetchJSON(url, options, timeoutMs, retries-1);
+    throw err;
+  }finally{
+    clearTimeout(t);
+  }
+}
+
+async function fetchJSONMock(url, options={}){
+  await new Promise(r=>setTimeout(r,600));
+  const body = JSON.parse(options.body||'{}');
+  const { email, website } = body;
+  if (website) return { ok:true, status:200, json:{ message:'Ok' } };
+  if (email === 'ok@example.com')  return { ok:true,  status:200, json:{ message:'Thanks! You are on the list.' } };
+  if (email === 'bad@example.com') return { ok:false, status:400, json:{ message:'Please provide a valid email.' } };
+  if (email === 'err@example.com') return { ok:false, status:500, json:{ message:'Server error. Check function logs.' } };
+  throw new Error('Simulated network error');
+}
+
+(function init(){
+  const form = $('#subscribe-form');
+  const btn  = $('#subscribe-btn');
+  if (!form || !btn) return; // guard if the block isn't on this page
+
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    if (btn.disabled) return;
+
+    const email = $('#email').value.trim();
+    const website = $('#website').value;
+
+    if(!email){ setMsg('Please enter your email.', 'error'); $('#email').focus(); return; }
+    if(!emailRe.test(email)){ setMsg('Please use a valid email (e.g., name@domain.com).', 'error'); $('#email').focus(); return; }
+
+    setBusy(true); setMsg('Sending…','neutral');
+    try{
+      const fetcher = MOCK ? fetchJSONMock : fetchJSON;
+      const res = await fetcher(API_PATH, {
+        method:'POST',
+        headers:{ 'Content-Type':'application/json' },
+        body: JSON.stringify({ email, website })
+      });
+
+      const message = (res.json && res.json.message) || (res.ok ? 'Thanks! Check your inbox.' : 'Ups — nie udało się wysłać. Spróbuj ponownie później.');
+
+      if(res.ok){
+        setMsg(message,'success');
+        form.reset();
+      }else if(res.status===400){
+        setMsg(message || 'Please provide a valid email.','error');
+        $('#email').focus();
+      }else if(res.status===405){
+        setMsg('Method not allowed. Contact support.','error');
+      }else if(res.status>=500){
+        setMsg('Server issue. Try again shortly.','error');
+      }else{
+        setMsg('Something went wrong. Try again.','error');
+      }
+    }catch(err){
+      console.error(err);
+      setMsg('Network problem. Check your connection and try again.','error');
+    }finally{
+      setBusy(false);
+    }
+  });
+
+  form.addEventListener('keydown', (e)=>{
+    if(e.key==='Enter' && (e.ctrlKey || e.metaKey)){
+      e.preventDefault();
+      btn.click();
+    }
+  });
+})();

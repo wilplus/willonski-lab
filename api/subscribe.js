@@ -1,57 +1,49 @@
-// CommonJS for Vercel Node functions
-const nodemailer = require('nodemailer');
+// /api/subscribe.js
+import nodemailer from 'nodemailer';
 
-const EMAIL_TO   = process.env.TO_EMAIL;   // e.g., "artur@willonski.com"
-const EMAIL_FROM = process.env.FROM_EMAIL; // e.g., "no-reply@willonski.com"
+const EMAIL_TO = 'artur@willonski.com'; // ✅ updated
+const isEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,        // e.g., "smtp.gmail.com"
-  port: Number(process.env.SMTP_PORT) || 465,
-  secure: true,                       // true for 465, false for 587
-  auth: {
-    user: process.env.SMTP_USER,      // full SMTP username
-    pass: process.env.SMTP_PASS       // app password / SMTP password
-  }
-});
-
-// simple email validation
-const isEmail = (s='') => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
-
-module.exports = async (req, res) => {
-  // Allow only POST
-  if (req.method !== 'POST') {
-    res.setHeader('Allow', 'POST');
-    return res.status(405).json({ error: 'Method Not Allowed' });
-  }
-
+export default async function handler(req, res) {
   try {
-    const { email, company } = req.body || {};
-
-    // Honeypot: if bots filled hidden field, drop silently
-    if (company && String(company).trim() !== '') {
-      return res.status(200).json({ ok: true });
+    if (req.method === 'OPTIONS') { 
+      res.setHeader('Access-Control-Allow-Methods','POST, OPTIONS'); 
+      res.setHeader('Access-Control-Allow-Headers','Content-Type'); 
+      return res.status(204).end(); 
     }
+    if (req.method !== 'POST') 
+      return res.status(405).json({ message: 'Method not allowed' });
 
-    if (!email || !isEmail(email)) {
-      return res.status(400).json({ error: 'Invalid email' });
-    }
+    const { email, website } = req.body || {};
+    if (website) return res.status(200).json({ message: 'Ok' });
+    if (!email || !isEmail(email)) 
+      return res.status(400).json({ message: 'Please provide a valid email.' });
 
-    // Compose the message you receive
-    const subject = `New subscriber: ${email}`;
-    const text    = `New email collected: ${email}\n\nTime: ${new Date().toISOString()}`;
-    const html    = `<p>New email collected: <strong>${email}</strong></p><p>Time: ${new Date().toISOString()}</p>`;
+    const { SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS } = process.env;
 
-    await transporter.sendMail({
-      to: EMAIL_TO,
-      from: EMAIL_FROM,
-      subject,
-      text,
-      html
+    if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS)
+      return res.status(500).json({ message: 'Mail env vars missing (HOST/PORT/USER/PASS).' });
+
+    const transporter = nodemailer.createTransport({
+      host: SMTP_HOST,
+      port: Number(SMTP_PORT),
+      secure: String(SMTP_SECURE ?? 'true') === 'true',
+      auth: { user: SMTP_USER, pass: SMTP_PASS },
     });
 
-    return res.status(200).json({ ok: true });
+    await transporter.verify();
+
+    await transporter.sendMail({
+      from: `"Website" <${SMTP_USER}>`,
+      to: EMAIL_TO,
+      subject: 'New website email signup',
+      html: `<p><strong>New subscriber:</strong> ${email}</p>`,
+      text: `New subscriber: ${email}`,
+    });
+
+    return res.status(200).json({ message: 'Thanks! You are on the list.' });
   } catch (err) {
-    console.error('subscribe error:', err);
-    return res.status(500).json({ error: 'Internal error' });
+    console.error('Subscribe error:', err?.message || err);
+    return res.status(500).json({ message: 'SMTP/auth problem or server error. Check function logs.' });
   }
-};
+}
