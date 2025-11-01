@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // fetch
   let posts = [];
   try {
-    const res = await fetch("/content/hr.json", { cache: "no-store" });
+    const res = await fetch("/content/services.json", { cache: "no-store" });
     if (res.ok) posts = await res.json();
   } catch (err) {
     console.warn("hr.json not loaded", err);
