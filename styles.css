@@ -436,7 +436,7 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
       color:var(--wl-text);
       background:var(--wl-bg);
     }
-    .wl-subscribe{
+    .wl-section{
       min-height:100svh;
       display:grid;
       place-items:center;
