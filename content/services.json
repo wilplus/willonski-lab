@@ -1,7 +1,7 @@
 [
   {
     "type": "square",
-    "title": "Personal Sales",
+    "title": "Personal sales",
     "date": "1001-31-10",
     "tag": "SERVICES",
     "excerpt": "Charisma based personal sales training to boost individual performance and close more deals.",
@@ -10,20 +10,20 @@
   },
     {
     "type": "square",
-    "title": "B2B sales process design",
+    "title": "Sales process",
     "date": "1000-06-25",
     "tag": "SERVICES",
-    "excerpt": "redesigning B2B sales processes to enhance customer engagement and drive revenue growth.",
-    "url": "https://www.linkedin.com/in/artur-willoński-336216174/",
-    "cover": "pic/artur-willoński-willab.png"
+    "excerpt": "Designing and implementing efficient sales processes to streamline operations. ",
+    "url": "",
+    "cover": "pic/sales-process.png"
   },
-      {
+      { 
     "type": "square",
-    "title": "ESG reporting",
+    "title": "Sales culture",
     "date": "1000-01-01",
     "tag": "SERVICES",
-    "excerpt": "Helping businesses develop comprehensive ESG reports that reflect their commitment to sustainability and social responsibility.",
-    "url": "https://www.linkedin.com/in/artur-willoński-336216174/",
-    "cover": "pic/green-field-apply-for-a-job-willab.png"
+    "excerpt": "BBuilding a culture of genuine sales, based on truth and mutual respect.",
+    "url": "",
+    "cover": "pic/sales-culture.png"
   }
 ]
