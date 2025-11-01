@@ -36,20 +36,24 @@
 }
 
 /* ------------------------ Base & Typography ----------------------- */
-*{box-sizing:border-box}
-html,body{margin:0}
 body{
   background:var(--bg);
   color:var(--ink);
   line-height:1.65;
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
 }
 
-/* Unified font usage */
-h1,h2,h3,.serif{font-family:"Playfair Display",serif}
-h1,h2,h3{font-weight:700}
+/* Headings use system stack, serif accents remain */
+h1,h2,h3{
+  font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight:700;
+}
+
+/* Optional: Playfair only for special serif text */
+.serif{
+  font-family:"Playfair Display", serif;}
 a{color:var(--brand);text-decoration:none}
 a:hover,a:focus{text-decoration:underline}
 img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radius:inherit}
