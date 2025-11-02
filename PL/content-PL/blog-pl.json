@@ -1,0 +1,39 @@
+[
+  {
+    "type": "square",
+    "title": "Istnieje emocja, w której ludzie dosłownie zamieniają się w dzikie świnie.",
+    "date": "2025-10-30",
+    "tag": "POST",
+    "excerpt": "Przytłoczone osoby kradną małe rzeczy, ukrywają się w lesie i wracają spokojne, jakby nic się nie stało (Averill, 1980).",
+    "url": "https://x.com/arturwill_/status/1983639236822827219",
+    "cover": "/media/square/wild-pig.png"
+  },
+  {
+    "type": "reel",
+    "title": "18/144: Lubisz czuć się zdumiony?",
+    "date": "2025-10-15",
+    "tag": "REEL",
+    "excerpt": "#emotions  #mentalhealth #willab",
+    "url": "https://www.tiktok.com/@arturwill/video/7564835965588557078",
+    "cover": "media/reels/amazed-png.png"
+  },
+    {
+    "type": "square",
+    "title": "Doświadczenie emocjonalne jest funkcją.",
+    "date": "2025-10-01",
+    "tag": "POST",
+    "excerpt": "Jest to funkcja tego, jak się czujemy, jak chcemy się czuć, jak próbujemy się czuć, jak klasyfikujemy to, co czujemy, i jak to wyrażamy. Psychologia emocji - (Carroll E. Izard, 1991)",
+    "url": "https://x.com/arturwill_/status/1978772325135786189",
+    "cover": "media/square/post-2.png"
+  },
+  {
+    "type": "research",
+    "title": "Nazywanie emocji w miejscu pracy jako sposób na mierzenie zdolności do uczenia się.",
+    "date": "2025-05-14",
+    "tag": "BADANIA",
+    "excerpt": "System pomiaru bez osądzania dla środowisk korporacyjnych.",
+    "url": "pdfs/naming-emotions-in-the-corporate-workplace-as-a-way-to-measure-learnability.pdf",
+    "cover": "media/research/research-ebcp-pic.png",
+    "aria": "Otwórz: EBCP Pilot Leaflet (PDF)"
+  }
+]

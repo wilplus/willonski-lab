@@ -1,0 +1,29 @@
+[
+  {
+    "type": "square",
+    "title": "Sprzedaż osobista",
+    "date": "1001-31-10",
+    "tag": "USŁUGI",
+    "excerpt": "Konsultacje w zakresie sprzedaży osobistej opartej na charyzmie, mające na celu zwiększenie indywidualnej wydajności i zamykanie większej liczby transakcji.",
+    "url": "",
+    "cover": "pic/sales-consulting.png"
+  },
+    {
+    "type": "square",
+    "title": "Proces sprzedaży",
+    "date": "1000-06-25",
+    "tag": "USŁUGI",
+    "excerpt": "Projektowanie i wdrażanie efektywnych procesów sprzedaży w celu usprawnienia operacji.",
+    "url": "",
+    "cover": "pic/sales-process.png"
+  },
+      { 
+    "type": "square",
+    "title": "Kultura sprzedaży",
+    "date": "1000-01-01",
+    "tag": "USŁUGI",
+    "excerpt": "Budowanie kultury autentycznej sprzedaży, opartej na prawdzie i wzajemnym szacunku.",
+    "url": "",
+    "cover": "pic/sales-culture.png"
+  }
+]
