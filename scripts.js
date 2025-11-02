@@ -344,21 +344,28 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 // ================= EMAIL COLLECTOR ====================================
 const API_PATH = '/api/subscribe';
-const MOCK = false; // set to true for local UX testing only
+const MOCK = false; // true = local UX testing only
 
-const $ = (sel) => document.querySelector(sel);
 const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function setBusy(busy){
-  const btn = $('#subscribe-btn');
+const $in = (root, sel) => root.querySelector(sel);
+
+function setBusy(form, busy){
+  const btn = $in(form, '[type="submit"]');
+  if (!btn) return;
+  const label = btn.dataset.label || btn.textContent || 'Subscribe';
+  if (!btn.dataset.label) btn.dataset.label = label;
   btn.disabled = busy;
   btn.setAttribute('aria-disabled', String(busy));
-  btn.textContent = busy ? 'Sending…' : 'Subscribe';
+  btn.textContent = busy ? 'Sending…' : label;
 }
-function setMsg(text, tone='neutral'){
-  const el = $('#subscribe-msg');
-  el.textContent = text;
-  el.dataset.tone = tone;
+
+function setMsg(form, text, tone='neutral'){
+  const el = $in(form, '.subscribe-msg, .wl-msg');
+  if (el){
+    el.textContent = text;
+    el.dataset.tone = tone; // optional for styling
+  }
 }
 
 async function fetchJSON(url, options={}, timeoutMs=8000, retries=1){
@@ -370,7 +377,7 @@ async function fetchJSON(url, options={}, timeoutMs=8000, retries=1){
     const json = ct.includes('application/json') ? await res.json() : {};
     return { ok: res.ok, status: res.status, json };
   }catch(err){
-    if(retries>0) return fetchJSON(url, options, timeoutMs, retries-1);
+    if (retries > 0) return fetchJSON(url, options, timeoutMs, retries - 1);
     throw err;
   }finally{
     clearTimeout(t);
@@ -378,67 +385,73 @@ async function fetchJSON(url, options={}, timeoutMs=8000, retries=1){
 }
 
 async function fetchJSONMock(url, options={}){
-  await new Promise(r=>setTimeout(r,600));
-  const body = JSON.parse(options.body||'{}');
+  await new Promise(r => setTimeout(r, 600));
+  const body = JSON.parse(options.body || '{}');
   const { email, website } = body;
-  if (website) return { ok:true, status:200, json:{ message:'Ok' } };
+  if (website) return { ok:true, status:200, json:{ message:'Ok' } }; // honeypot -> pretend OK
   if (email === 'ok@example.com')  return { ok:true,  status:200, json:{ message:'Thanks! You are on the list.' } };
   if (email === 'bad@example.com') return { ok:false, status:400, json:{ message:'Please provide a valid email.' } };
   if (email === 'err@example.com') return { ok:false, status:500, json:{ message:'Server error. Check function logs.' } };
-  throw new Error('Simulated network error');
+  return { ok:true, status:200, json:{ message:'Thanks! Check your inbox.' } };
 }
 
 (function init(){
-  const form = $('#subscribe-form');
-  const btn  = $('#subscribe-btn');
-  if (!form || !btn) return; // guard if the block isn't on this page
+  document.querySelectorAll('.subscribe-form, .wl-form').forEach((form) => {
+    const emailInput = $in(form, 'input[type="email"][name], input[name="email"], input[type="email"]');
+    if (!emailInput) return;
 
-  form.addEventListener('submit', async (e)=>{
-    e.preventDefault();
-    if (btn.disabled) return;
+    const endpoint = form.dataset.endpoint || form.action || API_PATH;
+    const honey    = $in(form, 'input[name="website"]');
 
-    const email = $('#email').value.trim();
-    const website = $('#website').value;
-
-    if(!email){ setMsg('Please enter your email.', 'error'); $('#email').focus(); return; }
-    if(!emailRe.test(email)){ setMsg('Please use a valid email (e.g., name@domain.com).', 'error'); $('#email').focus(); return; }
-
-    setBusy(true); setMsg('Sending…','neutral');
-    try{
-      const fetcher = MOCK ? fetchJSONMock : fetchJSON;
-      const res = await fetcher(API_PATH, {
-        method:'POST',
-        headers:{ 'Content-Type':'application/json' },
-        body: JSON.stringify({ email, website })
-      });
-
-      const message = (res.json && res.json.message) || (res.ok ? 'Thanks! Check your inbox.' : 'Ups — nie udało się wysłać. Spróbuj ponownie później.');
-
-      if(res.ok){
-        setMsg(message,'success');
-        form.reset();
-      }else if(res.status===400){
-        setMsg(message || 'Please provide a valid email.','error');
-        $('#email').focus();
-      }else if(res.status===405){
-        setMsg('Method not allowed. Contact support.','error');
-      }else if(res.status>=500){
-        setMsg('Server issue. Try again shortly.','error');
-      }else{
-        setMsg('Something went wrong. Try again.','error');
-      }
-    }catch(err){
-      console.error(err);
-      setMsg('Network problem. Check your connection and try again.','error');
-    }finally{
-      setBusy(false);
-    }
-  });
-
-  form.addEventListener('keydown', (e)=>{
-    if(e.key==='Enter' && (e.ctrlKey || e.metaKey)){
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      btn.click();
-    }
+
+      const email = (emailInput.value || '').trim();
+      const website = honey ? honey.value : '';
+
+      if (!email){ setMsg(form, 'Please enter your email.', 'error'); emailInput.focus(); return; }
+      if (!emailRe.test(email)){ setMsg(form, 'Please use a valid email (e.g., name@domain.com).', 'error'); emailInput.focus(); return; }
+
+      setBusy(form, true); setMsg(form, 'Sending…', 'neutral');
+      try{
+        const fetcher = MOCK ? fetchJSONMock : fetchJSON;
+        const res = await fetcher(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, website })
+        });
+
+        const message = (res.json && res.json.message) ||
+                        (res.ok ? 'Thanks! Check your inbox.' :
+                                  'Ups — nie udało się wysłać. Spróbuj ponownie później.');
+
+        if (res.ok){
+          setMsg(form, message, 'success');
+          form.reset();
+        } else if (res.status === 400){
+          setMsg(form, message || 'Please provide a valid email.', 'error');
+          emailInput.focus();
+        } else if (res.status === 405){
+          setMsg(form, 'Method not allowed. Contact support.', 'error');
+        } else if (res.status >= 500){
+          setMsg(form, 'Server issue. Try again shortly.', 'error');
+        } else {
+          setMsg(form, 'Something went wrong. Try again.', 'error');
+        }
+      } catch (err){
+        console.error(err);
+        setMsg(form, 'Network problem. Check your connection and try again.', 'error');
+      } finally {
+        setBusy(form, false);
+      }
+    });
+
+    // Optional: Ctrl/Cmd+Enter submits this form
+    form.addEventListener('keydown', (e)=>{
+      if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        $in(form, '[type="submit"]')?.click();
+      }
+    });
   });
 })();

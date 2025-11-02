@@ -35,23 +35,30 @@
         <h1 class="wl-title">The speed of life we experience today, started 250 years ago</h1>
         <p class="wl-subtitle">IT IS NATURAL THAT SOMETIMES YOU JUST CAN'T KEEP UP!</p>
 
-        <form id="subscribe-form" class="wl-form" novalidate>
-          <div class="wl-input-row">
-            <input id="email" name="email" type="email" required inputmode="email" autocomplete="email"
-                   placeholder="you@example.com" aria-describedby="subscribe-msg" />
-            <button id="subscribe-btn" type="submit" aria-disabled="false">Find your rhythm</button>
-          </div>
+<form class="wl-form subscribe-form" novalidate data-endpoint="/api/subscribe">
+  <div class="wl-input-row">
+    <input
+      type="email"
+      name="email"
+      required
+      inputmode="email"
+      autocomplete="email"
+      placeholder="you@example.com"
+      aria-describedby="subscribe-msg-1"
+    />
+    <button type="submit" aria-disabled="false">Find your rhythm</button>
+  </div>
 
-          <p style="font-size: 0.65rem; color: #666; margin-top: 6px; text-align: center;">
-            By subscribing, you agree to our
-            <a href="/privacy-policy" style="text-decoration: underline;">Privacy Policy</a>.
-          </p>
+  <p style="font-size: 0.65rem; color: #666; margin-top: 6px; text-align: center;">
+    By subscribing, you agree to our
+    <a href="/privacy-policy" style="text-decoration: underline;">Privacy Policy</a>.
+  </p>
 
-          <!-- honeypot -->
-          <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+  <!-- honeypot -->
+  <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;" />
 
-          <p id="subscribe-msg" class="wl-msg" role="status" aria-live="polite"></p>
-        </form>
+  <p class="wl-msg subscribe-msg" id="subscribe-msg-1" role="status" aria-live="polite"></p>
+</form>
       </div>
     </div>
   </section>
@@ -72,18 +79,30 @@
         <h1 class="wl-title">Get updates</h1>
         <p class="wl-subtitle">Short, useful notes on learning, emotions & building with AI.</p>
 
-        <form id="subscribe-form" class="wl-form" novalidate>
-          <div class="wl-input-row">
-            <input id="email" name="email" type="email" required inputmode="email" autocomplete="email"
-                   placeholder="you@example.com" aria-describedby="subscribe-msg" />
-            <button id="subscribe-btn" type="submit" aria-disabled="false">Find your rhythm</button>
-          </div>
+<form class="wl-form subscribe-form" novalidate data-endpoint="/api/subscribe">
+  <div class="wl-input-row">
+    <input
+      type="email"
+      name="email"
+      required
+      inputmode="email"
+      autocomplete="email"
+      placeholder="you@example.com"
+      aria-describedby="subscribe-msg-2"
+    />
+    <button type="submit" aria-disabled="false">Find your rhythm</button>
+  </div>
 
-          <!-- honeypot -->
-          <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+  <p style="font-size: 0.65rem; color: #666; margin-top: 6px; text-align: center;">
+    By subscribing, you agree to our
+    <a href="/privacy-policy" style="text-decoration: underline;">Privacy Policy</a>.
+  </p>
 
-          <p id="subscribe-msg" class="wl-msg" role="status" aria-live="polite"></p>
-        </form>
+  <!-- honeypot -->
+  <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;" />
+
+  <p class="wl-msg subscribe-msg" id="subscribe-msg-2" role="status" aria-live="polite"></p>
+</form>
       </div>
     </div>
 
@@ -103,18 +122,30 @@
         <h1 class="wl-title">Partners</h1>
         <p class="wl-subtitle">We are always open for collaboration inquiries!</p>
 
-        <form id="subscribe-form" class="wl-form" novalidate>
-          <div class="wl-input-row">
-            <input id="email" name="email" type="email" required inputmode="email" autocomplete="email"
-                   placeholder="you@example.com" aria-describedby="subscribe-msg" />
-            <button id="subscribe-btn" type="submit" aria-disabled="false">Join with your best email</button>
-          </div>
+<form class="wl-form subscribe-form" novalidate data-endpoint="/api/subscribe">
+  <div class="wl-input-row">
+    <input
+      type="email"
+      name="email"
+      required
+      inputmode="email"
+      autocomplete="email"
+      placeholder="you@example.com"
+      aria-describedby="subscribe-msg-3"
+    />
+    <button type="submit" aria-disabled="false">Join with your best email</button>
+  </div>
 
-          <!-- honeypot -->
-          <input type="text" name="website" id="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+  <p style="font-size: 0.65rem; color: #666; margin-top: 6px; text-align: center;">
+    By subscribing, you agree to our
+    <a href="/privacy-policy" style="text-decoration: underline;">Privacy Policy</a>.
+  </p>
 
-          <p id="subscribe-msg" class="wl-msg" role="status" aria-live="polite"></p>
-        </form>
+  <!-- honeypot -->
+  <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;" />
+
+  <p class="wl-msg subscribe-msg" id="subscribe-msg-3" role="status" aria-live="polite"></p>
+</form>
       </div>
           <!-- logos of the brands -->
         <div class="partners-logos">
