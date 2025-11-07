@@ -644,3 +644,65 @@ img,video{max-width:100%;height:100%;display:block;object-fit:cover;border-radiu
   /* was #subscribe-btn */
   .wl-form button[type="submit"]{ width:100%; }
 }
+
+/* ------------------------ MOBILE ADJUSTEMENTS ----------------------------- */
+
+:root {
+  --wl-bg:#ffffff;
+  --wl-text:#0f172a;
+  --wl-muted:#475569;
+  --wl-border:#e2e8f0;
+  --wl-accent:#FF7061;
+  --wl-accent-press:#ff5c4a;
+  --wl-ring: rgba(255,112,97,0.35);
+}
+
+/* Dark mode general palette (but NOT for wl-section) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --wl-bg:#0b0f1a;
+    --wl-text:#f1f5f9;
+    --wl-muted:#94a3b8;
+    --wl-border:#1f2937;
+  }
+}
+
+/* Force collector section to always stay light */
+.wl-section {
+  position: relative;
+  min-height: 95svh;
+  display: grid;
+  place-items: center;
+  background: url('pic/brain-bg-willab.png') center/cover no-repeat;
+  padding: clamp(48px, 8vw, 96px) 20px;
+  color: #0f172a;
+}
+
+.wl-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.85); /* lighter overlay */
+  backdrop-filter: blur(6px);
+  z-index: 0;
+}
+
+.wl-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* FORCE light background even in dark mode */
+@media (prefers-color-scheme: dark) {
+  .wl-section {
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+  .wl-section::before {
+    background: rgba(255,255,255,0.85) !important;
+  }
+  .wl-title,
+  .wl-subtitle {
+    color: #0f172a !important;
+  }
+}
