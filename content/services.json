@@ -1,28 +1,28 @@
 [
   {
     "type": "square",
-    "title": "Personal sales",
+    "title": "1on1 consulting",
     "date": "1001-31-10",
     "tag": "SERVICES",
-    "excerpt": "Charisma based personal sales training to boost individual performance and close more deals.",
+    "excerpt": "We will build your charisma for public speaking, closing sales and resolving conflicts, so you will love it 🚀",
     "url": "",
     "cover": "pic/sales-consulting.png"
   },
     {
     "type": "square",
-    "title": "Sales process",
+    "title": "Human centered processes design",
     "date": "1000-06-25",
     "tag": "SERVICES",
-    "excerpt": "Designing and implementing efficient sales processes to streamline operations. ",
+    "excerpt": "We will help your organization put humans first and drive their performance 📈",
     "url": "",
     "cover": "pic/sales-process.png"
   },
       { 
     "type": "square",
-    "title": "Sales culture",
+    "title": "Emotions friendly culture",
     "date": "1000-01-01",
     "tag": "SERVICES",
-    "excerpt": "BBuilding a culture of genuine sales, based on truth and mutual respect.",
+    "excerpt": "We will guide to build emotions based culture that will make your team futureproof for whatever comes next 🪷",
     "url": "",
     "cover": "pic/sales-culture.png"
   }
