@@ -1,29 +1,44 @@
 [
   {
     "type": "square",
-    "title": "1-on-1 Consulting",
+    "title": "Public Speaking & Communication Coaching",
     "date": "1001-10-31",
     "tag": "SERVICES",
-    "excerpt": "We help you direct your charisma for:\n• Public speaking\n• Closing sales\n• Resolving conflicts 🚀",
+    "excerpt": [
+      "Confidence while speaking on stage or in meetings",
+      "Emotional regulation and presence",
+      "Sales communication and persuasive storytelling",
+      "Nonverbal expression and charisma"
+    ],
     "url": "",
-    "cover": "pic/sales-consulting.png"
+    "cover": "pic/public-speaking.png"
   },
   {
     "type": "square",
-    "title": "Human-Centered Processes Design",
+    "title": "Organizational Communication & Well-Being Programs",
     "date": "1000-06-25",
     "tag": "SERVICES",
-    "excerpt": "We help your organization put humans first and drive performance through:\n• Optimized workflows\n• Team engagement strategies\n• Human-focused process improvements 📈",
+    "excerpt": [
+      "Authentic communication within teams",
+      "Psychophysical well-being and stress management",
+      "Flow-supportive learning/workplace environments",
+      "Nonverbal communication and interpersonal awareness"
+    ],
     "url": "",
-    "cover": "pic/sales-process.png"
+    "cover": "pic/organizational-communication.png"
   },
   {
     "type": "square",
-    "title": "Emotion-Friendly Culture",
+    "title": "Applied Research & Learning Technology Development",
     "date": "1000-01-01",
     "tag": "SERVICES",
-    "excerpt": "We help organizations and individuals build:\n• Authentic communication in teams\n• Psychophysical well-being & stress management\n• Flow-supportive learning/workplace environments\n• Nonverbal communication & interpersonal awareness 🪷",
+    "excerpt": [
+      "Study flow and communication in real contexts",
+      "Develop and test innovative educational tools",
+      "Run experiments with speaking performance and emotional states",
+      "Provide insights, analysis, and scientific reporting"
+    ],
     "url": "",
-    "cover": "pic/sales-culture.png"
+    "cover": "pic/research-development.png"
   }
 ]
