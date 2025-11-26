@@ -1,44 +1,29 @@
 [
   {
     "type": "square",
-    "title": "Public Speaking & Communication Coaching",
-    "date": "1001-10-31",
+    "title": "Public Speaking Coaching",
+    "date": "1001-31-10",
     "tag": "SERVICES",
-    "excerpt": [
-      "Confidence while speaking on stage or in meetings",
-      "Emotional regulation and presence",
-      "Sales communication and persuasive storytelling",
-      "Nonverbal expression and charisma"
-    ],
+    "excerpt": "Our individual and team coaching focuses on building confidence while speaking on stage or in meetings, enhancing emotional regulation and presence, improving sales communication and persuasive storytelling, and refining nonverbal expression and charisma. 🚀",
     "url": "",
-    "cover": "pic/public-speaking.png"
+    "cover": "pic/sales-consulting.png"
   },
-  {
-    "type": "square",
-    "title": "Organizational Communication & Well-Being Programs",
-    "date": "1000-06-25",
-    "tag": "SERVICES",
-    "excerpt": [
-      "Authentic communication within teams",
-      "Psychophysical well-being and stress management",
-      "Flow-supportive learning/workplace environments",
-      "Nonverbal communication and interpersonal awareness"
-    ],
-    "url": "",
-    "cover": "pic/organizational-communication.png"
-  },
-  {
+    {
     "type": "square",
     "title": "Applied Research & Learning Technology Development",
+    "date": "1000-06-25",
+    "tag": "SERVICES",
+    "excerpt": "Our Applied Research and Learning Technology Development involves collaborating with institutions and startups to study flow and communication in real contexts, develop and test innovative educational tools, run experiments on speaking performance and emotional states, and provide insights, analysis, and scientific reporting. 📈",
+    "url": "",
+    "cover": "pic/sales-process.png"
+  },
+      { 
+    "type": "square",
+    "title": "Organizational Communication & Well-Being Programs",
     "date": "1000-01-01",
     "tag": "SERVICES",
-    "excerpt": [
-      "Study flow and communication in real contexts",
-      "Develop and test innovative educational tools",
-      "Run experiments with speaking performance and emotional states",
-      "Provide insights, analysis, and scientific reporting"
-    ],
+    "excerpt": "Our Organizational Communication and Well-Being Programs provide workshops for schools and companies, enhancing team communication, well-being, flow-supportive environments, and nonverbal awareness.🪷",
     "url": "",
-    "cover": "pic/research-development.png"
+    "cover": "pic/sales-culture.png"
   }
 ]
