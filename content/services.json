@@ -1,29 +1,29 @@
 [
-  {
-    "type": "square",
-    "title": "1-on-1 consulting",
-    "date": "1001-31-10",
-    "tag": "SERVICES",
-    "excerpt": "We will help you direct your charisma for public speaking, closing sales and resolving conflicts 🚀",
-    "url": "",
-    "cover": "pic/sales-consulting.png"
-  },
-    {
-    "type": "square",
-    "title": "Human centered processes design",
-    "date": "1000-06-25",
-    "tag": "SERVICES",
-    "excerpt": "We will help your organization put humans first and drive their performance 📈",
-    "url": "",
-    "cover": "pic/sales-process.png"
-  },
-      { 
-    "type": "square",
-    "title": "Emotions friendly culture",
-    "date": "1000-01-01",
-    "tag": "SERVICES",
-    "excerpt": "We will guide your team to build a culture that will make your organization futureproof 🪷",
-    "url": "",
-    "cover": "pic/sales-culture.png"
-  }
+{
+  "type": "square",
+  "title": "Confident Speaking & Presence",
+  "date": "1000-01-01",
+  "tag": "SERVICES",
+  "excerpt": "Training for professionals and students:\n• Emotional regulation for public speaking\n• Persuasive messaging & storytelling\n• Sales conversations with confidence\n• Voice, posture & presence coaching 🚀",
+  "url": "",
+  "cover": "pic/confident-speaking.png"
+},
+{
+  "type": "square",
+  "title": "Learning Innovation & Flow Research",
+  "date": "1000-01-01",
+  "tag": "SERVICES",
+  "excerpt": "Research and design for educational environments:\n• Flow-supportive curricula & classrooms\n• Tools for emotional awareness in learning\n• Teacher trainings in nonverbal communication\n• Evaluation of communication culture in schools 🔬",
+  "url": "",
+  "cover": "pic/learning-innovation.png"
+},
+{
+  "type": "square",
+  "title": "Emotion-friendly culture",
+  "date": "1000-01-01",
+  "tag": "SERVICES",
+  "excerpt": "Workshops and consulting for schools and companies:\n• Authentic communication in teams\n• Psychophysical well-being & stress management\n• Flow-supportive learning/workplace environments\n• Nonverbal communication & interpersonal awareness 🪷",
+  "url": "",
+  "cover": "pic/sales-culture.png"
+}
 ]
